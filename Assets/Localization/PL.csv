@@ -1,0 +1,29 @@
+﻿# HUD;
+DAY_LABEL;Dzień
+HOUR_LABEL;Godzina
+NEW_PLOT_LABEL;Nowa działka
+# Crafting Panel;	
+PRODUCTS_HEADER;Produkty
+EMPLOYMENT_HEADER;Zatrudnienie
+NO_WORKER_INFO;Brak pracownika
+CRAFT_BUTTON;Stwórz
+CRAFT_LABEL;Stwórz
+MAINTAIN_AMOUNT_LABEL;Zachowaj podaną ilość
+# Workplaces Panel;
+WORKERS_HEADER;Pracownicy
+WORKPLACES_HEADER;Miejsca pracy
+EMPLOY_BUTTON;Zatrudnij
+# Storage Panel;
+TARGET_STORAGE_HEADER;Docelowy pojemnik
+MY_STORAGE_HEADER;Mój pojemnik
+PICK_BUTTON;Weź
+NO_STORAGE_INFO;Brak pojemnika
+# NOTIFICATIONS;
+MISSING_ITEMS;Brakuje
+# ITEMS;
+WOODEN LOG;Drewniana kłoda
+STONE;Kamień
+STONE HAMMER;Kamienny młotek
+STONE AXE;Kamienna siekera
+STONE PICKAXE;Kamienny kilof
+

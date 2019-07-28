@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02624a26eb7402c46811720134c68b51, type: 3}
+  m_Name: ToolCrate
+  m_EditorClassIdentifier: 
+  model: {fileID: 889585874997004982, guid: 4728ac87e49508f48ae7223862f1dc00, type: 3}
+  thumbnail: {fileID: 0}
+  maxCount: 1
+  value: 4
+  requiredSkill:
+    name: 4
+    value: 1
+  pickParent: 0
+  description: Description...
+  blueprint:
+    duration: 1
+    requiredTools: []
+    requiredItems:
+    - type: {fileID: 11400000, guid: fa532b2403ca90c43971af9265de12cd, type: 2}
+      count: 2
+  attachParent: 0
+  damage: 0
+  maxDurability: 0
+  consumableValue: 60
+  fuelValue: 0

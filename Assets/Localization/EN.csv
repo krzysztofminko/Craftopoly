@@ -1,0 +1,28 @@
+# HUD;
+DAY_LABEL;Day
+HOUR_LABEL;Hour
+NEW_PLOT_LABEL;New plot
+# Crafting Panel;
+PRODUCTS_HEADER;Products
+EMPLOYMENT_HEADER;Employment
+NO_WORKER_INFO;No worker
+CRAFT_BUTTON;Craft
+CRAFT_LABEL;Craft
+MAINTAIN_AMOUNT_LABEL;Maintain this amount
+# Workplaces Panel;
+WORKERS_HEADER;Workers
+WORKPLACES_HEADER;Workplaces
+EMPLOY_BUTTON;Employ
+# Storage Panel;
+TARGET_STORAGE_HEADER;Target storage
+MY_STORAGE_HEADER;My storage
+PICK_BUTTON;Pick
+NO_STORAGE_INFO;No Storage Available
+# NOTIFICATIONS;
+MISSING_ITEMS;Missing
+# ITEMS;
+WOODEN LOG;Wooden log
+STONE;Kamieñ
+STONE HAMMER;Stone hammer
+STONE AXE;Stone axe
+STONE PICKAXE;Stone pickaxe

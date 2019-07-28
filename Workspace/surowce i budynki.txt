@@ -1,0 +1,47 @@
+Raw
+	Wooden Log
+	Stone
+	Copper Ore
+	Iron Ore
+	Coal
+	Animal
+	Vegatables
+	Wheat	
+Refined
+	Wooden Board
+	Stone Block
+	Copper Bar
+	Iron Bar
+	Steal Bar
+	Skin
+	Meat
+	Flour
+Food
+	Bread
+	Soup
+	Dinner
+Tools
+Weapons
+	Close
+	Ranged
+Armor
+	Leather
+	Iron
+	Steal
+Clothes
+
+Structures
+	Hunter
+	Farm
+	Butchery
+	Mill
+	Bakery
+	Cook
+	Toolmaker
+	Forge
+	Bowyer
+	Armorer
+	Tailor
+	
+	
+	

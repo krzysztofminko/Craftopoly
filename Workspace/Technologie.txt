@@ -1,0 +1,88 @@
+Structures
+	Wood storage
+	Stone storage
+	Copper mine
+	Iron mine
+	Crystal mine?
+	Hunter's hideout
+	Wood workshop
+	Stone workshop
+	Foundry
+	Tanning rack
+	Butcher table
+	Forge
+	Bowyer workshop
+	Farm
+	Mill
+	Fireplace
+	Oven
+	Stove
+	Science desk
+	
+
+Raw Resources
+	Wooden log
+	Stone
+	Copper Ore
+	Iron Ore
+	Crystal
+	Hide
+	Fur
+
+
+Refined Resources
+	Wooden plank
+	Wooden parts
+	Wooden grip
+	Wooden staff
+	Stone brick
+	Stone parts
+	Copper bar
+		Copper parts
+		Copper blade
+		Copper short blade
+	Iron bar
+		Iron parts
+		Iron blade
+		Iron short blade
+	Steal bar
+		Steal parts
+		Steal blade
+		Steal short blade
+	Leather
+		Leather parts
+	
+Weapons
+	Knife
+	Sword
+	Spear
+	Bow
+	Crossbow
+
+Tools
+	Hammer
+	Axe
+	Pickaxe
+	Chisel
+	Butchers Knife
+Fuel
+	Wooden log
+	Coal
+
+Seeds
+	Wheat Seed
+	Apple Seed
+
+Raw Food
+	Flour
+	Apple
+	Raw meat
+
+Prepared Food
+	Bread
+	Cooked meat
+
+Skill Books
+
+Transport
+	Handcart
