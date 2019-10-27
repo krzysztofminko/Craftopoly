@@ -23,8 +23,7 @@ MonoBehaviour:
   description: Description...
   blueprint:
     duration: 1
-    requiredTools:
-    - {fileID: 11400000}
+    requiredTools: []
     requiredItems: []
   attachParent: 0
   damage: 0
