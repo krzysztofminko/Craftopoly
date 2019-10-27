@@ -100,13 +100,11 @@ public class ShopStructure : Workplace
 
 	public void StartTransaction(Citizen client)
 	{
-		Debug.Log("StartTransaction");
 		target.ReservedBy = client;
 	}
 
 	public void FinishTransaction()
 	{
-		Debug.Log("FinishTransaction");
 		target.ReservedBy = null;
 		timeFromLastTransaction = 0;
 	}

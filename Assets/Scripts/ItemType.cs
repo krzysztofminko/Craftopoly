@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Definition of Item type, sharing all variables in ScriptableObject.
+/// </summary>
+
 [CreateAssetMenu(fileName = "New Item Type", menuName = "Item Type")]
 public class ItemType : ScriptableObject
 {

@@ -28,7 +28,7 @@ public class Player : Citizen
 			#region Focusing
 
 			List<Collider> colliders = new List<Collider>();
-			colliders = Physics.OverlapSphere(transform.position + transform.forward, 4).OrderBy(c => Distance.Manhattan2D(transform.position + transform.forward, c.transform.position)).ToList();
+			colliders = Physics.OverlapSphere(transform.position + transform.forward, 1).OrderBy(c => Distance.Manhattan2D(transform.position + transform.forward, c.transform.position)).ToList();
 			colliders.Remove(this.GetComponent<Collider>());
 			colliders.RemoveAll(c => !c.GetComponent<Target>());
 			if (colliders.Count > 0)
@@ -175,11 +175,6 @@ public class Player : Citizen
 							}
 						}//Craft currentItemType
 					}
-					else if (focused.gatherStructure)
-					{
-						if (InputHints.GetButtonDown("PrimaryAction", "Manage"))
-							UI.GatherCanvas.instance.Show(focused.gatherStructure);
-					}
 					else if (focused.shopStructure)
 					{
 						if (InputHints.GetButtonDown("PrimaryAction", "Buy"))
@@ -189,7 +184,7 @@ public class Player : Citizen
 								Notifications.instance.Add("Wait for shopkeeper.");
 
 					}
-					
+
 					if (focused.storage)
 					{
 						if (InputHints.GetButtonDown("SecondaryAction", "Storage"))

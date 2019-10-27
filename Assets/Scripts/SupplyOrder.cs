@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Supply order listed in ShopStructures and SupplyStructures
+/// </summary>
+
 [System.Serializable]
 public class SupplyOrder
 {

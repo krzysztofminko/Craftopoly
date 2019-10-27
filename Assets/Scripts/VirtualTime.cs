@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class managing virtual time of the game.
+/// </summary>
+
 public class VirtualTime : MonoBehaviour
 {
 
