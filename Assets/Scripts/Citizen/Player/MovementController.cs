@@ -5,14 +5,14 @@ using UnityEngine;
 [RequireComponent(typeof(Player))]
 public class MovementController : MonoBehaviour
 {
-	Player player;
+	private Player player;
 	private Vector3 cameraOffset;
+
 
     void Awake()
     {
 		player = GetComponent<Player>();
 		cameraOffset = Camera.main.transform.position - player.transform.position;
-
 	}
 
     void Update()

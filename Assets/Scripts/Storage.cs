@@ -10,10 +10,7 @@ public class Storage : MonoBehaviour
 	public event OnItemsUpdate onItemsUpdate;
 
 	[Header("Runtime")]
-	//[SerializeField]
-	//private List<Item> _items = new List<Item>();
-	public List<Item> items; //{ get { return _items; } private set { _items = value; } }
-	//TODO: Listen to Item.count for changes
+	public List<Item> items;
 
 	[HideInInspector]
 	public Target target;

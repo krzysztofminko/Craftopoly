@@ -87,7 +87,7 @@ namespace UI
 			else
 			{
 				workerImage.sprite = null;
-				workerNameText.text = "<i>No worker employed.</i>";
+				workerNameText.text = $"<i>{Localization.Translate("NO_WORKER_INFO")}</i>";
 				workerDismissButton.interactable = false;
 			}
 		}

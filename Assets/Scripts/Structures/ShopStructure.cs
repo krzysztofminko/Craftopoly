@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Linq;
 
 [RequireComponent(typeof(Target), typeof(Storage))]
-public class ShopStructure : Workplace
+public class ShopStructure : Workplace, IOnPlayerFocus, IOnPlayerUnfocus
 {
 	public static new List<ShopStructure> list = new List<ShopStructure>();
 
@@ -100,13 +100,28 @@ public class ShopStructure : Workplace
 
 	public void StartTransaction(Citizen client)
 	{
+		Debug.Log("StartTransaction");
 		target.ReservedBy = client;
 	}
 
 	public void FinishTransaction()
 	{
+		Debug.Log("FinishTransaction");
 		target.ReservedBy = null;
 		timeFromLastTransaction = 0;
 	}
+
+	public void OnPlayerFocus()
+	{
+		if (!target.ReservedBy)
+			StartTransaction(Player.instance);
+	}
+
+	public void OnPlayerUnfocus()
+	{
+		if(target.ReservedBy == Player.instance)
+			FinishTransaction();
+	}
+
 }
 

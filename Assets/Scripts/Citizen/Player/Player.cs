@@ -14,7 +14,6 @@ public class Player : Citizen
 	public bool controlsEnabled = true;
 	public Target focused;
 
-
 	public override void Awake()
 	{
 		base.Awake();
@@ -38,16 +37,8 @@ public class Player : Citizen
 			}
 			else if (focused)
 			{
-				if (focused.shopStructure && focused.shopStructure.target.ReservedBy == this)
-					focused.shopStructure.FinishTransaction();
 				Unfocus();
 			}
-
-			//Target Shop - StartTransaction
-			if (focused)
-				if (focused.shopStructure)
-					if (!focused.shopStructure.target.ReservedBy)
-				focused.shopStructure.StartTransaction(this);
 
 			#endregion
 
@@ -225,10 +216,14 @@ public class Player : Citizen
 		t.Focus();
 		focused = t;
 		UI.FocusCanvas.instance.Show(t);
+		foreach (var f in focused.GetComponents<IOnPlayerFocus>())
+			f.OnPlayerFocus();
 	}
 
 	public void Unfocus()
 	{
+		foreach (var f in focused.GetComponents<IOnPlayerUnfocus>())
+			f.OnPlayerUnfocus();
 		if (UI.FocusCanvas.instance)
 			UI.FocusCanvas.instance.Hide();
 		focused.Unfocus();

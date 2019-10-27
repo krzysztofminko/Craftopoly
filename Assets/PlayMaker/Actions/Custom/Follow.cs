@@ -6,53 +6,53 @@ namespace HutongGames.PlayMaker.Actions
 	[ActionCategory("Custom")]
 	public class Follow : FsmStateAction
 	{
-		[CheckForComponent(typeof(Target))]
-		public FsmObject _target;
+		[CheckForComponent(typeof(Citizen))]
+		public FsmObject _targetCitizen;
 		public FsmFloat proximity;
 
 		Citizen citizen;
-		Target target;
+		Citizen targetCitizen;
 
 		public override void OnEnter()
 		{
 			if (!citizen)
 				citizen = Owner.GetComponent<Citizen>();
-			if (_target.Value)
+			if (_targetCitizen.Value)
 			{
-				target = (Target)_target.Value;
+				targetCitizen = (Citizen)_targetCitizen.Value;
 				if(proximity.IsNone)
-					proximity.Value = citizen.target.proximity + target.proximity;
+					proximity.Value = citizen.target.proximity + targetCitizen.target.proximity;
 			}
 			else
 			{
-				target = null;
+				targetCitizen = null;
 			}
 		}
 
 		public override void OnExit()
 		{
-			_target.Value = null;
+			_targetCitizen.Value = null;
 		}
 
 		public override void OnUpdate()
 		{
-			if (!_target.Value)
+			if (!_targetCitizen.Value)
 			{
 				Fsm.Event("FAILED");
 			}
 			else
 			{
-				float velocity = target.citizen.characterController.velocity.sqrMagnitude;
-				if (Distance.Manhattan2D(citizen.transform.position, target.transform.position) > proximity.Value)
+				float velocity = targetCitizen.characterController.velocity.sqrMagnitude;
+				if (Distance.Manhattan2D(citizen.transform.position, targetCitizen.transform.position) > proximity.Value)
 				{
-					citizen.transform.rotation = Quaternion.LookRotation(Vector3.ProjectOnPlane(target.transform.position - citizen.transform.position, Vector3.up), Vector3.up);
-					citizen.transform.position = Vector3.MoveTowards(citizen.transform.position, target.transform.position, citizen.walkSpeed * Time.deltaTime);
+					citizen.transform.rotation = Quaternion.LookRotation(Vector3.ProjectOnPlane(targetCitizen.transform.position - citizen.transform.position, Vector3.up), Vector3.up);
+					citizen.transform.position = Vector3.MoveTowards(citizen.transform.position, targetCitizen.transform.position, citizen.walkSpeed * Time.deltaTime);
 					citizen.animator.SetBool("Walk", true);
 				}
 				else if (velocity > 0)
 				{
-					citizen.transform.rotation = Quaternion.LookRotation(Vector3.ProjectOnPlane(target.transform.position - citizen.transform.position, Vector3.up), Vector3.up);
-					citizen.transform.position = Vector3.MoveTowards(citizen.transform.position, target.transform.position, Mathf.Min(citizen.walkSpeed, velocity) * Time.deltaTime);
+					citizen.transform.rotation = Quaternion.LookRotation(Vector3.ProjectOnPlane(targetCitizen.transform.position - citizen.transform.position, Vector3.up), Vector3.up);
+					citizen.transform.position = Vector3.MoveTowards(citizen.transform.position, targetCitizen.transform.position, Mathf.Min(citizen.walkSpeed, velocity) * Time.deltaTime);
 					citizen.animator.SetBool("Walk", true);
 				}
 				else

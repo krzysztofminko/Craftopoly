@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "LocalizationSettings", menuName = "Localization Settings")]
 public class Localization : MonoBehaviour
 {
 	static Localization instance;

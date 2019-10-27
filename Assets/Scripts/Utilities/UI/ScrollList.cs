@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace Utilities.UI
 {
-	//TODO: Categories and filters
+	//OPTIONAL: Categories and filters
 	[RequireComponent(typeof(ScrollRect))]
 	public class ScrollList : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 	{

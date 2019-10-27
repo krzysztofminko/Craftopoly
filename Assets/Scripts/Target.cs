@@ -29,7 +29,7 @@ public class Target : MonoBehaviour
 	}
 
 	[Header("Components")]
-	public Citizen citizen;
+	 Citizen citizen;
 	public Structure structure;
 	public Source source;
 	public Item item;

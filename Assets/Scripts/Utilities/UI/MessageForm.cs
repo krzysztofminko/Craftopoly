@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 
 namespace Utilities.UI
 {
-	//TODO: Multipanel Focus
+	//OPTIONAL: Multipanel Focus
 	public class MessageForm : MonoBehaviour
 	{
 		public static MessageForm instance;
