@@ -29,7 +29,7 @@ public class Target : MonoBehaviour
 	}
 
 	[Header("Components")]
-	 Citizen citizen;
+	public Citizen citizen;
 	public Structure structure;
 	public Source source;
 	public Item item;
@@ -83,6 +83,10 @@ public class Target : MonoBehaviour
 					Color.RGBToHSV(material.color, out float H, out float S, out float V);
 					material.color = Color.HSVToRGB(H, S, V + 0.25f);
 				}
+
+
+			if (shopStructure && !ReservedBy)
+				shopStructure.StartTransaction(Player.instance);
 		}
 	}
 
@@ -90,6 +94,9 @@ public class Target : MonoBehaviour
 	{
 		if (focused)
 		{
+			if (shopStructure && ReservedBy == Player.instance)
+				shopStructure.FinishTransaction();
+
 			focused = false;
 			Renderer[] renderers = GetComponentsInChildren<Renderer>();
 			for (int r = 0; r < renderers.Length; r++)

@@ -216,14 +216,10 @@ public class Player : Citizen
 		t.Focus();
 		focused = t;
 		UI.FocusCanvas.instance.Show(t);
-		foreach (var f in focused.GetComponents<IOnPlayerFocus>())
-			f.OnPlayerFocus();
 	}
 
 	public void Unfocus()
 	{
-		foreach (var f in focused.GetComponents<IOnPlayerUnfocus>())
-			f.OnPlayerUnfocus();
 		if (UI.FocusCanvas.instance)
 			UI.FocusCanvas.instance.Hide();
 		focused.Unfocus();
