@@ -109,7 +109,7 @@ public class Player : Citizen
 						if (InputHints.GetButtonDown("PrimaryAction", refuel? "Refuel" : "Put"))
 							fsm.Put(pickedItem.count, focused.storage);
 					}
-					else if (focused.item)
+					else if (focused.item && focused.item.type == pickedItem.type)
 					{
 						if (InputHints.GetButtonDown("PrimaryAction", "Stack"))
 							fsm.Put(pickedItem.count, focused.item);

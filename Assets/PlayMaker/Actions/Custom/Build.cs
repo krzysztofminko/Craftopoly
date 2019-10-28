@@ -53,7 +53,7 @@ namespace HutongGames.PlayMaker.Actions
 					citizen.animator.SetFloat("UseAnimationId", 0);
 
 					for (int i = 0; i < blueprint.requiredItems.Count; i++)
-						structure.storage.Delete(blueprint.requiredItems[i].type, blueprint.requiredItems[i].count);
+						structure.storage.DestroyItem(blueprint.requiredItems[i].type, blueprint.requiredItems[i].count);
 
 					Structure builded = Object.Instantiate(structure.next, structure.transform.position, structure.transform.rotation);
 					builded.name = structure.next.name;

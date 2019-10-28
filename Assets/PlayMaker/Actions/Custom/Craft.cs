@@ -53,29 +53,36 @@ namespace HutongGames.PlayMaker.Actions
 			else
 			{
 				citizen.animator.SetFloat("UseAnimationId", 1);
-
+				
 				timer += Time.deltaTime;
 				if (timer > itemType.blueprint.duration / Mathf.Max(0.1f, citizen.skills.Get(itemType.requiredSkill.name)))
 				{
 					citizen.animator.SetFloat("UseAnimationId", 0);
 
-					for (int i = 0; i < itemType.blueprint.requiredItems.Count; i++)
-						craftStructure.storage.Delete(itemType.blueprint.requiredItems[i].type, itemType.blueprint.requiredItems[i].count);
+					if (itemType.blueprint.MissingResources(craftStructure.storage).Count > 0)
+					{
+						Fsm.Event("FAILED");
+					}
+					else
+					{
+						for (int i = 0; i < itemType.blueprint.requiredItems.Count; i++)
+							craftStructure.storage.DestroyItem(itemType.blueprint.requiredItems[i].type, itemType.blueprint.requiredItems[i].count);
 
-					Item crafted = itemType.Spawn(1, craftStructure.transform.position, craftStructure.transform.rotation);
-					crafted.GetComponent<Rigidbody>().isKinematic = true;
-					craftStructure.storage.AddItem(crafted);
-					if(citizen == Player.instance)
-						craftStructure.craftedItem = crafted;
-					returnItem.Value = crafted.gameObject;
+						Item crafted = itemType.Spawn(1, craftStructure.transform.position, craftStructure.transform.rotation);
+						crafted.GetComponent<Rigidbody>().isKinematic = true;
+						craftStructure.storage.AddItem(crafted);
+						if(citizen == Player.instance)
+							craftStructure.craftedItem = crafted;
+						returnItem.Value = crafted.gameObject;
 
-					CraftStructure.CraftOrder order = craftStructure.orders.Find(o => o.itemType == itemType);
-					if (!order.maintainAmount)
-						order.count = Mathf.Max(0, order.count - 1);
+						CraftStructure.CraftOrder order = craftStructure.orders.Find(o => o.itemType == itemType);
+						if (!order.maintainAmount)
+							order.count = Mathf.Max(0, order.count - 1);
 
-					craftStructure.SetCurrentItemBlueprint(null);
+						craftStructure.SetCurrentItemBlueprint(null);
 
-					Finish();
+						Finish();
+					}
 				}
 			}
 		}

@@ -38,7 +38,6 @@ public class Storage : MonoBehaviour
 		{
 			itemInside.target.ReservedBy = null;
 			itemInside.count += item.count;
-			Debug.Log(item + " destroyed", item);
 			Destroy(item.gameObject);
 		}
 		else
@@ -67,19 +66,26 @@ public class Storage : MonoBehaviour
 		return item;
 	}
 
-	public void Delete(ItemType itemType, int count)
+	public void DestroyItem(ItemType itemType, int count)
 	{
 		Item item = items.Find(i => i.type == itemType);
 		if (item)
 		{
 			item.count -= count;
-			if (item.count <= 0)
+			if (item.count == 0)
 			{
 				items.Remove(item);
-				Debug.Log(item + " destroyed", item);
 				Destroy(item.gameObject);
 			}
+			else if(item.count < 0)
+			{
+				Debug.LogError("Count parameter is to big than actual count of item in this storage.", this);
+			}
 			onItemsUpdate?.Invoke();
+		}
+		else
+		{
+			Debug.LogError($"{itemType} does not exist in this storage.", this);
 		}
 	}
 	
