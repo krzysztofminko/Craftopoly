@@ -79,45 +79,56 @@ public class CraftStructure : Workplace
 
 		if (target.ReservedBy != Player.instance && worker && worker.WorkTime() && worker.fsm.ActiveStateName == "Idle")
 		{
-			//Find first uncomplete order
-			CraftOrder order = orders.Find( o => (!o.maintainAmount && o.count > 0) || (o.maintainAmount && o.count > storage.Count(o.itemType)) );
-			if (order != null)
+			//Store craftedItem
+			if (craftedItem && craftedItem.type == currentItemType && craftedItem.count == craftedItem.type.maxCount)
 			{
-				SetCurrentItemBlueprint(order.itemType);
-
-				//Find what is missing
-				List<ItemCount> missing = order.itemType.blueprint.MissingResources(storage);
-				if (missing.Count > 0)
-				{
-					worker.GetItems(order.itemType.blueprint.requiredItems, storage);
-				}
+				if (SearchFor.NearestStorageStructure(plot, transform.position, out StorageStructure targetStorage))
+					worker.fsm.Store(craftedItem, storage, targetStorage.storage, craftedItem.count);
 				else
+					Debug.LogError("No StorageStructure on plot");
+			}
+			else
+			{
+				//Find first uncomplete order
+				CraftOrder order = orders.Find(o => (!o.maintainAmount && o.count > 0) || (o.maintainAmount && o.count > storage.Count(o.itemType)));
+				if (order != null)
 				{
-					if (isFueled)
+					SetCurrentItemBlueprint(order.itemType);
+
+					//Find what is missing
+					List<ItemCount> missing = order.itemType.blueprint.MissingResources(storage);
+					if (missing.Count > 0)
 					{
-						//Refuel
-						float missingFuel = order.itemType.blueprint.duration - fuel;
-						Debug.Log(missingFuel);
-						if (missingFuel > 0)
-						{
-							Item fuelItem = null;
-							Storage sourceStorage = null;
-
-							if (!fuelItem)
-								SearchFor.FuelInGatherStructures(transform.position, out fuelItem, out sourceStorage);
-							if (!fuelItem)
-								SearchFor.FuelInCraftStructures(transform.position, out fuelItem);
-							if (!fuelItem)
-								SearchFor.FuelInShopStructures(transform.position, out fuelItem, out sourceStorage);
-
-							if (fuelItem)
-								worker.fsm.Store(fuelItem, sourceStorage, storage, Mathf.FloorToInt(missingFuel / fuelItem.type.fuelValue) + 1);
-						}
+						worker.GetItems(order.itemType.blueprint.requiredItems, storage);
 					}
 					else
 					{
-						//Craft
-						worker.fsm.Craft(order.itemType, this);
+						if (isFueled)
+						{
+							//Refuel
+							float missingFuel = order.itemType.blueprint.duration - fuel;
+							Debug.Log(missingFuel);
+							if (missingFuel > 0)
+							{
+								Item fuelItem = null;
+								Storage sourceStorage = null;
+
+								if (!fuelItem)
+									SearchFor.FuelInGatherStructures(transform.position, out fuelItem, out sourceStorage);
+								if (!fuelItem)
+									SearchFor.FuelInCraftStructures(transform.position, out fuelItem);
+								if (!fuelItem)
+									SearchFor.FuelInShopStructures(transform.position, out fuelItem, out sourceStorage);
+
+								if (fuelItem)
+									worker.fsm.Store(fuelItem, sourceStorage, storage, Mathf.FloorToInt(missingFuel / fuelItem.type.fuelValue) + 1);
+							}
+						}
+						else
+						{
+							//Craft
+							worker.fsm.Craft(order.itemType, this);
+						}
 					}
 				}
 			}

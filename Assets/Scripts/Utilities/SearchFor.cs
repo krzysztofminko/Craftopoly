@@ -135,4 +135,11 @@ public static class SearchFor
 		storage = null;
 		return false;
 	}
+
+
+	public static bool NearestStorageStructure(Plot plot, Vector3 position, out StorageStructure storageStructure)
+	{
+		storageStructure = plot.storageStructures.OrderBy(s => (s.transform.position - position).magnitude).FirstOrDefault();
+		return storageStructure;
+	}
 }

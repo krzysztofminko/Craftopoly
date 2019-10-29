@@ -71,7 +71,7 @@ namespace HutongGames.PlayMaker.Actions
 						Item crafted = itemType.Spawn(1, craftStructure.transform.position, craftStructure.transform.rotation);
 						crafted.GetComponent<Rigidbody>().isKinematic = true;
 						craftStructure.storage.AddItem(crafted);
-						if(citizen == Player.instance)
+						//if(citizen == Player.instance)
 							craftStructure.craftedItem = crafted;
 						returnItem.Value = crafted.gameObject;
 
@@ -79,7 +79,7 @@ namespace HutongGames.PlayMaker.Actions
 						if (!order.maintainAmount)
 							order.count = Mathf.Max(0, order.count - 1);
 
-						craftStructure.SetCurrentItemBlueprint(null);
+						//craftStructure.SetCurrentItemBlueprint(null);
 
 						Finish();
 					}

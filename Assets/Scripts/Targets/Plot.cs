@@ -15,6 +15,9 @@ public class Plot : MonoBehaviour, IMoney
 	public Citizen worker;
 	public List<CraftStructure.CraftOrder> orders;
 	public Storage sellStorage;
+
+	public List<StorageStructure> storageStructures = new List<StorageStructure>();
+
 	public float Money { get; set; }
 
 	[Header("References")]
