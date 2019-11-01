@@ -80,7 +80,7 @@ public class CraftStructure : Workplace
 		if (target.ReservedBy != Player.instance && worker && worker.WorkTime() && worker.fsm.ActiveStateName == "Idle")
 		{
 			//Store craftedItem
-			if (craftedItem && craftedItem.type == currentItemType && craftedItem.count == craftedItem.type.maxCount)
+			if (craftedItem)
 			{
 				if (SearchFor.NearestStorageStructure(plot, transform.position, out StorageStructure targetStorage))
 					worker.fsm.Store(craftedItem, storage, targetStorage.storage, craftedItem.count);
@@ -192,7 +192,8 @@ public class CraftStructure : Workplace
 			storage.DestroyItem(fuelItems[i].type, 1);
 		}
 	}
-	
+
+	//TODO: SetCurrentItemBlueprint remove?
 	public void SetCurrentItemBlueprint(ItemType itemType)
 	{
 		currentItemType = itemType;
