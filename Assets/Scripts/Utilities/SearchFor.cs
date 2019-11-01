@@ -13,16 +13,16 @@ public static class SearchFor
 		return item;
 	}
 
-	public static bool ItemInGatherStructures(ItemType itemType, Vector3 position, out Item item, out Storage storage, GatherStructure exclude = null)
+	public static bool ItemInStorageStructures(ItemType itemType, Vector3 position, out Item item, out Storage storage, StorageStructure exclude = null)
 	{
-		GatherStructure gatherStructure = GatherStructure.list
+		StorageStructure storageStructure = StorageStructure.list
 							.FindAll(s => s != exclude && s.storage.Count(itemType) > 0)
 							.OrderBy(s => (s.transform.position - position).magnitude)
 							.FirstOrDefault();
-		if (gatherStructure)
+		if (storageStructure)
 		{
-			item = gatherStructure.storage.items.Find(i => i.type == itemType);
-			storage = gatherStructure.storage;
+			item = storageStructure.storage.items.Find(i => i.type == itemType);
+			storage = storageStructure.storage;
 			return true;
 		}
 

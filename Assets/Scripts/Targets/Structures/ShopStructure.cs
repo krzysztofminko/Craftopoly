@@ -82,7 +82,7 @@ public class ShopStructure : Workplace
 						if (supplyStorage && SearchFor.ItemInStorage(supplyOrder.type, supplyStorage, out item))
 							sourceStorage = supplyStorage;
 						if (!item)
-							SearchFor.ItemInGatherStructures(supplyOrder.type, transform.position, out item, out sourceStorage);
+							SearchFor.ItemInStorageStructures(supplyOrder.type, transform.position, out item, out sourceStorage);
 						if (!item)
 							SearchFor.ItemInCraftStructures(supplyOrder.type, transform.position, out item, out sourceStorage);
 						//if (!item)

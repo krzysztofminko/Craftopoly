@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-[RequireComponent(typeof(Target), typeof(Storage))]
+[RequireComponent(typeof(Target))]
 public class GatherStructure : Workplace
 {
 	public static new List<GatherStructure> list = new List<GatherStructure>();
@@ -46,7 +46,10 @@ public class GatherStructure : Workplace
 			items = Item.free.FindAll(r => r.type == itemType && !r.target.ReservedBy && Distance.Manhattan2D(transform.position, r.transform.position) < rangeOfSearch).OrderBy(r => Distance.Manhattan2D(transform.position, r.transform.position)).ToList();
 			if (items.Count > 0)
 			{
-				worker.fsm.Store(items[0], null, storage, items[0].count);
+				if (SearchFor.NearestStorageStructure(plot, transform.position, out StorageStructure targetStorage))
+					worker.fsm.Store(items[0], null, targetStorage.storage, items[0].count);
+				else
+					Debug.LogError("No StorageStructure on plot");
 			}
 			else
 			{

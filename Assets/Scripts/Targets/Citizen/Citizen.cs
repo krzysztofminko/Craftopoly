@@ -195,7 +195,7 @@ public class Citizen : MonoBehaviour, IMoney
 				//	sourceStorage = supplyStorage;
 				if (!item)
 				{
-					if (SearchFor.ItemInGatherStructures(items[i].type, inStorage.transform.position, out item, out sourceStorage))
+					if (SearchFor.ItemInStorageStructures(items[i].type, inStorage.transform.position, out item, out sourceStorage))
 						if (DEBUG) Debug.Log(String.Format("{0} in GatherStructure", item));
 				}
 				if (!item)
