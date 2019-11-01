@@ -50,6 +50,8 @@ public class FSMBinding : MonoBehaviour
 
 	public void Put(int count)
 	{
+		fsm.FsmVariables.GetFsmGameObject("StackGO").Value = null;
+		fsm.FsmVariables.GetFsmGameObject("StorageGO").Value = null;
 		fsm.FsmVariables.GetFsmInt("Count").Value = count;
 		fsm.SendEvent("Put");
 	}
@@ -58,14 +60,16 @@ public class FSMBinding : MonoBehaviour
 	{
 		fsm.FsmVariables.GetFsmGameObject("StackGO").Value = null;
 		fsm.FsmVariables.GetFsmGameObject("StorageGO").Value = storage ? storage.gameObject : null;
-		Put(count);
+		fsm.FsmVariables.GetFsmInt("Count").Value = count;
+		fsm.SendEvent("Put");
 	}
 
 	public void Put(int count, Item stack)
 	{
 		fsm.FsmVariables.GetFsmGameObject("StorageGO").Value = null;
 		fsm.FsmVariables.GetFsmGameObject("StackGO").Value = stack ? stack.gameObject : null;
-		Put(count);
+		fsm.FsmVariables.GetFsmInt("Count").Value = count;
+		fsm.SendEvent("Put");
 	}
 
 	public void AttachTool()

@@ -12,6 +12,8 @@ namespace HutongGames.PlayMaker.Actions
 		public FsmGameObject _storage;
 		[CheckForComponent(typeof(Item))]
 		public FsmGameObject _stack;
+		[Tooltip("If count = 0 then put all")]
+		public FsmInt count;
 
 		float timer;
 		Citizen citizen;
@@ -29,6 +31,10 @@ namespace HutongGames.PlayMaker.Actions
 
 			citizen.pickedItem.target.ReservedBy = citizen;
 
+			if (count.Value < 1)
+				count.Value = citizen.pickedItem.count;
+
+			count.Value = Mathf.Clamp(count.Value, 1, citizen.pickedItem.type.maxCount);
 		}
 
 		public override void OnExit()

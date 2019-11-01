@@ -216,8 +216,8 @@ MonoBehaviour:
         - 
         actionEnabled: 010101
         actionIsOpen: 010101
-        actionStartIndex: 000000000100000005000000
-        actionHashCodes: 5c004505575e9e0528100f01
+        actionStartIndex: 000000000100000006000000
+        actionHashCodes: 5c004505547d5c0528100f01
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
@@ -228,6 +228,12 @@ MonoBehaviour:
           value: {fileID: 0}
         - useVariable: 1
           name: SourceStorageGO
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 0
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -288,17 +294,18 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 13000000130000001300000010000000110000001300000013000000
+        paramDataType: 1300000013000000130000001300000010000000110000001300000013000000
         paramName:
         - _storage
         - _storage
+        - _craftStructure
         - _item
         - count
         - updateItemReference
         - _storage
         - _stack
-        paramDataPos: 00000000010000000200000000000000000000000300000004000000
-        paramByteDataSize: 00000000000000000000000000000000000000000000000000000000
+        paramDataPos: 0000000001000000020000000300000000000000000000000400000005000000
+        paramByteDataSize: 0000000000000000000000000000000000000000000000000000000000000000
     - name: Craft
       description: 
       colorIndex: 0
@@ -842,11 +849,17 @@ MonoBehaviour:
         actionEnabled: 01
         actionIsOpen: 01
         actionStartIndex: 00000000
-        actionHashCodes: 575e9e05
+        actionHashCodes: 547d5c05
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
           name: SourceStorageGO
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 0
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -895,14 +908,15 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 13000000130000001000000011000000
+        paramDataType: 1300000013000000130000001000000011000000
         paramName:
         - _storage
+        - _craftStructure
         - _item
         - count
         - updateItemReference
-        paramDataPos: 00000000010000000000000000000000
-        paramByteDataSize: 00000000000000000000000000000000
+        paramDataPos: 0000000001000000020000000000000000000000
+        paramByteDataSize: 0000000000000000000000000000000000000000
     - name: Put
       description: 
       colorIndex: 0

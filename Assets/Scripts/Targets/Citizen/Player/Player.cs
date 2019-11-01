@@ -104,10 +104,35 @@ public class Player : Citizen
 							}
 					}
 					else if (focused.storage)
-					{
-						bool refuel = pickedItem.type.fuelValue > 0 && focused.craftStructure && focused.craftStructure.fuelMax > 0;
-						if (InputHints.GetButtonDown("PrimaryAction", refuel ? "Refuel" : "Put"))
+					{						
+						if (focused.craftStructure)
+						{
+							bool refuel = pickedItem.type.fuelValue > 0 && focused.craftStructure.fuelMax > 0;
+							if (InputHints.GetButtonDown("PrimaryAction", refuel ? "Refuel" : "Put"))
+							{
+								if (focused.craftStructure.currentItemType)
+								{
+									List<ItemCount> missing = focused.craftStructure.currentItemType.blueprint.MissingResources(focused.craftStructure.storage);
+									ItemCount mic = missing.Find(m => m.type == pickedItem.type);
+									if (mic != null)
+									{
+										Debug.Log($"{pickedItem.count} , {mic.count}");
+										fsm.Put(Mathf.Min(pickedItem.count, mic.count), focused.craftStructure.storage);
+									}
+									else
+									{
+										string itemsListString = "";
+										foreach (var m in missing)
+											itemsListString += ("\n " + Localization.Translate(m.type.name) + " x" + m.count);
+										Utilities.UI.Notifications.instance.Add(Localization.Translate("MISSING_ITEMS") + ": " + itemsListString);
+									}
+								}
+							}
+						}
+						else if (InputHints.GetButtonDown("PrimaryAction", "Put"))
+						{
 							fsm.Put(pickedItem.count, focused.storage);
+						}
 					}
 					else if (focused.item && focused.item.type == pickedItem.type)
 					{
