@@ -21,8 +21,27 @@ public class FSMBinding : MonoBehaviour
 		fsm.SendEvent("GoTo");
 	}
 
+	public void Pick(Item item, int count)
+	{
+		fsm.FsmVariables.GetFsmGameObject("CraftStructureGO").Value = null;
+		fsm.FsmVariables.GetFsmGameObject("SourceStorageGO").Value = null;
+		fsm.FsmVariables.GetFsmGameObject("ItemGO").Value = item.gameObject;
+		fsm.FsmVariables.GetFsmInt("Count").Value = count;
+		fsm.SendEvent("Pick");
+	}
+
+	public void Pick(CraftStructure craftStructure, Item item, int count)
+	{
+		fsm.FsmVariables.GetFsmGameObject("CraftStructureGO").Value = craftStructure ? craftStructure.gameObject : null;
+		fsm.FsmVariables.GetFsmGameObject("SourceStorageGO").Value = null;
+		fsm.FsmVariables.GetFsmGameObject("ItemGO").Value = item.gameObject;
+		fsm.FsmVariables.GetFsmInt("Count").Value = count;
+		fsm.SendEvent("Pick");
+	}
+
 	public void Pick(Storage sourceStorage, Item item, int count)
 	{
+		fsm.FsmVariables.GetFsmGameObject("CraftStructureGO").Value = null;
 		fsm.FsmVariables.GetFsmGameObject("SourceStorageGO").Value = sourceStorage ? sourceStorage.gameObject : null;
 		fsm.FsmVariables.GetFsmGameObject("ItemGO").Value = item.gameObject;
 		fsm.FsmVariables.GetFsmInt("Count").Value = count;

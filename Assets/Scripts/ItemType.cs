@@ -70,6 +70,7 @@ public class ItemType : ScriptableObject
 		item.type = this;
 		item.count = count;
 		item.durability = maxDurability;
+		item.SetParent(null);
 
 		GameObject child = Instantiate(model, item.transform);
 		child.transform.localPosition = Vector3.zero;

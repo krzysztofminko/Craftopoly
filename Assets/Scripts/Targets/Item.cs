@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Sirenix.OdinInspector;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -8,6 +9,7 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
 	private static List<Item> list = new List<Item>();
+	[ShowInInspector]
 	public static List<Item> free = new List<Item>();
 	private static bool prefabThumbnailsGenerated;
 
@@ -28,7 +30,6 @@ public class Item : MonoBehaviour
 	{		
 		target = GetComponent<Target>();
 		list.Add(this);
-		SetParent(null);
 	}
 	
 	private void OnDestroy()

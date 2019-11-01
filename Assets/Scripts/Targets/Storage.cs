@@ -9,6 +9,10 @@ public class Storage : MonoBehaviour
 	public delegate void OnItemsUpdate();
 	public event OnItemsUpdate onItemsUpdate;
 
+	[Header("References")]
+	[SerializeField] private Transform inputTransform;
+	[SerializeField] private Transform releaseTransform;
+
 	[Header("Runtime")]
 	public List<Item> items;
 
@@ -31,46 +35,62 @@ public class Storage : MonoBehaviour
 	}
 	
 
-	public void AddItem(Item item)
+	public Item AddItem(Item item)
 	{
 		Item itemInside = items.Find(i => i.type == item.type);
 		if (itemInside)
 		{
-			itemInside.target.ReservedBy = null;
+			itemInside.target.ReservedBy = null;	//TODO: Why?
 			itemInside.count += item.count;
 			Destroy(item.gameObject);
+			onItemsUpdate?.Invoke();
+			return itemInside;
 		}
 		else
 		{
 			items.Add(item);
-			item.SetParent(transform);
+			item.SetParent(inputTransform? inputTransform : transform);
+			onItemsUpdate?.Invoke();
+			return item;
 		}
-		onItemsUpdate?.Invoke();
 	}
 
-	public Item RemoveItem(Item item, int count)
+	public Item RemoveItem(Item item, int count = 0)
 	{
+		if (count == 0)
+			count = item.count;
+
 		count = Mathf.Max(count, 1);
 
 		if (item.count - count > 0)
 		{
 			item.count -= count;
 			Item i = item.type.Spawn(count, transform.position, transform.rotation);
+			if (releaseTransform)
+				i.transform.position = releaseTransform.position;
 			i.SetParent(null);
 			onItemsUpdate?.Invoke();
 			return i;
 		}
-
-		items.Remove(item);
-		onItemsUpdate?.Invoke();
-		return item;
+		else
+		{
+			if (releaseTransform)
+				item.transform.position = releaseTransform.position;
+			item.SetParent(null);
+			items.Remove(item);
+			onItemsUpdate?.Invoke();
+			return item;
+		}
 	}
 
-	public void DestroyItem(ItemType itemType, int count)
+	public void DestroyItem(ItemType itemType, int count = 0)
 	{
 		Item item = items.Find(i => i.type == itemType);
 		if (item)
 		{
+			if (count == 0)
+				count = item.count;
+
 			item.count -= count;
 			if (item.count == 0)
 			{
@@ -88,7 +108,7 @@ public class Storage : MonoBehaviour
 			Debug.LogError($"{itemType} does not exist in this storage.", this);
 		}
 	}
-	
+
 	public int Count(ItemType itemType)
 	{
 		for (int i = 0; i < items.Count; i++)

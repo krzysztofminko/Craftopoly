@@ -31,21 +31,19 @@ public static class SearchFor
 		return false;
 	}
 
-	public static bool ItemInCraftStructures(ItemType itemType, Vector3 position, out Item item, out Storage storage, CraftStructure exclude = null)
+	public static bool ItemInCraftStructures(ItemType itemType, Vector3 position, out Item item, CraftStructure exclude = null)
 	{
 		CraftStructure craftStructure = CraftStructure.list
-			.FindAll(s => s != exclude && s.storage.Count(itemType) > 0)
+			.FindAll(s => s != exclude && s.craftedItem && s.craftedItem.type == itemType)
 			.OrderBy(s => (s.transform.position - position).sqrMagnitude)
 			.FirstOrDefault();
 		if (craftStructure)
 		{
-			item = craftStructure.storage.items.Find(i => i.type == itemType);
-			storage = craftStructure.storage;
+			item = craftStructure.craftedItem;
 			return true;
 		}
 
 		item = null;
-		storage = null;
 		return false;
 	}
 
@@ -68,13 +66,22 @@ public static class SearchFor
 	}
 
 
-	public static bool CraftStructureWithItemType(ItemType itemType, Vector3 position, out CraftStructure craftStructure, bool onlyAvailable = true)
+	public static bool CraftStructureWithItemType(ItemType itemType, Vector3 position, out CraftStructure craftStructure, bool onlyWithoutWorker = true)
 	{
 		craftStructure = CraftStructure.list
-			.FindAll(s => s.itemTypes.Contains(itemType)) // && (onlyAvailable? s.currentItemType == itemType : true))
+			.FindAll(s => s.itemTypes.Contains(itemType) && (onlyWithoutWorker? !s.worker : true))
 			.OrderBy(s => (s.transform.position - position).sqrMagnitude)
 			.FirstOrDefault();
 		return craftStructure;
+	}
+
+	public static bool GatherStructureWithItemType(ItemType itemType, Vector3 position, out GatherStructure gatherStructure)
+	{
+		gatherStructure = GatherStructure.list
+			.FindAll(s => s.itemType == itemType)
+			.OrderBy(s => (s.transform.position - position).sqrMagnitude)
+			.FirstOrDefault();
+		return gatherStructure;
 	}
 
 

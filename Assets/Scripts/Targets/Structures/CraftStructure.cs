@@ -36,6 +36,7 @@ public class CraftStructure : Workplace
 	private int GetItemCallsMax = 10;
 
 	[Header("References")]
+	[SerializeField] private Transform craftedTransform;
 	[SerializeField] private ParticleSystem smokeParticles;
 	[SerializeField] private ParticleSystem fireParticles;
 
@@ -43,8 +44,29 @@ public class CraftStructure : Workplace
 	public float fuel;
 	public float progress;
 	private bool resourcesUsed;
-	public ItemType currentItemType;
-	public Item craftedItem;
+	[SerializeField]
+	private ItemType _currentItemType;
+	public ItemType currentItemType
+	{
+		get => _currentItemType;
+		set
+		{
+			if (_currentItemType && _currentItemType != value && value)
+				;// ReleaseUnnecessaryItems(value);
+			_currentItemType = value;
+		}
+	}
+	[SerializeField]
+	private Item _craftedItem;
+	public Item craftedItem
+	{
+		get => _craftedItem;
+		set
+		{
+			_craftedItem = value;
+			_craftedItem?.SetParent(craftedTransform ? craftedTransform : transform);
+		}
+	}
 	public List<CraftOrder> orders;
 
 	private bool isFueled;
@@ -77,6 +99,9 @@ public class CraftStructure : Workplace
 		if (isFueled)
 			Burn();
 
+		if (craftedItem && (craftedItem.transform.parent != transform && craftedItem.transform.parent != craftedTransform))
+			craftedItem = null;
+
 		if (target.ReservedBy != Player.instance && worker && worker.WorkTime() && worker.fsm.ActiveStateName == "Idle")
 		{
 			//Store craftedItem
@@ -93,7 +118,7 @@ public class CraftStructure : Workplace
 				CraftOrder order = orders.Find(o => (!o.maintainAmount && o.count > 0) || (o.maintainAmount && o.count > storage.Count(o.itemType)));
 				if (order != null)
 				{
-					SetCurrentItemBlueprint(order.itemType);
+					currentItemType = order.itemType;
 
 					//Find what is missing
 					List<ItemCount> missing = order.itemType.blueprint.MissingResources(storage);
@@ -193,10 +218,11 @@ public class CraftStructure : Workplace
 		}
 	}
 
-	//TODO: SetCurrentItemBlueprint remove?
-	public void SetCurrentItemBlueprint(ItemType itemType)
+	private void ReleaseUnnecessaryItems(ItemType type)
 	{
-		currentItemType = itemType;
+		for (int i = storage.items.Count - 1; i >= 0; i--)
+			if (type.blueprint.requiredItems.Find(r => r.type == storage.items[i].type) == null || (craftedItem != storage.items[i].type))
+				storage.RemoveItem(storage.items[i]);
 	}
 
 }

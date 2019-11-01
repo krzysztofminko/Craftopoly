@@ -69,10 +69,7 @@ namespace HutongGames.PlayMaker.Actions
 							craftStructure.storage.DestroyItem(itemType.blueprint.requiredItems[i].type, itemType.blueprint.requiredItems[i].count);
 
 						Item crafted = itemType.Spawn(1, craftStructure.transform.position, craftStructure.transform.rotation);
-						crafted.GetComponent<Rigidbody>().isKinematic = true;
-						craftStructure.storage.AddItem(crafted);
-						//if(citizen == Player.instance)
-							craftStructure.craftedItem = crafted;
+						craftStructure.craftedItem = crafted;
 						returnItem.Value = crafted.gameObject;
 
 						CraftStructure.CraftOrder order = craftStructure.orders.Find(o => o.itemType == itemType);

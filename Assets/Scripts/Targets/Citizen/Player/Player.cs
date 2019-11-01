@@ -106,7 +106,7 @@ public class Player : Citizen
 					else if (focused.storage)
 					{
 						bool refuel = pickedItem.type.fuelValue > 0 && focused.craftStructure && focused.craftStructure.fuelMax > 0;
-						if (InputHints.GetButtonDown("PrimaryAction", refuel? "Refuel" : "Put"))
+						if (InputHints.GetButtonDown("PrimaryAction", refuel ? "Refuel" : "Put"))
 							fsm.Put(pickedItem.count, focused.storage);
 					}
 					else if (focused.item && focused.item.type == pickedItem.type)
@@ -125,7 +125,7 @@ public class Player : Citizen
 					else if (focused.item)
 					{
 						if (InputHints.GetButtonDown("PrimaryAction", "Pick " + focused.item.name))
-							fsm.Pick(null, focused.item, focused.item.count);
+							fsm.Pick(focused.item, focused.item.count);
 					}
 					else if (focused.newStructure)
 					{

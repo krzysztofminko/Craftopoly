@@ -189,10 +189,14 @@ public class Citizen : MonoBehaviour, IMoney
 			{
 				Item item = null;
 				Storage sourceStorage = null;
-				CraftStructure craftStructure = null;
 
 				//if (supplyStorage && SearchFor.ItemInStorage(items[i].type, supplyStorage, out item))
 				//	sourceStorage = supplyStorage;
+				if (!item)
+				{
+					if (SearchFor.ItemInCraftStructures(items[i].type, inStorage.transform.position, out item))
+						if (DEBUG) Debug.Log(String.Format("{0} in CraftStructure", item));
+				}
 				if (!item)
 				{
 					if (SearchFor.ItemInStorageStructures(items[i].type, inStorage.transform.position, out item, out sourceStorage))
@@ -200,12 +204,15 @@ public class Citizen : MonoBehaviour, IMoney
 				}
 				if (!item)
 				{
-					if (SearchFor.ItemInCraftStructures(items[i].type, inStorage.transform.position, out item, out sourceStorage, inStorage.target.craftStructure ? inStorage.target.craftStructure : null))
-						if (DEBUG) Debug.Log(String.Format("{0} in CraftStructure", item));
+					//TODO: Limit to the plot
+					item = Item.free.Find(it => it.type == items[i].type);
+					if(item)
+						if (DEBUG) Debug.Log(String.Format("{0} lying on the ground.", item));
 				}
 				if (!item)
 				{
-					if (SearchFor.CraftStructureWithItemType(items[i].type, inStorage.transform.position, out craftStructure))
+					//TODO: Crafting must be accessed by some method, not copy-paste code like here (same for Gathering)
+					if (SearchFor.CraftStructureWithItemType(items[i].type, inStorage.transform.position, out CraftStructure craftStructure))
 					{
 						if (DEBUG) Debug.Log(String.Format("{0} in CraftStructure blueprints", items[i].type));
 						List<ItemCount> missing = items[i].type.blueprint.MissingResources(craftStructure.storage);
@@ -217,14 +224,23 @@ public class Citizen : MonoBehaviour, IMoney
 						else
 						{
 							if (DEBUG) Debug.Log("Craft");
-							craftStructure.SetCurrentItemBlueprint(items[i].type);
+							craftStructure.currentItemType = items[i].type;
 							fsm.Craft(items[i].type, craftStructure);
 							GetItemCalls--;
 							return true;
 						}
 					}
 				}
+				//TODO: Gather
+				/*
+				if (!item)
+				{
+					if(SearchFor.GatherStructureWithItemType(items[i].type, inStorage.transform.position, out GatherStructure gatherStructure))
+					{
 
+					}
+				}
+				*/
 				if (!item)
 				{
 					//IMPORTANT: SearchFor.ItemTypeInPlots else increase itemType request in shop

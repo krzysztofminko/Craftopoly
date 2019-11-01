@@ -10,6 +10,8 @@ namespace HutongGames.PlayMaker.Actions
 
 		[CheckForComponent(typeof(Storage))]
 		public FsmGameObject _storage;
+		[CheckForComponent(typeof(CraftStructure))]
+		public FsmGameObject _craftStructure;
 		[CheckForComponent(typeof(Item))]
 		[RequiredField]
 		public FsmGameObject _item;
@@ -21,6 +23,7 @@ namespace HutongGames.PlayMaker.Actions
 		Citizen citizen;
 		Item item;
 		Storage storage;
+		CraftStructure craftStructure;
 
 		public override void OnEnter()
 		{
@@ -29,6 +32,7 @@ namespace HutongGames.PlayMaker.Actions
 				citizen = Owner.GetComponent<Citizen>();
 			item = _item.Value? _item.Value.GetComponent<Item>() : null;
 			storage = _storage.Value ? _storage.Value.GetComponent<Storage>() : null;
+			craftStructure = _craftStructure.Value ? _craftStructure.Value.GetComponent<CraftStructure>() : null;
 
 			if (count.Value < 1)
 				count.Value = item.count;
@@ -75,8 +79,6 @@ namespace HutongGames.PlayMaker.Actions
 
 						if (storage)
 						{
-							if (storage.target.craftStructure)
-								storage.target.craftStructure.craftedItem = null;
 							citizen.pickedItem = storage.RemoveItem(item, count.Value);
 
 							if (storage.target.shopStructure && storage.target.shopStructure.plot)
@@ -84,6 +86,11 @@ namespace HutongGames.PlayMaker.Actions
 								citizen.Pay(storage.target.shopStructure.plot, citizen.pickedItem.type.value * count.Value);
 								storage.target.shopStructure.FinishTransaction();
 							}
+						}
+						else if (craftStructure)
+						{
+							citizen.pickedItem = craftStructure.craftedItem;
+							craftStructure.craftedItem = null;
 						}
 						else if (item.count - count.Value > 0)
 						{
