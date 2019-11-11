@@ -56,7 +56,6 @@ namespace HutongGames.PlayMaker.Actions
 					citizen.animator.SetFloat("UseAnimationId", 0);
 					citizen.pickedItem.target.ReservedBy = null;
 										
-					//TODO: Put count
 					if (storage)
 					{
 						storage.AddItem(citizen.pickedItem, count.Value);
