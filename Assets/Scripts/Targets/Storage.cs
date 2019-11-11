@@ -15,6 +15,7 @@ public class Storage : MonoBehaviour
 
 	[Header("Runtime")]
 	public List<Item> items;
+	public Dictionary<ItemType, int> counts = new Dictionary<ItemType, int>();
 
 	[HideInInspector]
 	public Target target;
@@ -39,6 +40,12 @@ public class Storage : MonoBehaviour
 	{
 		items.Add(item);
 		item.SetParent(inputTransform ? inputTransform : transform);
+
+		if (counts.ContainsKey(item.type))
+			counts[item.type]++;
+		else
+			counts.Add(item.type, 1);
+
 		onItemsUpdate?.Invoke();
 	}
 
@@ -48,6 +55,11 @@ public class Storage : MonoBehaviour
 			item.transform.position = releaseTransform.position;
 		item.SetParent(null);
 		items.Remove(item);
+
+		counts[item.type]--;
+		if (counts[item.type] == 0)
+			counts.Remove(item.type);
+
 		onItemsUpdate?.Invoke();
 		return item;
 	}
@@ -89,5 +101,4 @@ public class Storage : MonoBehaviour
 				count++;
 		return count;
 	}
-
 }

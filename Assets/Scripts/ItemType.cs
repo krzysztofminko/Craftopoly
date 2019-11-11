@@ -15,7 +15,7 @@ public class ItemType : ScriptableObject
 	public GameObject model;
 	public Sprite thumbnail;
 	[Tooltip("Max count possible to pick")]
-	public int maxCount = 1;
+	public int maxCount = 1;	//TODO: Remove maxCount
 	[Tooltip("Must be greater than sum of blueprint items values")]
 	public float value;
 	[Tooltip("Skill required for crafting or gathering.")]
@@ -38,7 +38,6 @@ public class ItemType : ScriptableObject
 	[Header("Fuel")]
 	[Tooltip("0 when not fuel. In seconds of burning.")]
 	public float fuelValue;
-
 
 	Texture2D thumbnailTexture;
 
@@ -65,7 +64,10 @@ public class ItemType : ScriptableObject
 		{
 			GameObject go = Instantiate(Resources.Load<GameObject>("Item"));
 			if (position != null)
-				go.transform.position = position.Value + Vector3.up * 0.5f;
+			{
+				Vector3 size = go.GetComponent<Collider>().bounds.size;
+				go.transform.position = position.Value + Vector3.up * 0.5f * size.y + Vector3.forward * 0.5f * Random.Range(-count * 1f, count) * size.z + Vector3.right * 0.5f * Random.Range(-count * 1f, count) * size.x;
+			}
 			if (rotation != null)
 				go.transform.rotation = rotation.Value;
 

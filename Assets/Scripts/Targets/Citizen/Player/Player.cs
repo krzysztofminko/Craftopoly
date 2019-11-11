@@ -133,11 +133,6 @@ public class Player : Citizen
 							fsm.Put(focused.storage);
 						}
 					}
-					else if (focused.item && focused.item.type == pickedItem.type)
-					{
-						if (InputHints.GetButtonDown("PrimaryAction", "Stack"))
-							fsm.Put(focused.item);
-					}
 				}
 				else
 				{

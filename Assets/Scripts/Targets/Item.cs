@@ -12,19 +12,17 @@ public class Item : MonoBehaviour
 	[ShowInInspector]
 	public static List<Item> free = new List<Item>();
 	private static bool prefabThumbnailsGenerated;
-
+	
 	[Header("Runtime")]
 	public ItemType type;
 	public float durability;
 
-	//[HideInInspector]
-	private Texture2D thumbnail;
-	//[HideInInspector]
-	private Sprite thumbnailSprite;
-
 	[HideInInspector]
 	public Target target;
-	
+
+	private Texture2D thumbnail;
+	private Sprite thumbnailSprite;
+
 	private void Awake()
 	{		
 		target = GetComponent<Target>();
@@ -56,5 +54,4 @@ public class Item : MonoBehaviour
 				free.Add(this);
 		}
 	}
-
 }

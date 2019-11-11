@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -88,7 +89,7 @@ namespace UI
 
 				Player.instance.controlsEnabled = false;
 				
-				targetStorageScrollList.Draw(storage.items.Count, 0);
+				targetStorageScrollList.Draw(storage.counts.Count, 0);
 
 				detailsNameText.text = "";
 				detailsImage.sprite = null;
@@ -122,23 +123,23 @@ namespace UI
 		
 		private void SetupItemListItem(int id, Selectable listItem)
 		{
-			listItem.transform.GetChild(0).GetComponent<Image>().sprite = targetStorage.items[id].type.GenerateThumbnail();
-			listItem.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = targetStorage.items[id].type.name;
-			SetListItemCountText(listItem, targetStorage.Count(targetStorage.items[id].type));
+			listItem.transform.GetChild(0).GetComponent<Image>().sprite = targetStorage.counts.ToList()[id].Key.GenerateThumbnail();
+			listItem.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = targetStorage.counts.ToList()[id].Key.name;
+			SetListItemCountText(listItem, targetStorage.counts.ToList()[id].Value);
 		}
 
 		private void SelectItemListItem(int id, Selectable listItem)
 		{
 			selectedListItemId = id;
 			selectedListItem = listItem;
-			selectedItem = targetStorage.items[id];
+			selectedItem = targetStorage.items.Find(i => i.type == targetStorage.counts.ToList()[id].Key);
 
 			UpdateDetails();
 		}
 
 		private void UpdateItems()
 		{
-			targetStorageScrollList.Draw(targetStorage.items.Count, 0);
+			targetStorageScrollList.Draw(targetStorage.counts.Count, 0);
 		}
 
 		private void UpdateDetails()

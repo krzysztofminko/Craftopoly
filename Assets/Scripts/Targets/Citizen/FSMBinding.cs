@@ -47,22 +47,13 @@ public class FSMBinding : MonoBehaviour
 
 	public void Put()
 	{
-		fsm.FsmVariables.GetFsmGameObject("StackGO").Value = null;
 		fsm.FsmVariables.GetFsmGameObject("StorageGO").Value = null;
 		fsm.SendEvent("Put");
 	}
 
 	public void Put(Storage storage)
 	{
-		fsm.FsmVariables.GetFsmGameObject("StackGO").Value = null;
 		fsm.FsmVariables.GetFsmGameObject("StorageGO").Value = storage ? storage.gameObject : null;
-		fsm.SendEvent("Put");
-	}
-
-	public void Put(Item stack)
-	{
-		fsm.FsmVariables.GetFsmGameObject("StorageGO").Value = null;
-		fsm.FsmVariables.GetFsmGameObject("StackGO").Value = stack ? stack.gameObject : null;
 		fsm.SendEvent("Put");
 	}
 
@@ -89,11 +80,10 @@ public class FSMBinding : MonoBehaviour
 		fsm.SendEvent("Store");
 	}
 
-	public void Gather(Source source, Storage storage = null, int count = 0)
+	public void Gather(Source source, Storage storage = null)
 	{
 		fsm.FsmVariables.GetFsmGameObject("SourceGO").Value = source.gameObject;
 		fsm.FsmVariables.GetFsmGameObject("StorageGO").Value = storage ? storage.gameObject : null;
-		fsm.FsmVariables.GetFsmInt("Count").Value = count;
 		fsm.SendEvent("Gather");
 	}
 
