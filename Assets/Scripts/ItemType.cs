@@ -59,22 +59,26 @@ public class ItemType : ScriptableObject
 	
 	public Item Spawn(int count = 1, Vector3? position = null, Quaternion? rotation = null)
 	{
-		GameObject go = Instantiate(Resources.Load<GameObject>("Item"));
-		if (position != null)
-			go.transform.position = position.Value + Vector3.up * 0.5f;
-		if (rotation != null)
-			go.transform.rotation = rotation.Value;
+		count = Mathf.Max(count, 1);
+		Item item = null;
+		for (int i = 0; i < count; i++)
+		{
+			GameObject go = Instantiate(Resources.Load<GameObject>("Item"));
+			if (position != null)
+				go.transform.position = position.Value + Vector3.up * 0.5f;
+			if (rotation != null)
+				go.transform.rotation = rotation.Value;
 
-		Item item = go.GetComponent<Item>();
-		item.name = name;
-		item.type = this;
-		item.count = count;
-		item.durability = maxDurability;
-		item.SetParent(null);
+			item = go.GetComponent<Item>();
+			item.name = name;
+			item.type = this;
+			item.durability = maxDurability;
+			item.SetParent(null);
 
-		GameObject child = Instantiate(model, item.transform);
-		child.transform.localPosition = Vector3.zero;
-
+			GameObject child = Instantiate(model, item.transform);
+			child.transform.localPosition = Vector3.zero;
+		}
+		//Return last spawned item
 		return item;
 	}
 }

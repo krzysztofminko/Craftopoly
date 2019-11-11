@@ -66,7 +66,7 @@ namespace HutongGames.PlayMaker.Actions
 					else
 					{
 						for (int i = 0; i < itemType.blueprint.requiredItems.Count; i++)
-							craftStructure.storage.DestroyItem(itemType.blueprint.requiredItems[i].type, itemType.blueprint.requiredItems[i].count);
+							craftStructure.storage.DestroyItemType(itemType.blueprint.requiredItems[i].type, itemType.blueprint.requiredItems[i].count);
 
 						Item crafted = itemType.Spawn(1, craftStructure.transform.position, craftStructure.transform.rotation);
 						craftStructure.craftedItem = crafted;

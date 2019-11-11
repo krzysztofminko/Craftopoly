@@ -252,7 +252,7 @@ public class Citizen : MonoBehaviour, IMoney
 				if (item)
 				{
 					if (DEBUG) Debug.Log("Store");
-					fsm.Store(item, sourceStorage, inStorage, items[i].count);
+					fsm.Store(item, sourceStorage, inStorage);
 					GetItemCalls--;
 					return true;
 				}

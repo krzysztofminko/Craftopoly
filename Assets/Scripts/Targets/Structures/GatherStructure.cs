@@ -47,7 +47,7 @@ public class GatherStructure : Workplace
 			if (items.Count > 0)
 			{
 				if (SearchFor.NearestStorageStructure(plot, transform.position, out StorageStructure targetStorage))
-					worker.fsm.Store(items[0], null, targetStorage.storage, items[0].count);
+					worker.fsm.Store(items[0], null, targetStorage.storage);
 				else
 					Debug.LogError("No StorageStructure on plot");
 			}

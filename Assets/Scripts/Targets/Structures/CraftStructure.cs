@@ -108,7 +108,7 @@ public class CraftStructure : Workplace
 			if (craftedItem)
 			{
 				if (SearchFor.NearestStorageStructure(plot, transform.position, out StorageStructure targetStorage))
-					worker.fsm.Store(craftedItem, storage, targetStorage.storage, craftedItem.count);
+					worker.fsm.Store(craftedItem, storage, targetStorage.storage);
 				else
 					Debug.LogError("No StorageStructure on plot");
 			}
@@ -146,7 +146,7 @@ public class CraftStructure : Workplace
 									SearchFor.FuelInShopStructures(transform.position, out fuelItem, out sourceStorage);
 
 								if (fuelItem)
-									worker.fsm.Store(fuelItem, sourceStorage, storage, Mathf.FloorToInt(missingFuel / fuelItem.type.fuelValue) + 1);
+									worker.fsm.Store(fuelItem, sourceStorage, storage);
 							}
 						}
 						else
@@ -180,7 +180,7 @@ public class CraftStructure : Workplace
 					if (currentItemType.blueprint.MissingResources(storage).Count == 0)
 					{
 						for (int i = 0; i < currentItemType.blueprint.requiredItems.Count; i++)
-							storage.DestroyItem(currentItemType.blueprint.requiredItems[i].type, currentItemType.blueprint.requiredItems[i].count);
+							storage.DestroyItemType(currentItemType.blueprint.requiredItems[i].type, currentItemType.blueprint.requiredItems[i].count);
 						resourcesUsed = true;
 					}
 				}
@@ -214,7 +214,7 @@ public class CraftStructure : Workplace
 		for(int i = fuelItems.Count - 1; i >= 0; i --)
 		{
 			fuel = Mathf.Min(fuelMax, fuel + fuelItems[i].type.fuelValue);
-			storage.DestroyItem(fuelItems[i].type, 1);
+			storage.DestroyItemType(fuelItems[i].type, 1);
 		}
 	}
 

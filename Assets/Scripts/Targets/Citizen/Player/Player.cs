@@ -88,8 +88,8 @@ public class Player : Citizen
 				{
 					if (focused.shopStructure && focused.shopStructure.plot)
 					{
-						if (InputHints.GetButtonDown("PrimaryAction", "Sell for " + pickedItem.type.value * pickedItem.count))
-							if (focused.shopStructure.plot.Money < pickedItem.type.value * pickedItem.count)
+						if (InputHints.GetButtonDown("PrimaryAction", "Sell for " + pickedItem.type.value))
+							if (focused.shopStructure.plot.Money < pickedItem.type.value)
 							{
 								Notifications.instance.Add("Not enough money in shop.");
 							}
@@ -99,8 +99,8 @@ public class Player : Citizen
 							}
 							else
 							{
-								focused.shopStructure.plot.Pay(this, pickedItem.type.value * pickedItem.count);
-								fsm.Put(pickedItem.count, focused.shopStructure.storage);
+								focused.shopStructure.plot.Pay(this, pickedItem.type.value);
+								fsm.Put(focused.shopStructure.storage);
 							}
 					}
 					else if (focused.storage)
@@ -116,8 +116,7 @@ public class Player : Citizen
 									ItemCount mic = missing.Find(m => m.type == pickedItem.type);
 									if (mic != null)
 									{
-										Debug.Log($"{pickedItem.count} , {mic.count}");
-										fsm.Put(Mathf.Min(pickedItem.count, mic.count), focused.craftStructure.storage);
+										fsm.Put(focused.craftStructure.storage);
 									}
 									else
 									{
@@ -131,13 +130,13 @@ public class Player : Citizen
 						}
 						else if (InputHints.GetButtonDown("PrimaryAction", "Put"))
 						{
-							fsm.Put(pickedItem.count, focused.storage);
+							fsm.Put(focused.storage);
 						}
 					}
 					else if (focused.item && focused.item.type == pickedItem.type)
 					{
 						if (InputHints.GetButtonDown("PrimaryAction", "Stack"))
-							fsm.Put(pickedItem.count, focused.item);
+							fsm.Put(focused.item);
 					}
 				}
 				else
@@ -150,7 +149,7 @@ public class Player : Citizen
 					else if (focused.item)
 					{
 						if (InputHints.GetButtonDown("PrimaryAction", "Pick " + focused.item.name))
-							fsm.Pick(focused.item, focused.item.count);
+							fsm.Pick(focused.item);
 					}
 					else if (focused.newStructure)
 					{
@@ -176,7 +175,7 @@ public class Player : Citizen
 						{
 							if (InputHints.GetButtonDown("PrimaryAction", "Pick " + focused.craftStructure.craftedItem.name))
 							{
-								fsm.Pick(focused.storage, focused.craftStructure.craftedItem, focused.craftStructure.craftedItem.count);
+								fsm.Pick(focused.storage, focused.craftStructure.craftedItem);
 								focused.craftStructure.craftedItem = null;
 							}
 						}
@@ -222,7 +221,7 @@ public class Player : Citizen
 			if (pickedItem)
 			{
 				if (InputHints.GetButtonDown("SecondaryAction", "Put down"))
-					fsm.Put(pickedItem.count);
+					fsm.Put();
 			}
 			#endregion
 		}

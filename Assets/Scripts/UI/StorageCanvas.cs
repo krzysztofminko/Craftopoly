@@ -87,7 +87,7 @@ namespace UI
 				transform.GetChild(0).gameObject.SetActive(true);
 
 				Player.instance.controlsEnabled = false;
-
+				
 				targetStorageScrollList.Draw(storage.items.Count, 0);
 
 				detailsNameText.text = "";
@@ -124,7 +124,7 @@ namespace UI
 		{
 			listItem.transform.GetChild(0).GetComponent<Image>().sprite = targetStorage.items[id].type.GenerateThumbnail();
 			listItem.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = targetStorage.items[id].type.name;
-			SetListItemCountText(listItem, targetStorage.items[id].count);
+			SetListItemCountText(listItem, targetStorage.Count(targetStorage.items[id].type));
 		}
 
 		private void SelectItemListItem(int id, Selectable listItem)
@@ -197,7 +197,7 @@ namespace UI
 				}
 				else
 				{
-					Player.instance.fsm.Pick(targetStorage, selectedItem, pickCount);
+					Player.instance.fsm.Pick(targetStorage, selectedItem);
 					Hide();
 				}
 			}

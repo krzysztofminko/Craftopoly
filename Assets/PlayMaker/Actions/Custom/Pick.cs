@@ -15,8 +15,6 @@ namespace HutongGames.PlayMaker.Actions
 		[CheckForComponent(typeof(Item))]
 		[RequiredField]
 		public FsmGameObject _item;
-		[Tooltip("If count = 0 then pick all")]
-		public FsmInt count;
 		public FsmBool updateItemReference = true;
 
 		float timer;
@@ -34,16 +32,11 @@ namespace HutongGames.PlayMaker.Actions
 			storage = _storage.Value ? _storage.Value.GetComponent<Storage>() : null;
 			craftStructure = _craftStructure.Value ? _craftStructure.Value.GetComponent<CraftStructure>() : null;
 
-			if (count.Value < 1)
-				count.Value = item.count;
-
-			count.Value = Mathf.Clamp(count.Value, 1, item.type.maxCount);
 		}
 
 		public override void OnExit()
 		{
 			timer = 0;
-			count.Value = 0;
 			_item.Value = null;
 			_storage.Value = null;
 		}
@@ -58,7 +51,7 @@ namespace HutongGames.PlayMaker.Actions
 					Debug.Log("FAILED: item == null or ReservedBy", citizen);
 					Fsm.Event("FAILED");
 				}
-				else if (storage && storage.target.shopStructure && storage.target.shopStructure.plot && citizen.Money < item.type.value * count.Value)
+				else if (storage && storage.target.shopStructure && storage.target.shopStructure.plot && citizen.Money < item.type.value)
 				{
 					citizen.animator.SetFloat("UseAnimationId", 0);
 					Fsm.Event("FAILED");
@@ -74,16 +67,14 @@ namespace HutongGames.PlayMaker.Actions
 					if (timer > animationTimer)
 					{
 						citizen.animator.SetFloat("UseAnimationId", 0);
-
-						//item = citizen.Pick(item, count.Value, storage);
-
+						
 						if (storage)
 						{
-							citizen.pickedItem = storage.RemoveItem(item, count.Value);
+							citizen.pickedItem = storage.RemoveItem(item);
 
 							if (storage.target.shopStructure && storage.target.shopStructure.plot)
 							{
-								citizen.Pay(storage.target.shopStructure.plot, citizen.pickedItem.type.value * count.Value);
+								citizen.Pay(storage.target.shopStructure.plot, citizen.pickedItem.type.value);
 								storage.target.shopStructure.FinishTransaction();
 							}
 						}
@@ -91,12 +82,6 @@ namespace HutongGames.PlayMaker.Actions
 						{
 							citizen.pickedItem = craftStructure.craftedItem;
 							craftStructure.craftedItem = null;
-						}
-						else if (item.count - count.Value > 0)
-						{
-							item.count -= count.Value;
-							item.target.ReservedBy = null;
-							citizen.pickedItem = item.type.Spawn(count.Value, citizen.transform.position, citizen.transform.rotation);
 						}
 						else
 						{

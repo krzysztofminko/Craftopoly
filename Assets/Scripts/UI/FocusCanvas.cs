@@ -49,7 +49,8 @@ namespace UI
 		public void Show(Target target)
 		{
 			this.target = target;
-			nameText.text = target.name + (target.item? " x" + target.item.count : "");
+			//TODO: Stack count
+			nameText.text = target.name; // + (target.item? " x" + target.item.count : "");
 
 			transform.GetChild(0).gameObject.SetActive(true);
 		}

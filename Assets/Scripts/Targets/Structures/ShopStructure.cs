@@ -90,7 +90,7 @@ public class ShopStructure : Workplace
 							
 						//Store Item
 						if (item)
-							worker.fsm.Store(item, sourceStorage, storage, missingCount);
+							worker.fsm.Store(item, sourceStorage, storage);
 					}
 				}
 			}

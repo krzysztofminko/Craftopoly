@@ -15,7 +15,6 @@ public class Item : MonoBehaviour
 
 	[Header("Runtime")]
 	public ItemType type;
-	public int count = 1;
 	public float durability;
 
 	//[HideInInspector]

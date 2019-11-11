@@ -35,108 +35,59 @@ public class Storage : MonoBehaviour
 	}
 	
 
-	public Item AddItem(Item item, int count = 0)
+	public void AddItem(Item item)
 	{
-		count = Mathf.Clamp(count, 0, item.count);
-		if (count == 0)
-			count = item.count;
-		Item itemInside = items.Find(i => i.type == item.type);
-		if (itemInside)
-		{
-			itemInside.target.ReservedBy = null;	//TODO: Why?
-			itemInside.count += count;
-			item.count -= count;
-			if (item.count == 0)
-				Destroy(item.gameObject);
-			onItemsUpdate?.Invoke();
-			return itemInside;
-		}
-		else
-		{
-			if(item.count < count)
-			{
-				Item splitedItem = item.type.Spawn(count - item.count);
-				items.Add(splitedItem);
-				splitedItem.SetParent(inputTransform ? inputTransform : transform);
-				item.count -= count;
-				if(item.count == 0)
-					Destroy(item.gameObject);
-				onItemsUpdate?.Invoke();
-				return splitedItem;
-			}
-			else
-			{
-				items.Add(item);
-				item.SetParent(inputTransform ? inputTransform : transform);
-				onItemsUpdate?.Invoke();
-				return item;
-			}
-		}
+		items.Add(item);
+		item.SetParent(inputTransform ? inputTransform : transform);
+		onItemsUpdate?.Invoke();
 	}
 
-	public Item RemoveItem(Item item, int count = 0)
+	public Item RemoveItem(Item item)
 	{
-		count = Mathf.Clamp(count, 0, item.count);
-		if (count == 0)
-			count = item.count;
-
-		count = Mathf.Max(count, 1);
-
-		if (item.count - count > 0)
-		{
-			item.count -= count;
-			Item i = item.type.Spawn(count, transform.position, transform.rotation);
-			if (releaseTransform)
-				i.transform.position = releaseTransform.position;
-			i.SetParent(null);
-			onItemsUpdate?.Invoke();
-			return i;
-		}
-		else
-		{
-			if (releaseTransform)
-				item.transform.position = releaseTransform.position;
-			item.SetParent(null);
-			items.Remove(item);
-			onItemsUpdate?.Invoke();
-			return item;
-		}
+		if (releaseTransform)
+			item.transform.position = releaseTransform.position;
+		item.SetParent(null);
+		items.Remove(item);
+		onItemsUpdate?.Invoke();
+		return item;
 	}
 
-	public void DestroyItem(ItemType itemType, int count = 0)
+	public void DestroyItemType(ItemType itemType, int count = 0)
 	{
-		Item item = items.Find(i => i.type == itemType);
-		if (item)
-		{
-			if (count == 0)
-				count = item.count;
-
-			item.count -= count;
-			if (item.count == 0)
-			{
-				items.Remove(item);
-				Destroy(item.gameObject);
-			}
-			else if(item.count < 0)
-			{
-				Debug.LogError("Count parameter is to big than actual count of item in this storage.", this);
-			}
-			onItemsUpdate?.Invoke();
-		}
-		else
-		{
+		int inStorage = Count(itemType);
+		if(inStorage == 0)
 			Debug.LogError($"{itemType} does not exist in this storage.", this);
-		}
-	}
 
+		if (count > inStorage)
+			Debug.LogError("Count parameter is to big than actual count of item in this storage.", this);
+
+		if (count < 0)
+			Debug.LogError($"Count parameter can't be smaller than zero {count}.", this);
+
+		if (count == 0)
+			count = inStorage;
+		
+		for(int i = count - 1; i >= 0; i--)
+		{
+			if(items[i].type == itemType)
+			{
+				Destroy(items[i].gameObject);
+				items.RemoveAt(i);
+			}
+		}
+
+		onItemsUpdate?.Invoke();		
+	}
+	
 	public int Count(ItemType itemType)
 	{
+		int count = 0;
 		for (int i = 0; i < items.Count; i++)
 			if (!items[i])
 				Debug.LogError("!");
 			else if (items[i].type == itemType)
-				return items[i].count;
-		return 0;
+				count++;
+		return count;
 	}
 
 }

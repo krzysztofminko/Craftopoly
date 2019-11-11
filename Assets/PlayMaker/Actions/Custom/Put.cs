@@ -12,8 +12,6 @@ namespace HutongGames.PlayMaker.Actions
 		public FsmGameObject _storage;
 		[CheckForComponent(typeof(Item))]
 		public FsmGameObject _stack;
-		[Tooltip("If count = 0 then put all")]
-		public FsmInt count;
 
 		float timer;
 		Citizen citizen;
@@ -31,10 +29,6 @@ namespace HutongGames.PlayMaker.Actions
 
 			citizen.pickedItem.target.ReservedBy = citizen;
 
-			if (count.Value < 1)
-				count.Value = citizen.pickedItem.count;
-
-			count.Value = Mathf.Clamp(count.Value, 1, citizen.pickedItem.count);
 		}
 
 		public override void OnExit()
@@ -58,13 +52,11 @@ namespace HutongGames.PlayMaker.Actions
 										
 					if (storage)
 					{
-						storage.AddItem(citizen.pickedItem, count.Value);
+						storage.AddItem(citizen.pickedItem);
 					}
 					else if (stack)
 					{
-						stack.count += citizen.pickedItem.count;
-						Object.Destroy(citizen.pickedItem.gameObject);
-						Debug.Log(citizen.pickedItem + " destroyed", citizen.pickedItem);
+						//TODO: Stack Put
 					}
 					else
 					{
