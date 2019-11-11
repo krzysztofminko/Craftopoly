@@ -34,7 +34,7 @@ namespace HutongGames.PlayMaker.Actions
 			if (count.Value < 1)
 				count.Value = citizen.pickedItem.count;
 
-			count.Value = Mathf.Clamp(count.Value, 1, citizen.pickedItem.type.maxCount);
+			count.Value = Mathf.Clamp(count.Value, 1, citizen.pickedItem.count);
 		}
 
 		public override void OnExit()
@@ -56,9 +56,10 @@ namespace HutongGames.PlayMaker.Actions
 					citizen.animator.SetFloat("UseAnimationId", 0);
 					citizen.pickedItem.target.ReservedBy = null;
 										
+					//TODO: Put count
 					if (storage)
 					{
-						storage.AddItem(citizen.pickedItem);
+						storage.AddItem(citizen.pickedItem, count.Value);
 					}
 					else if (stack)
 					{

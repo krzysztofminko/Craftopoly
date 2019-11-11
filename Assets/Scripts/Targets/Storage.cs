@@ -35,28 +35,48 @@ public class Storage : MonoBehaviour
 	}
 	
 
-	public Item AddItem(Item item)
+	public Item AddItem(Item item, int count = 0)
 	{
+		count = Mathf.Clamp(count, 0, item.count);
+		if (count == 0)
+			count = item.count;
 		Item itemInside = items.Find(i => i.type == item.type);
 		if (itemInside)
 		{
 			itemInside.target.ReservedBy = null;	//TODO: Why?
-			itemInside.count += item.count;
-			Destroy(item.gameObject);
+			itemInside.count += count;
+			item.count -= count;
+			if (item.count == 0)
+				Destroy(item.gameObject);
 			onItemsUpdate?.Invoke();
 			return itemInside;
 		}
 		else
 		{
-			items.Add(item);
-			item.SetParent(inputTransform? inputTransform : transform);
-			onItemsUpdate?.Invoke();
-			return item;
+			if(item.count < count)
+			{
+				Item splitedItem = item.type.Spawn(count - item.count);
+				items.Add(splitedItem);
+				splitedItem.SetParent(inputTransform ? inputTransform : transform);
+				item.count -= count;
+				if(item.count == 0)
+					Destroy(item.gameObject);
+				onItemsUpdate?.Invoke();
+				return splitedItem;
+			}
+			else
+			{
+				items.Add(item);
+				item.SetParent(inputTransform ? inputTransform : transform);
+				onItemsUpdate?.Invoke();
+				return item;
+			}
 		}
 	}
 
 	public Item RemoveItem(Item item, int count = 0)
 	{
+		count = Mathf.Clamp(count, 0, item.count);
 		if (count == 0)
 			count = item.count;
 
@@ -113,7 +133,7 @@ public class Storage : MonoBehaviour
 	{
 		for (int i = 0; i < items.Count; i++)
 			if (!items[i])
-				Debug.Log("!");
+				Debug.LogError("!");
 			else if (items[i].type == itemType)
 				return items[i].count;
 		return 0;

@@ -52,7 +52,7 @@ public class CraftStructure : Workplace
 		set
 		{
 			if (_currentItemType && _currentItemType != value && value)
-				;// ReleaseUnnecessaryItems(value);
+				ReleaseUnnecessaryItems(value);
 			_currentItemType = value;
 		}
 	}
@@ -220,9 +220,18 @@ public class CraftStructure : Workplace
 
 	private void ReleaseUnnecessaryItems(ItemType type)
 	{
+		Debug.Log(type);
 		for (int i = storage.items.Count - 1; i >= 0; i--)
-			if (type.blueprint.requiredItems.Find(r => r.type == storage.items[i].type) == null || (craftedItem != storage.items[i].type))
+			if (type.blueprint.requiredItems.FindAll(r => r.type == storage.items[i].type).Count == 0 || (craftedItem && craftedItem != storage.items[i].type))
+			{
+				Debug.Log(storage.items[i].type);
+				Debug.Log(type.blueprint.requiredItems.Count);
+				Debug.Log(type.blueprint.requiredItems.FindAll(r => r.type == storage.items[i].type).Count);
+				if (storage.items[i] == craftedItem)
+					craftedItem = null;
 				storage.RemoveItem(storage.items[i]);
+				
+			}
 	}
 
 }
