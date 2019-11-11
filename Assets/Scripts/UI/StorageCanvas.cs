@@ -24,14 +24,11 @@ namespace UI
 		public TextMeshProUGUI detailsNameText;
 		public Image detailsImage;
 		public TextMeshProUGUI detailsDescriptionText;
-		public Button incButton;
-		public Button decButton;
 		public Button pickButton;
 		public TextMeshProUGUI pickButtonText;
 		public TextMeshProUGUI costText;
 		public TextMeshProUGUI moneyText;
 
-		private int pickCount;
 		private bool controlsUnlocked;
 
 		private void Awake()
@@ -63,12 +60,6 @@ namespace UI
 
 				if (Input.GetButtonDown("Submit"))
 					Pick();
-
-				if (Input.GetButtonDown("IncCount"))
-					IncCount();
-
-				if (Input.GetButtonDown("DecCount"))
-					DecCount();
 			}
 			else
 			{
@@ -147,52 +138,30 @@ namespace UI
 			detailsNameText.text = selectedItem.type.name;
 			detailsImage.sprite = selectedItem.type.GenerateThumbnail();
 			detailsDescriptionText.text = selectedItem.type.description;
-
-			//pickCount = Mathf.Min(selectedItem.type.maxCount, selectedItem.count);
-			pickCount = selectedItem.type.maxCount;
-
+			
 			UpdatePickButton();
 		}
 
 		private void UpdatePickButton()
 		{
-			pickButtonText.text = (shopStructure ? "Buy" : "Pick") + " x" + pickCount.ToString();
+			pickButtonText.text = shopStructure ? "Buy" : "Pick";
 
 			pickButton.interactable = targetStorage.items.Count > 0;
-			incButton.interactable = targetStorage.items.Count > 0;
-			decButton.interactable = targetStorage.items.Count > 0;
 
 			if (shopStructure)
-				costText.text = "Cost: " + (selectedItem? (selectedItem.type.value * pickCount).ToString("0.00") : "0");
+				costText.text = "Cost: " + (selectedItem? selectedItem.type.value.ToString("0.00") : "0");
 		}
 
 		private void SetListItemCountText(Selectable listItem, int count)
 		{
 			listItem.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = count.ToString();
 		}
-
-
-		public void IncCount() //Called by IncButton
-		{
-			pickCount = Mathf.Min(targetStorage.Count(selectedItem.type), pickCount + 1);
-			UpdatePickButton();
-		}
-
-		public void DecCount() //Called by DecButton
-		{
-			pickCount = Mathf.Max(1, pickCount - 1);
-			UpdatePickButton();
-		}
-
+		
 		public void Pick() //Called by PickButton
 		{
 			if (selectedItem)
 			{
-				if (pickCount > selectedItem.type.maxCount)
-				{
-					Notifications.instance.Add("Too much.");
-				}
-				else if (shopStructure && Player.instance.Money < selectedItem.type.value * pickCount)
+				if (shopStructure && Player.instance.Money < selectedItem.type.value)
 				{
 					Notifications.instance.Add("Not enough money.");
 				}
