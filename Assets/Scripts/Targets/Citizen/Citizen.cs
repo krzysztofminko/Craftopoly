@@ -105,9 +105,9 @@ public class Citizen : MonoBehaviour, IMoney
 			return VirtualTime.hour >= workTime.start && VirtualTime.hour < workTime.end;
 	}
 
-	public bool GoTo(Target target, float? proximity = null)
+	public bool GoTo(Transform transform, float? proximity = null)
 	{
-		return GoTo(target.transform.position, proximity == null? 1 : proximity.Value);
+		return GoTo(transform.position, proximity == null? 1 : proximity.Value);
 	}
 
 	public bool GoTo(Vector3 position, float proximity)

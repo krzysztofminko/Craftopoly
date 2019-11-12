@@ -48,7 +48,7 @@ namespace HutongGames.PlayMaker.Actions
 				citizen.animator.SetFloat("UseAnimationId", 0);
 				Fsm.Event("FAILED");
 			}
-			else if (citizen.GoTo(item.target))
+			else if (citizen.GoTo(item.transform))
 			{
 				
 				if (storage && storage.target.shopStructure && storage.target.shopStructure.plot && citizen.Money < item.type.value)

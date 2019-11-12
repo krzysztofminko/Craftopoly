@@ -14,14 +14,14 @@ namespace HutongGames.PlayMaker.Actions
 		float timer;
 		Citizen citizen;
 		Storage storage;
-		Target goToTarget;
+		Transform goToTarget;
 
 		public override void OnEnter()
 		{
 			citizen = Owner.GetComponent<Citizen>();
 
 			storage = _storage.Value? _storage.Value.GetComponent<Storage>() : null;
-			goToTarget = storage ? storage.target : null;
+			goToTarget = storage ? storage.transform : null;
 
 			citizen.pickedItem.target.ReservedBy = citizen;
 

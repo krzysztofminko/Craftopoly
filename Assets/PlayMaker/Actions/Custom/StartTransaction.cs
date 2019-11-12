@@ -28,7 +28,7 @@ namespace HutongGames.PlayMaker.Actions
 
 		public override void OnUpdate()
 		{
-			if (citizen.GoTo(storage.target))
+			if (citizen.GoTo(storage.transform))
 			{
 				if (!storage.target.ReservedBy)
 				{

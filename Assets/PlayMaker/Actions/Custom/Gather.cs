@@ -43,7 +43,7 @@ namespace HutongGames.PlayMaker.Actions
 					Utilities.UI.Notifications.instance.Add(source.itemType.requiredSkill.name + " " + source.itemType.requiredSkill.value + " required.");
 				Fsm.Event("FAILED");
 			}
-			else if(citizen.GoTo(source.target))
+			else if(citizen.GoTo(source.transform))
 			{
 				source.target.ReservedBy = citizen;
 
