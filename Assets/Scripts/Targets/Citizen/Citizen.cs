@@ -107,7 +107,7 @@ public class Citizen : MonoBehaviour, IMoney
 
 	public bool GoTo(Target target, float? proximity = null)
 	{
-		return GoTo(target.transform.position, proximity == null? target.proximity + this.target.proximity : proximity.Value);
+		return GoTo(target.transform.position, proximity == null? 1 : proximity.Value);
 	}
 
 	public bool GoTo(Vector3 position, float proximity)

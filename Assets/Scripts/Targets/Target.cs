@@ -9,7 +9,6 @@ public class Target : MonoBehaviour
 
 	[Header("Settings")]
 	public bool logReservedBy;
-	public float proximity = 1.0f;
 
 	[Header("Runtime")]
 	[SerializeField]

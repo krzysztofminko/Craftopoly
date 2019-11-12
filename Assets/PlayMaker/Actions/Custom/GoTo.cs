@@ -44,7 +44,7 @@ namespace HutongGames.PlayMaker.Actions
 			{
 				target = targetGameObject.Value.GetComponent<Target>();
 				position.Value = target.transform.position;
-				proximity.Value = citizen.target.proximity + target.proximity;
+				proximity.Value = 1;
 			}
 			else
 			{

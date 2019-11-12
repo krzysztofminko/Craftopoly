@@ -21,7 +21,7 @@ namespace HutongGames.PlayMaker.Actions
 			{
 				targetCitizen = (Citizen)_targetCitizen.Value;
 				if(proximity.IsNone)
-					proximity.Value = citizen.target.proximity + targetCitizen.target.proximity;
+					proximity.Value = 2;
 			}
 			else
 			{
