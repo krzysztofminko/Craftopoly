@@ -12,7 +12,7 @@ public class Player : Citizen
 	[Header("Runtime")]
 	[Header("Player")]
 	public bool controlsEnabled = true;
-	public Target focused;
+	public FocusTarget focusedOn;
 
 	public override void Awake()
 	{
@@ -30,12 +30,12 @@ public class Player : Citizen
 			List<Collider> colliders = new List<Collider>();
 			colliders = Physics.OverlapSphere(transform.position + transform.forward, 1).OrderBy(c => Distance.Manhattan2D(transform.position + transform.forward, c.transform.position)).ToList();
 			colliders.Remove(this.GetComponent<Collider>());
-			colliders.RemoveAll(c => !c.GetComponent<Target>());
+			colliders.RemoveAll(c => !c.GetComponent<FocusTarget>());
 			if (colliders.Count > 0)
 			{
-				Focus(colliders[0].GetComponent<Target>());
+				Focus(colliders[0].GetComponent<FocusTarget>());
 			}
-			else if (focused)
+			else if (focusedOn)
 			{
 				Unfocus();
 			}
@@ -66,57 +66,57 @@ public class Player : Citizen
 					fsm.DetachTool();
 			}
 			
-			if (focused)
+			if (focusedOn)
 			{
-				if (focused.gatherStructure)
+				if (focusedOn.GetComponent<GatherStructure>())
 				{
 					if (InputHints.GetButtonDown("Manage", "Manage"))
-						UI.GatherCanvas.instance.Show(focused.gatherStructure);
+						UI.GatherCanvas.instance.Show(focusedOn.GetComponent<GatherStructure>());
 				}
-				else if(focused.craftStructure)
+				else if (focusedOn.GetComponent<CraftStructure>())
 				{
 					if (InputHints.GetButtonDown("Manage", "Manage"))
-						UI.CraftingCanvas.instance.Show(focused.craftStructure);
+						UI.CraftingCanvas.instance.Show(focusedOn.GetComponent<CraftStructure>());
 				}
-				else if (focused.shopStructure)
+				else if (focusedOn.GetComponent<ShopStructure>())
 				{
 					if (InputHints.GetButtonDown("Manage", "Manage"))
-						UI.StorageCanvas.instance.Show(focused.shopStructure.storage, focused.shopStructure);
+						UI.StorageCanvas.instance.Show(focusedOn.GetComponent<ShopStructure>().storage, focusedOn.GetComponent<ShopStructure>());
 				}
 
 				if (pickedItem)
 				{
-					if (focused.shopStructure && focused.shopStructure.plot)
+					if (focusedOn.GetComponent<ShopStructure>() && focusedOn.GetComponent<ShopStructure>().plot)
 					{
 						if (InputHints.GetButtonDown("PrimaryAction", "Sell for " + pickedItem.type.value))
-							if (focused.shopStructure.plot.Money < pickedItem.type.value)
+							if (focusedOn.GetComponent<ShopStructure>().plot.Money < pickedItem.type.value)
 							{
 								Notifications.instance.Add("Not enough money in shop.");
 							}
-							else if (!focused.shopStructure.shopkeeperAvailable)
+							else if (!focusedOn.GetComponent<ShopStructure>().shopkeeperAvailable)
 							{
 								Notifications.instance.Add("Wait for shopkeeper.");
 							}
 							else
 							{
-								focused.shopStructure.plot.Pay(this, pickedItem.type.value);
-								fsm.Put(focused.shopStructure.storage);
+								focusedOn.GetComponent<ShopStructure>().plot.Pay(this, pickedItem.type.value);
+								fsm.Put(focusedOn.GetComponent<ShopStructure>().storage);
 							}
 					}
-					else if (focused.storage)
+					else if (focusedOn.GetComponent<Storage>())
 					{						
-						if (focused.craftStructure)
+						if (focusedOn.GetComponent<CraftStructure>())
 						{
-							bool refuel = pickedItem.type.fuelValue > 0 && focused.craftStructure.fuelMax > 0;
+							bool refuel = pickedItem.type.fuelValue > 0 && focusedOn.GetComponent<CraftStructure>().fuelMax > 0;
 							if (InputHints.GetButtonDown("PrimaryAction", refuel ? "Refuel" : "Put"))
 							{
-								if (focused.craftStructure.currentItemType)
+								if (focusedOn.GetComponent<CraftStructure>().currentItemType)
 								{
-									List<ItemCount> missing = focused.craftStructure.currentItemType.blueprint.MissingResources(focused.craftStructure.storage);
+									List<ItemCount> missing = focusedOn.GetComponent<CraftStructure>().currentItemType.blueprint.MissingResources(focusedOn.GetComponent<CraftStructure>().storage);
 									ItemCount mic = missing.Find(m => m.type == pickedItem.type);
 									if (mic != null)
 									{
-										fsm.Put(focused.craftStructure.storage);
+										fsm.Put(focusedOn.GetComponent<CraftStructure>().storage);
 									}
 									else
 									{
@@ -130,27 +130,27 @@ public class Player : Citizen
 						}
 						else if (InputHints.GetButtonDown("PrimaryAction", "Put"))
 						{
-							fsm.Put(focused.storage);
+							fsm.Put(focusedOn.GetComponent<Storage>());
 						}
 					}
 				}
 				else
 				{
-					if (focused.source)
+					if (focusedOn.GetComponent<Source>())
 					{
 						if (InputHints.GetButtonDown("PrimaryAction", "Gather"))
-							fsm.Gather(focused.source);
+							fsm.Gather(focusedOn.GetComponent<Source>());
 					}
-					else if (focused.item)
+					else if (focusedOn.GetComponent<Item>())
 					{
-						if (InputHints.GetButtonDown("PrimaryAction", "Pick " + focused.item.name))
-							fsm.Pick(focused.item);
+						if (InputHints.GetButtonDown("PrimaryAction", "Pick " + focusedOn.GetComponent<Item>().name))
+							fsm.Pick(focusedOn.GetComponent<Item>());
 					}
-					else if (focused.newStructure)
+					else if (focusedOn.GetComponent<NewStructure>())
 					{
 						if (InputHints.GetButtonDown("PrimaryAction", "Build"))
 						{
-							List<ItemCount> missing = focused.newStructure.next.GetComponent<Blueprint>().MissingResources(focused.newStructure.storage);
+							List<ItemCount> missing = focusedOn.GetComponent<NewStructure>().next.GetComponent<Blueprint>().MissingResources(focusedOn.GetComponent<NewStructure>().storage);
 							if (missing.Count > 0)
 							{
 								string itemsListString = "";
@@ -160,25 +160,25 @@ public class Player : Citizen
 							}
 							else
 							{
-								fsm.Build(focused.newStructure);
+								fsm.Build(focusedOn.GetComponent<NewStructure>());
 							}
 						}
 					}
-					else if (focused.craftStructure)
+					else if (focusedOn.GetComponent<CraftStructure>())
 					{
-						if (focused.craftStructure.craftedItem)
+						if (focusedOn.GetComponent<CraftStructure>().craftedItem)
 						{
-							if (InputHints.GetButtonDown("PrimaryAction", "Pick " + focused.craftStructure.craftedItem.name))
+							if (InputHints.GetButtonDown("PrimaryAction", "Pick " + focusedOn.GetComponent<CraftStructure>().craftedItem.name))
 							{
-								fsm.Pick(focused.storage, focused.craftStructure.craftedItem);
-								focused.craftStructure.craftedItem = null;
+								fsm.Pick(focusedOn.GetComponent<Storage>(), focusedOn.GetComponent<CraftStructure>().craftedItem);
+								focusedOn.GetComponent<CraftStructure>().craftedItem = null;
 							}
 						}
-						else if(focused.craftStructure.currentItemType && (!focused.craftStructure.worker || focused.craftStructure.worker == this))
+						else if(focusedOn.GetComponent<CraftStructure>().currentItemType && (!focusedOn.GetComponent<CraftStructure>().worker || focusedOn.GetComponent<CraftStructure>().worker == this))
 						{
-							if (InputHints.GetButtonDown("PrimaryAction", "Craft " + focused.craftStructure.currentItemType.name))
+							if (InputHints.GetButtonDown("PrimaryAction", "Craft " + focusedOn.GetComponent<CraftStructure>().currentItemType.name))
 							{
-								List<ItemCount> missing = focused.craftStructure.currentItemType.blueprint.MissingResources(focused.craftStructure.storage);
+								List<ItemCount> missing = focusedOn.GetComponent<CraftStructure>().currentItemType.blueprint.MissingResources(focusedOn.GetComponent<CraftStructure>().storage);
 								if (missing.Count > 0)
 								{
 									string itemsListString = "";
@@ -188,26 +188,26 @@ public class Player : Citizen
 								}
 								else
 								{
-									fsm.Craft(focused.craftStructure.currentItemType, focused.craftStructure);
-									focused.craftStructure.currentItemType = null;
+									fsm.Craft(focusedOn.GetComponent<CraftStructure>().currentItemType, focusedOn.GetComponent<CraftStructure>());
+									focusedOn.GetComponent<CraftStructure>().currentItemType = null;
 								}
 							}
 						}//Craft currentItemType
 					}
-					else if (focused.shopStructure)
+					else if (focusedOn.GetComponent<ShopStructure>())
 					{
 						if (InputHints.GetButtonDown("PrimaryAction", "Buy"))
-							if (focused.shopStructure.shopkeeperAvailable)
-								UI.StorageCanvas.instance.Show(focused.shopStructure.storage, focused.shopStructure);
+							if (focusedOn.GetComponent<ShopStructure>().shopkeeperAvailable)
+								UI.StorageCanvas.instance.Show(focusedOn.GetComponent<ShopStructure>().storage, focusedOn.GetComponent<ShopStructure>());
 							else
 								Notifications.instance.Add("Wait for shopkeeper.");
 
 					}
 
-					if (focused.storage)
+					if (focusedOn.GetComponent<Storage>())
 					{
 						if (InputHints.GetButtonDown("SecondaryAction", "Storage"))
-							UI.StorageCanvas.instance.Show(focused.storage);
+							UI.StorageCanvas.instance.Show(focusedOn.GetComponent<Storage>());
 					}
 				}
 
@@ -223,20 +223,20 @@ public class Player : Citizen
 	}
 
 
-	public void Focus(Target t)
+	public void Focus(FocusTarget f)
 	{
-		if (focused && focused != t)
+		if (focusedOn && focusedOn != f)
 			Unfocus();
-		t.Focus();
-		focused = t;
-		UI.FocusCanvas.instance.Show(t);
+		f.Focused = true;
+		focusedOn = f;
+		UI.FocusCanvas.instance.Show(f);
 	}
 
 	public void Unfocus()
 	{
 		if (UI.FocusCanvas.instance)
 			UI.FocusCanvas.instance.Hide();
-		focused.Unfocus();
-		focused = null;
+		focusedOn.Focused = false;
+		focusedOn = null;
 	}
 }

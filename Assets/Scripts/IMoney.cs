@@ -6,5 +6,4 @@ public interface IMoney
 {
 	float Money {get;set;}
 	void Pay(IMoney payTo, float money);
-    
 }

@@ -216,8 +216,8 @@ MonoBehaviour:
         - 
         actionEnabled: 010101
         actionIsOpen: 010101
-        actionStartIndex: 000000000100000006000000
-        actionHashCodes: 5c004505547d5c0528100f01
+        actionStartIndex: 000000000100000005000000
+        actionHashCodes: 5c0045057d2457055c004505
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
@@ -250,12 +250,6 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: {fileID: 0}
-        - useVariable: 1
-          name: StackGO
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 0}
         fsmOwnerDefaultParams: []
         animationCurveParams: []
         functionCallParams: []
@@ -269,13 +263,7 @@ MonoBehaviour:
         fsmArrayParams: []
         fsmEnumParams: []
         fsmFloatParams: []
-        fsmIntParams:
-        - useVariable: 1
-          name: Count
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
+        fsmIntParams: []
         fsmBoolParams:
         - useVariable: 0
           name: 
@@ -294,18 +282,16 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 1300000013000000130000001300000010000000110000001300000013000000
+        paramDataType: 130000001300000013000000130000001100000013000000
         paramName:
         - _storage
         - _storage
         - _craftStructure
         - _item
-        - count
         - updateItemReference
         - _storage
-        - _stack
-        paramDataPos: 0000000001000000020000000300000000000000000000000400000005000000
-        paramByteDataSize: 0000000000000000000000000000000000000000000000000000000000000000
+        paramDataPos: 000000000100000002000000030000000000000004000000
+        paramByteDataSize: 000000000000000000000000000000000000000000000000
     - name: Craft
       description: 
       colorIndex: 0
@@ -736,7 +722,7 @@ MonoBehaviour:
         actionEnabled: 0101
         actionIsOpen: 0101
         actionStartIndex: 0000000004000000
-        actionHashCodes: 502a070095e35802
+        actionHashCodes: 502a07001cdb2302
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
@@ -754,24 +740,18 @@ MonoBehaviour:
         layoutOptionParams: []
         fsmStringParams: []
         fsmObjectParams:
-        - useVariable: 1
-          name: Target
+        - useVariable: 0
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          typeName: Target
+          typeName: 
           value: {fileID: 0}
         fsmVarParams: []
         fsmArrayParams: []
         fsmEnumParams: []
         fsmFloatParams:
         - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 1
           name: 
           tooltip: 
           showInInspector: 0
@@ -802,16 +782,15 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 130000001c0000000f00000011000000180000000f000000
+        paramDataType: 130000001c0000000f0000001100000018000000
         paramName:
         - targetGameObject
         - position
         - proximity
         - reserveTarget
-        - _target
-        - proximity
-        paramDataPos: 000000000000000000000000000000000000000001000000
-        paramByteDataSize: 000000000000000000000000000000000000000000000000
+        - _health
+        paramDataPos: 0000000000000000000000000000000000000000
+        paramByteDataSize: 0000000000000000000000000000000000000000
     - name: Pick
       description: 
       colorIndex: 0
@@ -849,7 +828,7 @@ MonoBehaviour:
         actionEnabled: 01
         actionIsOpen: 01
         actionStartIndex: 00000000
-        actionHashCodes: 547d5c05
+        actionHashCodes: 7d245705
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
@@ -883,13 +862,7 @@ MonoBehaviour:
         fsmArrayParams: []
         fsmEnumParams: []
         fsmFloatParams: []
-        fsmIntParams:
-        - useVariable: 1
-          name: Count
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
+        fsmIntParams: []
         fsmBoolParams:
         - useVariable: 0
           name: 
@@ -908,15 +881,14 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 1300000013000000130000001000000011000000
+        paramDataType: 13000000130000001300000011000000
         paramName:
         - _storage
         - _craftStructure
         - _item
-        - count
         - updateItemReference
-        paramDataPos: 0000000001000000020000000000000000000000
-        paramByteDataSize: 0000000000000000000000000000000000000000
+        paramDataPos: 00000000010000000200000000000000
+        paramByteDataSize: 00000000000000000000000000000000
     - name: Put
       description: 
       colorIndex: 0
@@ -954,17 +926,11 @@ MonoBehaviour:
         actionEnabled: 01
         actionIsOpen: 01
         actionStartIndex: 00000000
-        actionHashCodes: 28100f01
+        actionHashCodes: 5c004505
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
           name: StorageGO
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 0}
-        - useVariable: 1
-          name: StackGO
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -995,12 +961,11 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 1300000013000000
+        paramDataType: 13000000
         paramName:
         - _storage
-        - _stack
-        paramDataPos: 0000000001000000
-        paramByteDataSize: 0000000000000000
+        paramDataPos: 00000000
+        paramByteDataSize: 00000000
     - name: GoTo
       description: 
       colorIndex: 0

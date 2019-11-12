@@ -86,7 +86,7 @@ public class Storage : MonoBehaviour
 		int count = 0;
 		for (int i = 0; i < items.Count; i++)
 			if (!items[i])
-				Debug.LogError("!");
+				Debug.LogError("!", this);
 			else if (items[i].type == itemType)
 				count++;
 		return count;

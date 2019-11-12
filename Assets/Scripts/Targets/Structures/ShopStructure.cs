@@ -17,21 +17,37 @@ public class ShopStructure : Workplace
 	[Header("Runtime")]
 	public bool shopkeeperAvailable;
 
-	float timeFromLastTransaction;
-	bool supply;
-	SupplyOrder supplyOrder;
+	private float timeFromLastTransaction;
+	private bool supply;
+	private SupplyOrder supplyOrder;
 
 
 	protected override void Awake()
 	{
 		base.Awake();
 		list.Add(this);
+		FocusTarget.onFocusChange += OnFocusChange;
+	}
+
+	private void OnFocusChange(bool focused)
+	{
+		if (focused)
+		{
+			if (!target.ReservedBy)
+				StartTransaction(Player.instance);
+		}
+		else
+		{
+			if (target.ReservedBy == Player.instance)
+				FinishTransaction();
+		}
 	}
 
 	protected override void OnDestroy()
 	{
 		base.OnDestroy();
 		list.Remove(this);
+		FocusTarget.onFocusChange -= OnFocusChange;
 	}
 
 	private void Update()

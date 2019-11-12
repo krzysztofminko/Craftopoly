@@ -11,13 +11,13 @@ namespace UI
 	{
 		public static FocusCanvas instance;
 
-		public Target target;
+		public FocusTarget focusTarget;
 
 		[Header("References")]
 		public TextMeshProUGUI nameText;
 		public Slider hpBar;
 		public TextMeshProUGUI hpText;
-		public TextMeshProUGUI moneyText;
+		public TextMeshProUGUI infoText;
 
 		private Canvas canvas;
 		private Health health;
@@ -31,7 +31,7 @@ namespace UI
 
 		private void Update()
 		{
-			if (target)
+			if (focusTarget)
 			{
 				hpBar.gameObject.SetActive(health);
 				hpText.gameObject.SetActive(health);
@@ -41,24 +41,16 @@ namespace UI
 					hpBar.value = health.HP;
 					hpText.text = health.HP + "/" + health.HPMax;
 				}
-
-				moneyText.gameObject.SetActive(target.structure && target.structure.plot);
-				if (target.structure)
-				{
-					if (target.structure.plot)
-					{
-						moneyText.text = "Plot money: " + target.structure.plot.Money.ToString("0.00");
-					}
-				}
+				
+				infoText.text = focusTarget.info;
 			}
 		}
 
-		public void Show(Target target)
+		public void Show(FocusTarget focusTarget)
 		{
-			this.target = target;
-			health = target.GetComponent<Health>();
-			//TODO: Stack count
-			nameText.text = target.name; // + (target.item? " x" + target.item.count : "");
+			this.focusTarget = focusTarget;
+			health = focusTarget.GetComponent<Health>();
+			nameText.text = focusTarget.name;
 
 			transform.GetChild(0).gameObject.SetActive(true);
 		}
@@ -66,7 +58,7 @@ namespace UI
 		public void Hide()
 		{
 			transform.GetChild(0).gameObject.SetActive(false);
-			target = null;
+			focusTarget = null;
 		}
 	}
 }

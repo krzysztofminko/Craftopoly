@@ -165,6 +165,7 @@ GameObject:
   - component: {fileID: 2757599623493227473}
   - component: {fileID: 3002164524935946882}
   - component: {fileID: 3702750481675672663}
+  - component: {fileID: 3948096057185434364}
   - component: {fileID: 5034059900432982134}
   m_Layer: 15
   m_Name: Plot
@@ -217,25 +218,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 653723d23bc6462479140b03a97bf21c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
-  hpMax: 100
+  logReservedBy: 0
   proximity: 1
-  selected: 0
-  selection: {fileID: 2097673396866840766}
+  _reservedBy: {fileID: 0}
   citizen: {fileID: 0}
   structure: {fileID: 0}
   source: {fileID: 0}
   item: {fileID: 0}
-  blueprint: {fileID: 0}
   storage: {fileID: 0}
-  assignment: {fileID: 0}
-  scheduleAssignment: {fileID: 0}
   house: {fileID: 0}
   plot: {fileID: 0}
-  reservedBy: {fileID: 0}
-  thumbnailFromParent: 0
-  thumbnail: {fileID: 0}
-  thumbnailSprite: {fileID: 0}
+  newStructure: {fileID: 0}
+  craftStructure: {fileID: 0}
+  gatherStructure: {fileID: 0}
+  shopStructure: {fileID: 0}
+  workplace: {fileID: 0}
+--- !u!114 &3948096057185434364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6221459076696115162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 394d10478be1c624e8c09d69721b1ec9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  info: 
 --- !u!114 &5034059900432982134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,7 +259,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: {x: 1, y: 1}
+  owner: {fileID: 0}
   value: 0
+  sell: 0
+  worker: {fileID: 0}
+  orders: []
+  sellStorage: {fileID: 0}
+  storageStructures: []
   corners:
   - {fileID: 4456921838568981319}
   - {fileID: 642479158437922101}

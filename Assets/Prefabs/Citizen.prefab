@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 4407423471522362}
   - component: {fileID: 143893119416246326}
   - component: {fileID: 114772247640028090}
+  - component: {fileID: 8879153010250200537}
   - component: {fileID: 2839967882766366047}
   - component: {fileID: 114714434507214362}
   - component: {fileID: 5134390623069297734}
@@ -103,7 +104,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logReservedBy: 0
   proximity: 1
-  focused: 0
   _reservedBy: {fileID: 0}
   citizen: {fileID: 0}
   structure: {fileID: 0}
@@ -117,6 +117,19 @@ MonoBehaviour:
   gatherStructure: {fileID: 0}
   shopStructure: {fileID: 0}
   workplace: {fileID: 0}
+--- !u!114 &8879153010250200537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967391337393440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 394d10478be1c624e8c09d69721b1ec9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  info: 
 --- !u!114 &2839967882766366047
 MonoBehaviour:
   m_ObjectHideFlags: 0

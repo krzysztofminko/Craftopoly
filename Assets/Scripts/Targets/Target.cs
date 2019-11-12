@@ -12,7 +12,6 @@ public class Target : MonoBehaviour
 	public float proximity = 1.0f;
 
 	[Header("Runtime")]
-	public bool focused;
 	[SerializeField]
 	private Citizen _reservedBy;
 	public Citizen ReservedBy
@@ -66,51 +65,6 @@ public class Target : MonoBehaviour
 		RuntimePreviewGenerator.OrthographicMode = true;
 		Texture2D thumbnail = RuntimePreviewGenerator.GenerateModelPreview(transform, 512, 512, false);
 		return Sprite.Create(thumbnail, new Rect(0, 0, thumbnail.width, thumbnail.height), new Vector2(0.5f, 0.5f));
-	}
-
-	public void Focus()
-	{
-		if (!focused)
-		{
-			focused = true;
-			Renderer[] renderers = GetComponentsInChildren<Renderer>();
-			for (int r = 0; r < renderers.Length; r++)
-				for (int m = 0; m < renderers[r].materials.Length; m++)
-				{
-					Material material = renderers[r].materials[m];
-					Color.RGBToHSV(material.color, out float H, out float S, out float V);
-					material.color = Color.HSVToRGB(H, S, V + 0.25f);
-				}
-
-
-			if (shopStructure && !ReservedBy)
-				shopStructure.StartTransaction(Player.instance);
-		}
-	}
-
-	public void Unfocus()
-	{
-		if (focused)
-		{
-			if (shopStructure && ReservedBy == Player.instance)
-				shopStructure.FinishTransaction();
-
-			focused = false;
-			Renderer[] renderers = GetComponentsInChildren<Renderer>();
-			for (int r = 0; r < renderers.Length; r++)
-				for (int m = 0; m < renderers[r].materials.Length; m++)
-				{
-					Material material = renderers[r].materials[m];
-					Color.RGBToHSV(material.color, out float H, out float S, out float V);
-					material.color = Color.HSVToRGB(H, S, V - 0.25f);
-				}
-		}
-	}
-
-	private void OnDestroy()
-	{
-		if(focused)
-			Player.instance.Unfocus();
 	}
 
 }

@@ -43,15 +43,15 @@ namespace HutongGames.PlayMaker.Actions
 
 		public override void OnUpdate()
 		{
-			if (citizen.GoTo(item.target))
+			if (!item || (item && item.target.ReservedBy && item.target.ReservedBy != citizen))
 			{
-				if (!item || (item && item.target.ReservedBy && item.target.ReservedBy != citizen))
-				{
-					citizen.animator.SetFloat("UseAnimationId", 0);
-					Debug.Log("FAILED: item == null or ReservedBy", citizen);
-					Fsm.Event("FAILED");
-				}
-				else if (storage && storage.target.shopStructure && storage.target.shopStructure.plot && citizen.Money < item.type.value)
+				citizen.animator.SetFloat("UseAnimationId", 0);
+				Fsm.Event("FAILED");
+			}
+			else if (citizen.GoTo(item.target))
+			{
+				
+				if (storage && storage.target.shopStructure && storage.target.shopStructure.plot && citizen.Money < item.type.value)
 				{
 					citizen.animator.SetFloat("UseAnimationId", 0);
 					Fsm.Event("FAILED");

@@ -220,7 +220,6 @@ public class CraftStructure : Workplace
 
 	private void ReleaseUnnecessaryItems(ItemType type)
 	{
-		Debug.Log(type);
 		for (int i = storage.items.Count - 1; i >= 0; i--)
 			if (type.blueprint.requiredItems.FindAll(r => r.type == storage.items[i].type).Count == 0 || (craftedItem && craftedItem != storage.items[i].type))
 			{

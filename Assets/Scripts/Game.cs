@@ -40,9 +40,9 @@ public class Game : MonoBehaviour {
 	//TODO: NewStructureCreation - Move to Player
 	void NewStructureCreation()
 	{
-		if (!newStructurePlot && Player.instance.focused && Player.instance.focused.plot)
+		if (!newStructurePlot && Player.instance.focusedOn && Player.instance.focusedOn.GetComponent<Plot>())
 		{
-			newStructurePlot = Player.instance.focused.plot;
+			newStructurePlot = Player.instance.focusedOn.GetComponent<Plot>();
 			return;
 		}
 
