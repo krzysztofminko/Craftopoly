@@ -92,7 +92,7 @@ namespace UI
 
 		private void SetupCitizenListItem(int id, Selectable listItem)
 		{
-			listItem.transform.GetChild(0).GetComponent<Image>().sprite = citizens[id].target.GenerateThumbnail();
+			listItem.transform.GetChild(0).GetComponent<Image>().sprite = Thumbnail.Generate(citizens[id].transform);
 			listItem.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = citizens[id].name;
 		}
 
@@ -104,7 +104,7 @@ namespace UI
 
 		private void SetupWorkplaceListItem(int id, Selectable listItem)
 		{
-			listItem.transform.GetChild(0).GetComponent<Image>().sprite = workplaces[id].target.GenerateThumbnail();
+			listItem.transform.GetChild(0).GetComponent<Image>().sprite = Thumbnail.Generate(workplaces[id].transform);
 			listItem.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = workplaces[id].name;
 		}
 
@@ -116,7 +116,7 @@ namespace UI
 		private void UpdateDetails()
 		{
 			detailsNameText.text = selectedCitizen.name;
-			detailsImage.sprite = selectedCitizen.target.GenerateThumbnail();
+			detailsImage.sprite = Thumbnail.Generate(selectedCitizen.transform);
 
 			var skills = selectedCitizen.skills.GetAll();
 			for (int i = 0; i < Mathf.Max(skills.Count, skillList.childCount); i++)
@@ -140,7 +140,7 @@ namespace UI
 		{
 			if (selectedCitizen.workplace)
 			{
-				workplaceImage.sprite = selectedCitizen.workplace.target.GenerateThumbnail();
+				workplaceImage.sprite = Thumbnail.Generate(selectedCitizen.workplace.transform);
 				workplaceNameText.text = selectedCitizen.workplace.name;
 				workplaceDismissButton.interactable = true;
 			}

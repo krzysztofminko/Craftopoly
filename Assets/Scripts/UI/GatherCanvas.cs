@@ -80,7 +80,7 @@ namespace UI
 		{
 			if (structure.worker)
 			{
-				workerImage.sprite = structure.worker.target.GenerateThumbnail();
+				workerImage.sprite = Thumbnail.Generate(structure.worker.transform);
 				workerNameText.text = structure.worker.name;
 				workerDismissButton.interactable = true;
 			}
