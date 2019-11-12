@@ -14,8 +14,6 @@ public class ItemType : ScriptableObject
 
 	public GameObject model;
 	public Sprite thumbnail;
-	[Tooltip("Max count possible to pick")]
-	public int maxCount = 1;	//TODO: Remove maxCount
 	[Tooltip("Must be greater than sum of blueprint items values")]
 	public float value;
 	[Tooltip("Skill required for crafting or gathering.")]
