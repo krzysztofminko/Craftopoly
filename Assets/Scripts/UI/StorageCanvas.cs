@@ -137,6 +137,7 @@ namespace UI
 					itemTypes.Add(targetStorage.items[i].type);
 
 			targetStorageScrollList.Draw(itemTypes.Count, 0);
+			ScrollList.UpdateNavigation();
 		}
 
 		private void UpdateDetails()

@@ -11,6 +11,8 @@ namespace Utilities.UI
 	[RequireComponent(typeof(ScrollRect))]
 	public class ScrollList : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 	{
+		static List<ScrollList> instances = new List<ScrollList>();
+
 		[Header("References")]
 		[SerializeField]
 		RectTransform listParent;
@@ -23,6 +25,7 @@ namespace Utilities.UI
 		ScrollRect scrollRect;
 		ScrollListItem listItem;
 		ScrollListItem listItemPrefab;
+		public List<ScrollListItem> listItems = new List<ScrollListItem>();
 		int selectedId = -1;
 		Transform updateScrollToTransform;
 		string hAxis;
@@ -32,11 +35,17 @@ namespace Utilities.UI
 
 		private void Awake()
 		{
+			instances.Add(this);
 			listItemPrefab = listParent.GetChild(0).GetComponent<ScrollListItem>();
 			hAxis = EventSystem.current.GetComponent<StandaloneInputModule>().horizontalAxis;
 			vAxis = EventSystem.current.GetComponent<StandaloneInputModule>().verticalAxis;
 			scrollRect = GetComponent<ScrollRect>();
 			scrollRect.verticalScrollbar.onValueChanged.AddListener(delegate { SelectSelected(); });
+		}
+
+		private void OnDestroy()
+		{
+			instances.Remove(this);
 		}
 
 		private void Update()
@@ -65,6 +74,7 @@ namespace Utilities.UI
 		{
 			for (int i = count; i < listParent.childCount; i++)
 				listParent.GetChild(i).gameObject.SetActive(false);
+			listItems = new List<ScrollListItem>();
 			if (count > 0)
 			{
 				for (int i = 0; i < count; i++)
@@ -74,6 +84,7 @@ namespace Utilities.UI
 					else
 						listItem = listParent.GetChild(i).GetComponent<ScrollListItem>();
 
+					listItems.Add(listItem);
 					listItem.gameObject.SetActive(true);
 
 					OnListItemCreate(i, listItem);
@@ -83,7 +94,7 @@ namespace Utilities.UI
 						listItem.Select();
 						Select(i, listItem);
 					}
-
+					
 					int id = i;
 					ScrollListItem listItemLocal = listItem;
 					listItem.selectEntry.callback.RemoveAllListeners();
@@ -100,6 +111,7 @@ namespace Utilities.UI
 			selectedId = id;
 			updateScrollToTransform = listItem.transform;
 			OnListItemSelect?.Invoke(id, listItem);
+			UpdateNavigation();
 		}
 
 
@@ -122,6 +134,58 @@ namespace Utilities.UI
 		{
 			if(selectedId > -1)
 				listParent.GetChild(selectedId).GetComponent<ScrollListItem>().Select();
+		}
+
+		private ScrollList GetListOnLeft()
+		{
+			float dist = Mathf.Infinity;
+			ScrollList leftList = null;
+			for (int i = 0; i < instances.Count; i++)
+				if (instances[i] != this && instances[i].gameObject.activeInHierarchy)
+					if (instances[i].transform.position.x < transform.position.x)
+						if (transform.position.x - instances[i].transform.position.x < dist)
+						{
+							leftList = instances[i];
+							dist = transform.position.x - instances[i].transform.position.x;
+						}
+			return leftList;
+		}
+
+		private ScrollList GetListOnRight()
+		{
+			float dist = Mathf.Infinity;
+			ScrollList rightList = null;
+			for (int i = 0; i < instances.Count; i++)
+				if (instances[i] != this && instances[i].gameObject.activeInHierarchy)
+					if (instances[i].transform.position.x > transform.position.x)
+						if (instances[i].transform.position.x - transform.position.x < dist)
+						{
+							rightList = instances[i];
+							dist = instances[i].transform.position.x - transform.position.x;
+						}
+			return rightList;
+		}
+
+		public static void UpdateNavigation()
+		{
+			for (int l = 0; l < instances.Count; l++)
+			{
+				ScrollList leftList = instances[l].GetListOnLeft();
+				ScrollList rightList = instances[l].GetListOnRight();
+
+				for (int i = 0; i < instances[l].listItems.Count; i++)
+				{
+
+					instances[l].listItems[i].navigation = new Navigation
+					{
+						mode = Navigation.Mode.Explicit,
+						selectOnDown = instances[l].listItems.Count > 1 ? instances[l].listItems[(i == instances[l].listItems.Count - 1) ? 0 : i + 1] : null,
+						selectOnUp = instances[l].listItems.Count > 1 ? instances[l].listItems[(i == 0) ? instances[l].listItems.Count - 1 : i - 1] : null,
+						selectOnLeft = leftList && leftList.listItems.Count > 0 ? leftList.listItems[leftList.selectedId > 0 ? leftList.selectedId : 0] : null,
+						selectOnRight = rightList && rightList.listItems.Count > 0 ? rightList.listItems[rightList.selectedId > 0 ? rightList.selectedId: 0] : null
+					};
+				}
+			}
 		}
 	}
 }

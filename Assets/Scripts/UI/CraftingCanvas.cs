@@ -106,6 +106,7 @@ namespace UI
 				Player.instance.controlsEnabled = false;
 
 				productsScrollList.Draw(structure.itemTypes.Count, 0);
+				ScrollList.UpdateNavigation();
 
 				structure.storage.onItemsUpdate += UpdateRequiredList;
 

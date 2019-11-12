@@ -76,6 +76,7 @@ namespace UI
 
 			citizensScrollList.Draw(citizens.Count, 0);
 			workplaceScrollList.Draw(workplaces.Count);
+			ScrollList.UpdateNavigation();
 
 			Player.instance.controlsEnabled = false;
 		}
