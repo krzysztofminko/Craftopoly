@@ -27,6 +27,7 @@ namespace UI
 		{
 			instance = this;
 			canvas = GetComponent<Canvas>();
+			canvas.enabled = false;
 		}
 
 		private void Update()
@@ -52,12 +53,12 @@ namespace UI
 			health = focusTarget.GetComponent<Health>();
 			nameText.text = focusTarget.name;
 
-			transform.GetChild(0).gameObject.SetActive(true);
+			canvas.enabled = true;
 		}
 
 		public void Hide()
 		{
-			transform.GetChild(0).gameObject.SetActive(false);
+			canvas.enabled = false;
 			focusTarget = null;
 		}
 	}

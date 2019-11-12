@@ -43,6 +43,8 @@ namespace UI
 		int selectedProductId;
 		private bool controlsUnlocked;
 
+		private Canvas canvas;
+
 		private void Awake()
 		{
 			instance = this;
@@ -50,7 +52,8 @@ namespace UI
 			productsScrollList.OnListItemCreate += SetupProductListItem;
 			productsScrollList.OnListItemSelect += SelectProductListItem;
 
-			transform.GetChild(0).gameObject.SetActive(false);
+			canvas = GetComponent<Canvas>();
+			canvas.enabled = false;
 		}
 
 		private void OnDestroy()
@@ -101,7 +104,7 @@ namespace UI
 			{
 				this.structure = structure;
 				structure.ReservedBy = Player.instance;
-				transform.GetChild(0).gameObject.SetActive(true);
+				canvas.enabled = true;
 
 				Player.instance.controlsEnabled = false;
 
@@ -113,7 +116,7 @@ namespace UI
 				fuelSlider.gameObject.SetActive(structure.fuelMax > 0);
 				progressSlider.gameObject.SetActive(structure.fuelMax > 0);
 				progressSlider.value = 0;
-
+				
 				controlsUnlocked = false;
 			}
 		}
@@ -129,7 +132,7 @@ namespace UI
 
 				structure = null;
 				itemType = null;
-				transform.GetChild(0).gameObject.SetActive(false);
+				canvas.enabled = false;
 
 
 				if (Player.instance)

@@ -24,11 +24,13 @@ namespace UI
 
 		private bool controlsUnlocked;
 
+		private Canvas canvas;
 
 		private void Awake()
 		{
 			instance = this;
-			transform.GetChild(0).gameObject.SetActive(false);
+			canvas = GetComponent<Canvas>();
+			canvas.enabled = false;
 		}
 
 		private void Update()
@@ -52,7 +54,7 @@ namespace UI
 		{
 			this.structure = structure;
 
-			transform.GetChild(0).gameObject.SetActive(true);
+			canvas.enabled = true;
 
 			itemNameText.text = structure.itemType.name;
 			itemImage.sprite = structure.itemType.GenerateThumbnail();
@@ -69,7 +71,7 @@ namespace UI
 		{
 			structure = null;
 
-			transform.GetChild(0).gameObject.SetActive(false);
+			canvas.enabled = false;
 
 			if (Player.instance)
 				Player.instance.controlsEnabled = true;

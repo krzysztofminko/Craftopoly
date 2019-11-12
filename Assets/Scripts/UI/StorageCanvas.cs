@@ -32,6 +32,8 @@ namespace UI
 		private bool controlsUnlocked;
 		private List<ItemType> itemTypes;
 
+		private Canvas canvas;
+
 		private void Awake()
 		{
 			instance = this;
@@ -39,7 +41,8 @@ namespace UI
 			targetStorageScrollList.OnListItemCreate += SetupItem;
 			targetStorageScrollList.OnListItemSelect += SelectItem;
 
-			transform.GetChild(0).gameObject.SetActive(false);
+			canvas = GetComponent<Canvas>();
+			canvas.enabled = false;
 		}
 
 		private void OnDestroy()
@@ -77,7 +80,7 @@ namespace UI
 				moneyText.gameObject.SetActive(shopStructure);
 				costText.gameObject.SetActive(shopStructure);
 				targetStorage = storage;
-				transform.GetChild(0).gameObject.SetActive(true);
+				canvas.enabled = true;
 
 				Player.instance.controlsEnabled = false;
 
@@ -101,7 +104,7 @@ namespace UI
 			{
 				targetStorage.onItemsUpdate -= UpdateList;
 				targetStorage = null;
-				transform.GetChild(0).gameObject.SetActive(false);
+				canvas.enabled = false;
 
 				selectedItem = null;
 				targetStorage = null;
