@@ -11,10 +11,7 @@ public class Source : MonoBehaviour, IReserve {
 	[Header("Settings")]
 	public ItemType itemType;
 	public int count;
-
-	[HideInInspector]
-	public Target target;
-
+	
 	public Health Health { get; private set; }
 	
 	[ShowInInspector]
@@ -22,7 +19,6 @@ public class Source : MonoBehaviour, IReserve {
 
 	private void Awake()
 	{
-		target = GetComponent<Target>();
 		Health = GetComponent<Health>();
 		list.Add(this);
 	}

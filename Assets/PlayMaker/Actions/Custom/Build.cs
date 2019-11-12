@@ -17,7 +17,6 @@ namespace HutongGames.PlayMaker.Actions
 		Citizen citizen;
 		Structure structure;
 		Blueprint blueprint;
-		Target target;
 
 		public override void OnExit()
 		{
@@ -32,7 +31,6 @@ namespace HutongGames.PlayMaker.Actions
 				citizen = Owner.GetComponent<Citizen>();
 			structure = _structure.Value.GetComponent<NewStructure>();
 			blueprint = structure.next.blueprint;
-			target = structure.target;
 			structure.ReservedBy = citizen;
 		}
 

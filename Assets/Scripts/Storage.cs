@@ -15,14 +15,11 @@ public class Storage : MonoBehaviour
 
 	[Header("Runtime")]
 	public List<Item> items;
-
-	[HideInInspector]
-	public Target target;
+	
 
 	private void Awake()
 	{
 		list.Add(this);
-		target = GetComponent<Target>();
 	}
 
 	private void OnDestroy()

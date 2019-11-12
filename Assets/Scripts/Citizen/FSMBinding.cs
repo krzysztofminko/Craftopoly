@@ -99,25 +99,11 @@ public class FSMBinding : MonoBehaviour
 		fsm.FsmVariables.GetFsmGameObject("StructureGO").Value = structure.gameObject;
 		fsm.SendEvent("Build");
 	}
-
-	public void Follow(Target target)
-	{
-		fsm.FsmVariables.GetFsmObject("Target").Value = target;
-		fsm.SendEvent("Follow");
-	}
-
-	public void Attack(Target target)
-	{
-		fsm.FsmVariables.GetFsmObject("Target").Value = target;
-		fsm.FsmVariables.GetFsmGameObject("TargetGO").Value = target.gameObject;
-		fsm.SendEvent("Attack");
-	}
-
+	
 	public void Interrupt()
 	{
 		fsm.SendEvent("Interrupt");
 	}
-
 
 	public void GetItem(ItemType itemType, int count, Storage storage)
 	{

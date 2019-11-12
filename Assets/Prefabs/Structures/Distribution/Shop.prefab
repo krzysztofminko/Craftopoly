@@ -585,7 +585,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5583057173652063051}
   - component: {fileID: 6035666255567373092}
-  - component: {fileID: 4327645516598922874}
   - component: {fileID: 5385349962827484082}
   - component: {fileID: 8333381712164679799}
   - component: {fileID: 5537821876911658904}
@@ -626,33 +625,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 1, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &4327645516598922874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8718110590357799135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 653723d23bc6462479140b03a97bf21c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  logReservedBy: 0
-  proximity: 1
-  _reservedBy: {fileID: 0}
-  citizen: {fileID: 0}
-  structure: {fileID: 0}
-  source: {fileID: 0}
-  item: {fileID: 0}
-  storage: {fileID: 0}
-  house: {fileID: 0}
-  plot: {fileID: 0}
-  newStructure: {fileID: 0}
-  craftStructure: {fileID: 0}
-  gatherStructure: {fileID: 0}
-  shopStructure: {fileID: 0}
-  workplace: {fileID: 0}
 --- !u!114 &5385349962827484082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -699,7 +671,6 @@ MonoBehaviour:
   next: {fileID: 0}
   plot: {fileID: 0}
   storage: {fileID: 0}
-  target: {fileID: 0}
   worker: {fileID: 0}
   resupplyDelay: 1
   supplyStorage: {fileID: 0}
@@ -720,4 +691,3 @@ MonoBehaviour:
   inputTransform: {fileID: 0}
   releaseTransform: {fileID: 0}
   items: []
-  target: {fileID: 0}

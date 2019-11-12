@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-[RequireComponent(typeof(Target), typeof(Storage))]
+[RequireComponent(typeof(Storage))]
 public class NewStructure : Workplace
 {
 	[Header("Settings")]

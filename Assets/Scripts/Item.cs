@@ -16,10 +16,7 @@ public class Item : MonoBehaviour, IReserve
 	[Header("Runtime")]
 	public ItemType type;
 	public float durability;
-
-	[HideInInspector]
-	public Target target;
-
+	
 	private Texture2D thumbnail;
 	private Sprite thumbnailSprite;
 
@@ -28,7 +25,6 @@ public class Item : MonoBehaviour, IReserve
 
 	private void Awake()
 	{		
-		target = GetComponent<Target>();
 		list.Add(this);
 	}
 	

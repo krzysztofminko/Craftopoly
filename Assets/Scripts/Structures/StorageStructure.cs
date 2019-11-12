@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Target))]
 public class StorageStructure : Structure
 {
 	public static new List<StorageStructure> list = new List<StorageStructure>();

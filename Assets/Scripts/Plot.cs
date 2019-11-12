@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Target))]
 public class Plot : MonoBehaviour, IMoney
 {
 	public static List<Plot> list = new List<Plot>();

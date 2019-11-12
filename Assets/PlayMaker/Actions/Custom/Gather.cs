@@ -8,7 +8,6 @@ namespace HutongGames.PlayMaker.Actions
 	{
 		const float animationTimer = 0.2f;
 
-		[CheckForComponent(typeof(Target))]
 		[RequiredField]
 		public FsmGameObject _source;
 		public FsmGameObject returnItem;

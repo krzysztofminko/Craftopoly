@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-[RequireComponent(typeof(Target))]
 public class GatherStructure : Workplace
 {
 	public static new List<GatherStructure> list = new List<GatherStructure>();

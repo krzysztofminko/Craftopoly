@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-[RequireComponent(typeof(Target), typeof(Storage))]
+[RequireComponent(typeof(Storage))]
 public class ShopStructure : Workplace
 {
 	public static new List<ShopStructure> list = new List<ShopStructure>();

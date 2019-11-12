@@ -4,8 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-// Only one citizen for Craft Structures (for simplicity) !
-[RequireComponent(typeof(Target), typeof(Storage))]
+[RequireComponent(typeof(Storage))]
 public class CraftStructure : Workplace
 {
 	public static new List<CraftStructure> list = new List<CraftStructure>();

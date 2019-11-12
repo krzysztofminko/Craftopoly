@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-
+	
 	[ActionCategory("Custom")]
 	public class Pick : FsmStateAction
 	{
@@ -51,7 +51,7 @@ namespace HutongGames.PlayMaker.Actions
 			else if (citizen.GoTo(item.transform))
 			{
 				
-				if (storage && storage.target.shopStructure && storage.target.shopStructure.plot && citizen.Money < item.type.value)
+				if (storage && storage.GetComponent<ShopStructure>() && storage.GetComponent<ShopStructure>().plot && citizen.Money < item.type.value)
 				{
 					citizen.animator.SetFloat("UseAnimationId", 0);
 					Fsm.Event("FAILED");
@@ -72,10 +72,10 @@ namespace HutongGames.PlayMaker.Actions
 						{
 							citizen.pickedItem = storage.RemoveItem(item);
 
-							if (storage.target.shopStructure && storage.target.shopStructure.plot)
+							if (storage.GetComponent<ShopStructure>() && storage.GetComponent<ShopStructure>().plot)
 							{
-								citizen.Pay(storage.target.shopStructure.plot, citizen.pickedItem.type.value);
-								storage.target.shopStructure.FinishTransaction();
+								citizen.Pay(storage.GetComponent<ShopStructure>().plot, citizen.pickedItem.type.value);
+								storage.GetComponent<ShopStructure>().FinishTransaction();
 							}
 						}
 						else if (craftStructure)

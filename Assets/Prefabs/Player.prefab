@@ -40,7 +40,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7304695037877660535}
   - component: {fileID: 7420586353127272075}
-  - component: {fileID: 9072927551661512016}
   - component: {fileID: 6673090180820217847}
   - component: {fileID: 6890298957243529973}
   - component: {fileID: 895599697900728176}
@@ -90,33 +89,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &9072927551661512016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2014268682883897364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 653723d23bc6462479140b03a97bf21c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  logReservedBy: 0
-  proximity: 1
-  _reservedBy: {fileID: 0}
-  citizen: {fileID: 0}
-  structure: {fileID: 0}
-  source: {fileID: 0}
-  item: {fileID: 0}
-  storage: {fileID: 0}
-  house: {fileID: 0}
-  plot: {fileID: 0}
-  newStructure: {fileID: 0}
-  craftStructure: {fileID: 0}
-  gatherStructure: {fileID: 0}
-  shopStructure: {fileID: 0}
-  workplace: {fileID: 0}
 --- !u!114 &6673090180820217847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,7 +144,6 @@ MonoBehaviour:
   workPlot: {fileID: 0}
   _pickedItem: {fileID: 0}
   _attachedTool: {fileID: 0}
-  target: {fileID: 0}
   fsm: {fileID: 0}
   characterController: {fileID: 0}
   skills: {fileID: 0}
