@@ -9,8 +9,6 @@ public class Target : MonoBehaviour
 
 	[Header("Settings")]
 	public bool logReservedBy;
-	public float hp = 100;
-	public float hpMax = 100;
 	public float proximity = 1.0f;
 
 	[Header("Runtime")]
@@ -107,29 +105,6 @@ public class Target : MonoBehaviour
 					material.color = Color.HSVToRGB(H, S, V - 0.25f);
 				}
 		}
-	}
-
-	public bool Damage(float value)
-	{
-		hp -= value;
-		if (hp < 0)
-		{
-			hp = 0;
-			Destroy(gameObject);
-			return true;
-		}
-		return false;
-	}
-
-	public bool Repair(float value)
-	{
-		hp += value;
-		if (hp >= hpMax)
-		{
-			hp = hpMax;			
-			return true;
-		}
-		return false;
 	}
 
 	private void OnDestroy()

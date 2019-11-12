@@ -19,7 +19,9 @@ namespace UI
 		public TextMeshProUGUI hpText;
 		public TextMeshProUGUI moneyText;
 
-		Canvas canvas;
+		private Canvas canvas;
+		private Health health;
+
 
 		private void Awake()
 		{
@@ -31,9 +33,14 @@ namespace UI
 		{
 			if (target)
 			{
-				hpBar.maxValue = target.hpMax;
-				hpBar.value = target.hp;
-				hpText.text = target.hp + "/" + target.hpMax;
+				hpBar.gameObject.SetActive(health);
+				hpText.gameObject.SetActive(health);
+				if (health)
+				{
+					hpBar.maxValue = health.HPMax;
+					hpBar.value = health.HP;
+					hpText.text = health.HP + "/" + health.HPMax;
+				}
 
 				moneyText.gameObject.SetActive(target.structure && target.structure.plot);
 				if (target.structure)
@@ -49,6 +56,7 @@ namespace UI
 		public void Show(Target target)
 		{
 			this.target = target;
+			health = target.GetComponent<Health>();
 			//TODO: Stack count
 			nameText.text = target.name; // + (target.item? " x" + target.item.count : "");
 

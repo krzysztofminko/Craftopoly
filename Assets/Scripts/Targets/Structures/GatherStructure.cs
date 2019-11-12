@@ -54,7 +54,7 @@ public class GatherStructure : Workplace
 			else
 			{
 				//Find sources
-				sources = Source.list.FindAll(s => s.itemType == itemType && !s.target.ReservedBy && s.target.hp > 0 && Distance.Manhattan2D(transform.position, s.transform.position) < rangeOfSearch).OrderBy(s => Distance.Manhattan2D(transform.position, s.transform.position)).ToList();
+				sources = Source.list.FindAll(s => s.itemType == itemType && !s.target.ReservedBy && s.Health.HP > 0 && Distance.Manhattan2D(transform.position, s.transform.position) < rangeOfSearch).OrderBy(s => Distance.Manhattan2D(transform.position, s.transform.position)).ToList();
 				if (sources.Count > 0)
 				{
 					worker.fsm.Gather(sources[0], storage);

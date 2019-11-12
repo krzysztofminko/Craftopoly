@@ -9484,6 +9484,7 @@ GameObject:
   - component: {fileID: 8001013341648287230}
   - component: {fileID: 74559340099498501}
   - component: {fileID: 37358305820252229}
+  - component: {fileID: 8402853520973805876}
   - component: {fileID: 2668379579657777896}
   - component: {fileID: 3350950124408685383}
   m_Layer: 10
@@ -9538,8 +9539,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logReservedBy: 0
-  hp: 100
-  hpMax: 100
   proximity: 1
   focused: 0
   _reservedBy: {fileID: 0}
@@ -9555,6 +9554,20 @@ MonoBehaviour:
   gatherStructure: {fileID: 0}
   shopStructure: {fileID: 0}
   workplace: {fileID: 0}
+--- !u!114 &8402853520973805876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952110640701187083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 794bff13af2803b488187dfb53e103ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 100
+  hpMax: 100
 --- !u!114 &2668379579657777896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9581,12 +9594,13 @@ MonoBehaviour:
   fuelMax: 300
   GetItemCalls: 0
   GetItemCallsMax: 10
+  craftedTransform: {fileID: 0}
   smokeParticles: {fileID: 1832730925}
   fireParticles: {fileID: 460426348}
   fuel: 0
   progress: 0
   _currentItemType: {fileID: 0}
-  craftedItem: {fileID: 0}
+  _craftedItem: {fileID: 0}
   orders: []
 --- !u!114 &3350950124408685383
 MonoBehaviour:
@@ -9600,6 +9614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c739dd19a00fd346a366bb85bf2d21f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputTransform: {fileID: 0}
   releaseTransform: {fileID: 6263883077910889534}
   items: []
   target: {fileID: 0}

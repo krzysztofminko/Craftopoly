@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-[RequireComponent(typeof(Target), typeof(FSMBinding), typeof(CharacterController))]
+[RequireComponent(typeof(Target), typeof(FSMBinding), typeof(CharacterController))] //typeof(Health)
 public class Citizen : MonoBehaviour, IMoney
 {
 	public static List<Citizen> list = new List<Citizen>();
@@ -75,6 +75,8 @@ public class Citizen : MonoBehaviour, IMoney
 	[HideInInspector]
 	public Skills skills;
 
+	public Health Health{get; private set;}
+
 	const int GetItemCallsMax = 10;
 	int GetItemCalls;
 
@@ -86,6 +88,7 @@ public class Citizen : MonoBehaviour, IMoney
 		fsm = GetComponent<FSMBinding>();
 		characterController = GetComponent<CharacterController>();
 		skills = GetComponent<Skills>();
+		Health = GetComponent<Health>();
 	}
 	
 	private void OnDestroy()

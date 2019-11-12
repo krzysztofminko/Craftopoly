@@ -550,6 +550,7 @@ GameObject:
   - component: {fileID: 2891120679011783325}
   - component: {fileID: 2228854604622030722}
   - component: {fileID: 7360917189834866956}
+  - component: {fileID: 2295487191461804011}
   - component: {fileID: 6662065775247512829}
   m_Layer: 12
   m_Name: IronRock
@@ -600,8 +601,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logReservedBy: 0
-  hp: 100
-  hpMax: 100
   proximity: 1
   focused: 0
   _reservedBy: {fileID: 0}
@@ -617,6 +616,20 @@ MonoBehaviour:
   gatherStructure: {fileID: 0}
   shopStructure: {fileID: 0}
   workplace: {fileID: 0}
+--- !u!114 &2295487191461804011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5163746753438928525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 794bff13af2803b488187dfb53e103ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 100
+  hpMax: 100
 --- !u!114 &6662065775247512829
 MonoBehaviour:
   m_ObjectHideFlags: 0

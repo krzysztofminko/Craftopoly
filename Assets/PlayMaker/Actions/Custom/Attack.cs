@@ -8,40 +8,29 @@ namespace HutongGames.PlayMaker.Actions
 	{
 		const float animationTimer = 0.2f;
 
-		[CheckForComponent(typeof(Target))]
-		public FsmObject _target;
-		public FsmFloat proximity;
+		[CheckForComponent(typeof(Health))]
+		public FsmObject _health;
 
 		float timer;
 		Citizen citizen;
-		Target target;
+		Health health;
 
 		public override void OnExit()
 		{
 			timer = 0;
-			_target.Value = null;
+			_health.Value = null;
 		}
 
 		public override void OnEnter()
 		{
 			if (!citizen)
 				citizen = Owner.GetComponent<Citizen>();
-			if (_target.Value)
-			{
-				target = (Target)_target.Value;
-				if (proximity.IsNone)
-					proximity.Value = citizen.target.proximity + target.proximity;
-			}
-			else
-			{
-				target = null;
-			}
-
+			health = _health.Value? (Health)_health.Value : null;
 		}
 
 		public override void OnUpdate()
 		{
-			if (!_target.Value)
+			if (!_health.Value)
 			{
 				Fsm.Event("FAILED");
 			}
@@ -54,7 +43,7 @@ namespace HutongGames.PlayMaker.Actions
 				{
 					citizen.animator.SetFloat("UseAnimationId", 0);
 
-					if (!target.Damage(20 * Mathf.Max(0.1f, citizen.skills.Get(Skills.Name.Fight))))
+					if (!health.Damage(20 * Mathf.Max(0.1f, citizen.skills.Get(Skills.Name.Fight))))
 						Fsm.Event("Survived");
 					else
 						Finish();

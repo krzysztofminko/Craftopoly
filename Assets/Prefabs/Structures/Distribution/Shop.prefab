@@ -586,6 +586,7 @@ GameObject:
   - component: {fileID: 5583057173652063051}
   - component: {fileID: 6035666255567373092}
   - component: {fileID: 4327645516598922874}
+  - component: {fileID: 8333381712164679799}
   - component: {fileID: 5537821876911658904}
   - component: {fileID: 6232227167286409227}
   m_Layer: 10
@@ -637,11 +638,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logReservedBy: 0
-  hp: 100
-  hpMax: 100
   proximity: 1
-  description: Description...
   focused: 0
+  _reservedBy: {fileID: 0}
   citizen: {fileID: 0}
   structure: {fileID: 0}
   source: {fileID: 0}
@@ -654,6 +653,20 @@ MonoBehaviour:
   gatherStructure: {fileID: 0}
   shopStructure: {fileID: 0}
   workplace: {fileID: 0}
+--- !u!114 &8333381712164679799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8718110590357799135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 794bff13af2803b488187dfb53e103ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 100
+  hpMax: 100
 --- !u!114 &5537821876911658904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -666,9 +679,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ead0bddf43a7f1d4d9048cb65a17dac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blueprint: {fileID: 0}
-  money: 0
+  blueprint:
+    duration: 1
+    requiredTools: []
+    requiredItems: []
   next: {fileID: 0}
+  plot: {fileID: 0}
   storage: {fileID: 0}
   target: {fileID: 0}
   worker: {fileID: 0}
@@ -676,12 +692,6 @@ MonoBehaviour:
   supplyStorage: {fileID: 0}
   orders: []
   shopkeeperAvailable: 0
-  timeFromLastTransaction: 0
-  supply: 0
-  supplyOrder:
-    type: {fileID: 0}
-    min: 0
-    max: 0
 --- !u!114 &6232227167286409227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -694,5 +704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c739dd19a00fd346a366bb85bf2d21f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputTransform: {fileID: 0}
+  releaseTransform: {fileID: 0}
   items: []
   target: {fileID: 0}

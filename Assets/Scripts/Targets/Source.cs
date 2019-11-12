@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Health))]
 public class Source : MonoBehaviour {
 
 	public static List<Source> list = new List<Source>();
@@ -13,17 +14,18 @@ public class Source : MonoBehaviour {
 	[HideInInspector]
 	public Target target;
 
+	public Health Health { get; private set; }
+
 	private void Awake()
 	{
 		target = GetComponent<Target>();
+		Health = GetComponent<Health>();
 		list.Add(this);
 	}
 
 	public Item Gather(float value)
 	{
-		if (target.Damage(value))
-			return itemType.Spawn(count, transform.position, transform.rotation);
-		return null;
+		return Health.Damage(value)? itemType.Spawn(count, transform.position, transform.rotation) : null;
 	}
 
 	private void OnDestroy()

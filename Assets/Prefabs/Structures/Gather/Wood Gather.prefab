@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4268831841568280}
   - component: {fileID: 65143054965355846}
   - component: {fileID: 114861373657444064}
+  - component: {fileID: 3924004168209476658}
   - component: {fileID: 3943385134653158310}
   m_Layer: 10
   m_Name: Wood Gather
@@ -61,8 +62,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logReservedBy: 0
-  hp: 100
-  hpMax: 100
   proximity: 1
   focused: 0
   _reservedBy: {fileID: 0}
@@ -78,6 +77,20 @@ MonoBehaviour:
   gatherStructure: {fileID: 0}
   shopStructure: {fileID: 0}
   workplace: {fileID: 0}
+--- !u!114 &3924004168209476658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623709131591762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 794bff13af2803b488187dfb53e103ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 100
+  hpMax: 100
 --- !u!114 &3943385134653158310
 MonoBehaviour:
   m_ObjectHideFlags: 0
