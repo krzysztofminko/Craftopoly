@@ -33,12 +33,12 @@ public class ShopStructure : Workplace
 	{
 		if (focused)
 		{
-			if (!target.ReservedBy)
+			if (!ReservedBy)
 				StartTransaction(Player.instance);
 		}
 		else
 		{
-			if (target.ReservedBy == Player.instance)
+			if (ReservedBy == Player.instance)
 				FinishTransaction();
 		}
 	}
@@ -61,7 +61,7 @@ public class ShopStructure : Workplace
 			shopkeeperAvailable = Distance.Manhattan2D(worker.transform.position, transform.position) < 2;
 
 			//Is during transaction?
-			if (target.ReservedBy)
+			if (ReservedBy)
 			{
 				if (worker.fsm.ActiveStateName == "Idle")
 					worker.fsm.GoTo(transform.position);
@@ -116,12 +116,12 @@ public class ShopStructure : Workplace
 
 	public void StartTransaction(Citizen client)
 	{
-		target.ReservedBy = client;
+		ReservedBy = client;
 	}
 
 	public void FinishTransaction()
 	{
-		target.ReservedBy = null;
+		ReservedBy = null;
 		timeFromLastTransaction = 0;
 	}
 

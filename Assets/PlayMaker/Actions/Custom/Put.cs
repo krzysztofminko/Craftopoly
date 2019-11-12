@@ -23,7 +23,7 @@ namespace HutongGames.PlayMaker.Actions
 			storage = _storage.Value? _storage.Value.GetComponent<Storage>() : null;
 			goToTarget = storage ? storage.transform : null;
 
-			citizen.pickedItem.target.ReservedBy = citizen;
+			citizen.pickedItem.ReservedBy = citizen;
 
 		}
 
@@ -43,7 +43,7 @@ namespace HutongGames.PlayMaker.Actions
 				if (timer > animationTimer)
 				{
 					citizen.animator.SetFloat("UseAnimationId", 0);
-					citizen.pickedItem.target.ReservedBy = null;
+					citizen.pickedItem.ReservedBy = null;
 										
 					if (storage)
 					{

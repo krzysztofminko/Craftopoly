@@ -22,7 +22,7 @@ namespace HutongGames.PlayMaker.Actions
 		public override void OnExit()
 		{
 			timer = 0;
-			target.ReservedBy = null;
+			craftStructure.ReservedBy = null;
 			_craftStructure.Value = null;
 			_itemType.Value = null;
 		}
@@ -34,7 +34,7 @@ namespace HutongGames.PlayMaker.Actions
 			craftStructure = _craftStructure.Value.GetComponent<CraftStructure>();			
 			itemType = (ItemType)_itemType.Value;
 			target = craftStructure.target;
-			target.ReservedBy = citizen;
+			craftStructure.ReservedBy = citizen;
 		}
 
 		public override void OnUpdate()

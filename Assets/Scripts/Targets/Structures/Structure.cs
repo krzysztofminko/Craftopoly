@@ -1,10 +1,11 @@
-﻿using System.Collections;
+﻿using Sirenix.OdinInspector;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Target), typeof(Health), typeof(FocusTarget))]
-public abstract class Structure : MonoBehaviour
+public abstract class Structure : MonoBehaviour, IReserve
 {	
 	public static List<Structure> list = new List<Structure>();
 
@@ -21,6 +22,9 @@ public abstract class Structure : MonoBehaviour
 	public Target target;
 	public Health Health { get; private set; }
 	public FocusTarget FocusTarget { get; private set; }
+	
+	[ShowInInspector]
+	public Citizen ReservedBy { get; set; }
 
 	protected virtual void Awake()
 	{

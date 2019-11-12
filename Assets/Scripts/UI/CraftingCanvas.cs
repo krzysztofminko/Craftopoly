@@ -100,7 +100,7 @@ namespace UI
 			if (!this.structure)
 			{
 				this.structure = structure;
-				structure.target.ReservedBy = Player.instance;
+				structure.ReservedBy = Player.instance;
 				transform.GetChild(0).gameObject.SetActive(true);
 
 				Player.instance.controlsEnabled = false;
@@ -122,7 +122,7 @@ namespace UI
 			if (structure)
 			{
 				if (freeReservation && structure)
-					structure.target.ReservedBy = null;
+					structure.ReservedBy = null;
 
 				structure.storage.onItemsUpdate -= UpdateRequiredList;
 

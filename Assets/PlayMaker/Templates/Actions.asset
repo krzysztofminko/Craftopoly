@@ -1406,13 +1406,7 @@ MonoBehaviour:
       colorIndex: 0
     variables:
       floatVariables: []
-      intVariables:
-      - useVariable: 1
-        name: Count
-        tooltip: 
-        showInInspector: 0
-        networkSync: 0
-        value: 0
+      intVariables: []
       boolVariables: []
       stringVariables: []
       vector2Variables: []
@@ -1441,12 +1435,6 @@ MonoBehaviour:
         value: {fileID: 0}
       - useVariable: 1
         name: SourceStorageGO
-        tooltip: 
-        showInInspector: 0
-        networkSync: 0
-        value: {fileID: 0}
-      - useVariable: 1
-        name: StackGO
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -1490,7 +1478,7 @@ MonoBehaviour:
       enumVariables: []
       categories:
       - 
-      variableCategoryIDs: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+      variableCategoryIDs: 000000000000000000000000000000000000000000000000000000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0

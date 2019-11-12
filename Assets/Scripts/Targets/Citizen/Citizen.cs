@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Sirenix.OdinInspector;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(Target), typeof(FSMBinding), typeof(CharacterController))] //typeof(Health)
-public class Citizen : MonoBehaviour, IMoney
+public class Citizen : MonoBehaviour, IMoney, IReserve
 {
 	public static List<Citizen> list = new List<Citizen>();
 
@@ -66,6 +67,9 @@ public class Citizen : MonoBehaviour, IMoney
 		}
 	}
 
+	[ShowInInspector]
+	public Citizen ReservedBy { get; set; }
+
 	[HideInInspector]
 	public Target target;
 	[HideInInspector]
@@ -76,7 +80,7 @@ public class Citizen : MonoBehaviour, IMoney
 	public Skills skills;
 
 	public Health Health{get; private set;}
-
+	
 	const int GetItemCallsMax = 10;
 	int GetItemCalls;
 

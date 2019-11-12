@@ -45,7 +45,7 @@ namespace HutongGames.PlayMaker.Actions
 			}
 			else if(citizen.GoTo(source.transform))
 			{
-				source.target.ReservedBy = citizen;
+				source.ReservedBy = citizen;
 
 				citizen.animator.SetFloat("UseAnimationId", 1);
 
@@ -58,7 +58,7 @@ namespace HutongGames.PlayMaker.Actions
 					if (item)
 					{
 						returnItem.Value = item.gameObject;
-						source.target.ReservedBy = null;
+						source.ReservedBy = null;
 						Finish();
 					}
 				}

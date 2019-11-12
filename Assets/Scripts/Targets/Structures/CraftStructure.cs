@@ -102,7 +102,7 @@ public class CraftStructure : Workplace
 		if (craftedItem && (craftedItem.transform.parent != transform && craftedItem.transform.parent != craftedTransform))
 			craftedItem = null;
 
-		if (target.ReservedBy != Player.instance && worker && worker.WorkTime() && worker.fsm.ActiveStateName == "Idle")
+		if (ReservedBy != Player.instance && worker && worker.WorkTime() && worker.fsm.ActiveStateName == "Idle")
 		{
 			//Store craftedItem
 			if (craftedItem)
@@ -210,7 +210,7 @@ public class CraftStructure : Workplace
 
 	private void Refuel()
 	{
-		List<Item> fuelItems = storage.items.FindAll(i => !i.target.ReservedBy && i.type.fuelValue > 0).ToList();
+		List<Item> fuelItems = storage.items.FindAll(i => !i.ReservedBy && i.type.fuelValue > 0).ToList();
 		for(int i = fuelItems.Count - 1; i >= 0; i --)
 		{
 			fuel = Mathf.Min(fuelMax, fuel + fuelItems[i].type.fuelValue);

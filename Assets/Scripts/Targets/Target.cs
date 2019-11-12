@@ -11,18 +11,6 @@ public class Target : MonoBehaviour
 	public bool logReservedBy;
 
 	[Header("Runtime")]
-	[SerializeField]
-	private Citizen _reservedBy;
-	public Citizen ReservedBy
-	{
-		get => _reservedBy;
-		set
-		{
-			if (logReservedBy)
-				Debug.Log(this + " reserved by: " + value, this);
-			_reservedBy = value;
-		}
-	}
 
 	[Header("Components")]
 	public Citizen citizen;

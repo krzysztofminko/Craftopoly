@@ -6,7 +6,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-public class Item : MonoBehaviour
+public class Item : MonoBehaviour, IReserve
 {
 	private static List<Item> list = new List<Item>();
 	[ShowInInspector]
@@ -22,6 +22,9 @@ public class Item : MonoBehaviour
 
 	private Texture2D thumbnail;
 	private Sprite thumbnailSprite;
+
+	[ShowInInspector]
+	public Citizen ReservedBy { get; set; }
 
 	private void Awake()
 	{		

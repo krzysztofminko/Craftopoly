@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using Sirenix.OdinInspector;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Health))]
-public class Source : MonoBehaviour {
+public class Source : MonoBehaviour, IReserve {
 
 	public static List<Source> list = new List<Source>();
 
@@ -15,6 +16,9 @@ public class Source : MonoBehaviour {
 	public Target target;
 
 	public Health Health { get; private set; }
+	
+	[ShowInInspector]
+	public Citizen ReservedBy { get; set; }
 
 	private void Awake()
 	{

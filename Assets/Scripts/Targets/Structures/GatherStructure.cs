@@ -43,7 +43,7 @@ public class GatherStructure : Workplace
 		else if (worker && worker.WorkTime() && worker.fsm.ActiveStateName == "Idle")
 		{
 			//Find items on the ground
-			items = Item.free.FindAll(r => r.type == itemType && !r.target.ReservedBy && Distance.Manhattan2D(transform.position, r.transform.position) < rangeOfSearch).OrderBy(r => Distance.Manhattan2D(transform.position, r.transform.position)).ToList();
+			items = Item.free.FindAll(r => r.type == itemType && !r.ReservedBy && Distance.Manhattan2D(transform.position, r.transform.position) < rangeOfSearch).OrderBy(r => Distance.Manhattan2D(transform.position, r.transform.position)).ToList();
 			if (items.Count > 0)
 			{
 				if (SearchFor.NearestStorageStructure(plot, transform.position, out StorageStructure targetStorage))
@@ -54,7 +54,7 @@ public class GatherStructure : Workplace
 			else
 			{
 				//Find sources
-				sources = Source.list.FindAll(s => s.itemType == itemType && !s.target.ReservedBy && s.Health.HP > 0 && Distance.Manhattan2D(transform.position, s.transform.position) < rangeOfSearch).OrderBy(s => Distance.Manhattan2D(transform.position, s.transform.position)).ToList();
+				sources = Source.list.FindAll(s => s.itemType == itemType && !s.ReservedBy && s.Health.HP > 0 && Distance.Manhattan2D(transform.position, s.transform.position) < rangeOfSearch).OrderBy(s => Distance.Manhattan2D(transform.position, s.transform.position)).ToList();
 				if (sources.Count > 0)
 				{
 					worker.fsm.Gather(sources[0], storage);

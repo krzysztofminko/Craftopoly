@@ -22,7 +22,7 @@ namespace HutongGames.PlayMaker.Actions
 		public override void OnExit()
 		{
 			timer = 0;
-			target.ReservedBy = null;
+			structure.ReservedBy = null;
 			_structure.Value = null;
 		}
 
@@ -33,7 +33,7 @@ namespace HutongGames.PlayMaker.Actions
 			structure = _structure.Value.GetComponent<NewStructure>();
 			blueprint = structure.next.blueprint;
 			target = structure.target;
-			target.ReservedBy = citizen;
+			structure.ReservedBy = citizen;
 		}
 
 		public override void OnUpdate()

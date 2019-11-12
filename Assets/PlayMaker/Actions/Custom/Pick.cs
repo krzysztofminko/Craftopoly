@@ -43,7 +43,7 @@ namespace HutongGames.PlayMaker.Actions
 
 		public override void OnUpdate()
 		{
-			if (!item || (item && item.target.ReservedBy && item.target.ReservedBy != citizen))
+			if (!item || (item && item.ReservedBy && item.ReservedBy != citizen))
 			{
 				citizen.animator.SetFloat("UseAnimationId", 0);
 				Fsm.Event("FAILED");
@@ -58,7 +58,7 @@ namespace HutongGames.PlayMaker.Actions
 				}
 				else
 				{
-					item.target.ReservedBy = citizen;
+					item.ReservedBy = citizen;
 
 					citizen.animator.SetFloat("UseAnimationId", 1);
 

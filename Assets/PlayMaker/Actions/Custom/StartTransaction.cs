@@ -7,38 +7,39 @@ namespace HutongGames.PlayMaker.Actions
 	public class StartTransaction : FsmStateAction
 	{
 
-		[CheckForComponent(typeof(Item))]
-		public FsmGameObject _storage;
+		[CheckForComponent(typeof(ShopStructure))]
+		public FsmGameObject _shopStructure;
 
+		ShopStructure shopStructure;
 		Storage storage;
 		Citizen citizen;
 
 		public override void OnEnter()
 		{
 			citizen = Owner.GetComponent<Citizen>();
-			storage = _storage.Value ? _storage.Value.GetComponent<Storage>() : null;
-			if (!storage || !storage.target.shopStructure)
+			shopStructure = _shopStructure.Value ? _shopStructure.Value.GetComponent<ShopStructure>() : null;
+			if (!shopStructure)
 				Finish();
 		}
 
 		public override void OnExit()
 		{
-			_storage.Value = null;
+			_shopStructure.Value = null;
 		}
 
 		public override void OnUpdate()
 		{
-			if (citizen.GoTo(storage.transform))
+			if (citizen.GoTo(shopStructure.transform))
 			{
-				if (!storage.target.ReservedBy)
+				if (!shopStructure.ReservedBy)
 				{
-					storage.target.shopStructure.StartTransaction(citizen);
+					shopStructure.StartTransaction(citizen);
 				}
-				else if (storage.target.ReservedBy != citizen)
+				else if (shopStructure.ReservedBy != citizen)
 				{
 					Fsm.Event("FAILED");
 				}
-				else if (storage.target.shopStructure.shopkeeperAvailable)
+				else if (shopStructure.shopkeeperAvailable)
 				{
 					Finish();
 				}

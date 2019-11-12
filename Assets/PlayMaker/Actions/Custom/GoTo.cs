@@ -6,7 +6,7 @@ namespace HutongGames.PlayMaker.Actions
 	[ActionCategory("Custom")]
 	public class GoTo : FsmStateAction
 	{
-		[CheckForComponent(typeof(Target))]
+		[CheckForComponent(typeof(Transform))]
 		public FsmGameObject targetGameObject;
 		[HideIf("targetGameObjectNotNull")]
 		public FsmVector3 position;
@@ -16,7 +16,7 @@ namespace HutongGames.PlayMaker.Actions
 		public FsmBool reserveTarget;
 
 		Citizen citizen;
-		Target target;
+		Transform target;
 
 
 		public bool targetGameObjectNotNull()
@@ -32,7 +32,7 @@ namespace HutongGames.PlayMaker.Actions
 		public override void OnExit()
 		{
 			if (reserveTarget.Value)
-				target.ReservedBy = null;
+				target.GetComponent<IReserve>().ReservedBy = null;
 			targetGameObject.Value = null;
 		}
 
@@ -42,7 +42,7 @@ namespace HutongGames.PlayMaker.Actions
 				citizen = Owner.GetComponent<Citizen>();
 			if (targetGameObject.Value)
 			{
-				target = targetGameObject.Value.GetComponent<Target>();
+				target = targetGameObject.Value.GetComponent<Transform>();
 				position.Value = target.transform.position;
 				proximity.Value = 1;
 			}
@@ -54,7 +54,7 @@ namespace HutongGames.PlayMaker.Actions
 			}
 
 			if (reserveTarget.Value)
-				target.ReservedBy = citizen;
+				target.GetComponent<IReserve>().ReservedBy = citizen;
 		}		
 
 		public override void OnUpdate()
