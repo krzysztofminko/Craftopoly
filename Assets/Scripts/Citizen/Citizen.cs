@@ -215,7 +215,7 @@ public class Citizen : MonoBehaviour, IMoney, IReserve
 				}
 				if (!item)
 				{
-					//TODO: Crafting must be accessed by some method, not copy-paste code like here (same for Gathering)
+					//TODO: Crafting must be accessed by some method, not copy-paste code (from Craft.cs) like here (same for Gathering)
 					if (SearchFor.CraftStructureWithItemType(items[i].type, inStorage.transform.position, out CraftStructure craftStructure))
 					{
 						if (DEBUG) Debug.Log(String.Format("{0} in CraftStructure blueprints", items[i].type));
@@ -247,7 +247,7 @@ public class Citizen : MonoBehaviour, IMoney, IReserve
 				*/
 				if (!item)
 				{
-					//IMPORTANT: SearchFor.ItemTypeInPlots else increase itemType request in shop
+					//TODO: SearchFor.ItemTypeInPlots else increase itemType request in shop
 					if (SearchFor.ItemInShopStructures(items[i].type, inStorage.transform.position, out item, out sourceStorage))
 						if (DEBUG) Debug.Log(String.Format("{0} in ShopStructure", item));
 				}
