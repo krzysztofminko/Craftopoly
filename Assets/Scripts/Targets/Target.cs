@@ -6,12 +6,7 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
 	public static List<Target> list = new List<Target>();
-
-	[Header("Settings")]
-	public bool logReservedBy;
-
-	[Header("Runtime")]
-
+	
 	[Header("Components")]
 	public Citizen citizen;
 	public Structure structure;
