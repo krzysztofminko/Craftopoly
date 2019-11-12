@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using Utilities.UI;
 using System.Linq;
 using UnityEngine.Events;
+using UnityEngine.Profiling;
 
 namespace UI
 {
@@ -33,10 +34,13 @@ namespace UI
 
 		private bool controlsUnlocked;
 
+		private Canvas canvas;
+
 		private void Awake()
 		{
 			instance = this;
-			transform.GetChild(0).gameObject.SetActive(false);
+			canvas = GetComponent<Canvas>();
+			canvas.enabled = false;
 		}
 
 		private void Update()
@@ -62,8 +66,8 @@ namespace UI
 		public void Show()
 		{
 			visible = true;
-
-			transform.GetChild(0).gameObject.SetActive(true);
+			
+			canvas.enabled = true;
 
 			citizens = Citizen.list;
 			workplaces = Workplace.list;
@@ -85,7 +89,13 @@ namespace UI
 		{
 			visible = false;
 
-			transform.GetChild(0).gameObject.SetActive(false);
+			canvas.enabled = false;
+			
+			citizensScrollList.OnListItemCreate -= SetupCitizenListItem;
+			citizensScrollList.OnListItemSelect -= SelectCitizenListItem;
+
+			workplaceScrollList.OnListItemCreate -= SetupWorkplaceListItem;
+			workplaceScrollList.OnListItemSelect -= SelectWorkplaceListItem;
 
 			Player.instance.controlsEnabled = true;
 		}
@@ -93,7 +103,7 @@ namespace UI
 
 		private void SetupCitizenListItem(int id, Selectable listItem)
 		{
-			listItem.transform.GetChild(0).GetComponent<Image>().sprite = Thumbnail.Generate(citizens[id].transform);
+			//listItem.transform.GetChild(0).GetComponent<Image>().sprite = Thumbnail.Generate(citizens[id].transform);
 			listItem.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = citizens[id].name;
 		}
 
@@ -105,7 +115,7 @@ namespace UI
 
 		private void SetupWorkplaceListItem(int id, Selectable listItem)
 		{
-			listItem.transform.GetChild(0).GetComponent<Image>().sprite = Thumbnail.Generate(workplaces[id].transform);
+			//listItem.transform.GetChild(0).GetComponent<Image>().sprite = Thumbnail.Generate(workplaces[id].transform);
 			listItem.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = workplaces[id].name;
 		}
 
