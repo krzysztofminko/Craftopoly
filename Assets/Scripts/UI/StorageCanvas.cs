@@ -30,13 +30,14 @@ namespace UI
 		public TextMeshProUGUI moneyText;
 
 		private bool controlsUnlocked;
+		private List<ItemType> itemTypes;
 
 		private void Awake()
 		{
 			instance = this;
 
-			targetStorageScrollList.OnListItemCreate += SetupItemListItem;
-			targetStorageScrollList.OnListItemSelect += SelectItemListItem;
+			targetStorageScrollList.OnListItemCreate += SetupItem;
+			targetStorageScrollList.OnListItemSelect += SelectItem;
 
 			transform.GetChild(0).gameObject.SetActive(false);
 		}
@@ -44,8 +45,8 @@ namespace UI
 		private void OnDestroy()
 		{
 			Hide();
-			targetStorageScrollList.OnListItemCreate -= SetupItemListItem;
-			targetStorageScrollList.OnListItemSelect -= SelectItemListItem;
+			targetStorageScrollList.OnListItemCreate -= SetupItem;
+			targetStorageScrollList.OnListItemSelect -= SelectItem;
 		}
 
 		private void Update()
@@ -79,8 +80,8 @@ namespace UI
 				transform.GetChild(0).gameObject.SetActive(true);
 
 				Player.instance.controlsEnabled = false;
-				
-				targetStorageScrollList.Draw(storage.counts.Count, 0);
+
+				UpdateList();
 
 				detailsNameText.text = "";
 				detailsImage.sprite = null;
@@ -88,7 +89,7 @@ namespace UI
 
 				UpdatePickButton();
 
-				targetStorage.onItemsUpdate += UpdateItems;
+				targetStorage.onItemsUpdate += UpdateList;
 
 				controlsUnlocked = false;
 			}
@@ -98,7 +99,7 @@ namespace UI
 		{
 			if (targetStorage)
 			{
-				targetStorage.onItemsUpdate -= UpdateItems;
+				targetStorage.onItemsUpdate -= UpdateList;
 				targetStorage = null;
 				transform.GetChild(0).gameObject.SetActive(false);
 
@@ -112,25 +113,30 @@ namespace UI
 		}
 
 		
-		private void SetupItemListItem(int id, Selectable listItem)
+		private void SetupItem(int id, Selectable listItem)
 		{
-			listItem.transform.GetChild(0).GetComponent<Image>().sprite = targetStorage.counts.ToList()[id].Key.GenerateThumbnail();
-			listItem.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = targetStorage.counts.ToList()[id].Key.name;
-			SetListItemCountText(listItem, targetStorage.counts.ToList()[id].Value);
+			listItem.transform.GetChild(0).GetComponent<Image>().sprite = itemTypes[id].GenerateThumbnail();
+			listItem.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = itemTypes[id].name;
+			listItem.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = targetStorage.Count(itemTypes[id]).ToString();
 		}
 
-		private void SelectItemListItem(int id, Selectable listItem)
+		private void SelectItem(int id, Selectable listItem)
 		{
 			selectedListItemId = id;
 			selectedListItem = listItem;
-			selectedItem = targetStorage.items.Find(i => i.type == targetStorage.counts.ToList()[id].Key);
+			selectedItem = targetStorage.items.Find(i => i.type == itemTypes[id]);
 
 			UpdateDetails();
 		}
 
-		private void UpdateItems()
+		private void UpdateList()
 		{
-			targetStorageScrollList.Draw(targetStorage.counts.Count, 0);
+			itemTypes = new List<ItemType>();
+			for (int i = 0; i < targetStorage.items.Count; i++)
+				if (!itemTypes.Contains(targetStorage.items[i].type))
+					itemTypes.Add(targetStorage.items[i].type);
+
+			targetStorageScrollList.Draw(itemTypes.Count, 0);
 		}
 
 		private void UpdateDetails()
@@ -150,11 +156,6 @@ namespace UI
 
 			if (shopStructure)
 				costText.text = "Cost: " + (selectedItem? selectedItem.type.value.ToString("0.00") : "0");
-		}
-
-		private void SetListItemCountText(Selectable listItem, int count)
-		{
-			listItem.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = count.ToString();
 		}
 		
 		public void Pick() //Called by PickButton
