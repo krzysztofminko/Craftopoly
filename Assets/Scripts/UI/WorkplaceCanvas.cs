@@ -40,7 +40,7 @@ namespace UI
 		{
 			instance = this;
 			canvas = GetComponent<Canvas>();
-			canvas.enabled = false;
+			Hide();
 		}
 
 		private void Update()
@@ -78,9 +78,14 @@ namespace UI
 			workplaceScrollList.OnListItemCreate += SetupWorkplaceListItem;
 			workplaceScrollList.OnListItemSelect += SelectWorkplaceListItem;
 
+			citizensScrollList.enabled = true;
+			workplaceScrollList.enabled = true;
+
 			citizensScrollList.Draw(citizens.Count, 0);
 			workplaceScrollList.Draw(workplaces.Count);
-			ScrollList.UpdateNavigation();
+
+			citizensScrollList.UpdateNavigation();
+			workplaceScrollList.UpdateNavigation();
 
 			Player.instance.controlsEnabled = false;
 		}
@@ -96,6 +101,9 @@ namespace UI
 
 			workplaceScrollList.OnListItemCreate -= SetupWorkplaceListItem;
 			workplaceScrollList.OnListItemSelect -= SelectWorkplaceListItem;
+
+			citizensScrollList.enabled = false;
+			workplaceScrollList.enabled = false;
 
 			Player.instance.controlsEnabled = true;
 		}

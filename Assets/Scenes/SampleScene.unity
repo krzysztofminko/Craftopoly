@@ -4184,6 +4184,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listParent: {fileID: 687849193}
+  leftList: {fileID: 0}
+  rightList: {fileID: 1400989466}
   listItems: []
 --- !u!1 &188804537
 GameObject:
@@ -9690,6 +9692,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listParent: {fileID: 980904913}
+  leftList: {fileID: 0}
+  rightList: {fileID: 0}
   listItems: []
 --- !u!1 &567483111
 GameObject:
@@ -11651,7 +11655,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000013808736, y: 46507.13}
+  m_AnchoredPosition: {x: 0.0000013808736, y: 78333.9}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &687849194
@@ -15722,6 +15726,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listParent: {fileID: 247078592}
+  leftList: {fileID: 0}
+  rightList: {fileID: 0}
   listItems: []
 --- !u!114 &950374070
 MonoBehaviour:
@@ -20054,7 +20060,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000013808736, y: 46507.13}
+  m_AnchoredPosition: {x: 0.0000013808736, y: 78333.9}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1214577992
@@ -23301,6 +23307,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listParent: {fileID: 1214577991}
+  leftList: {fileID: 183998259}
+  rightList: {fileID: 0}
   listItems: []
 --- !u!1 &1412606569
 GameObject:
@@ -27453,6 +27461,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listParent: {fileID: 707932690}
+  leftList: {fileID: 0}
+  rightList: {fileID: 0}
   listItems: []
 --- !u!1 &1641274429
 GameObject:

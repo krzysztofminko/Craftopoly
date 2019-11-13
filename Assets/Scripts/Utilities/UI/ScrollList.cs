@@ -16,6 +16,10 @@ namespace Utilities.UI
 		[Header("References")]
 		[SerializeField]
 		RectTransform listParent;
+		[SerializeField]
+		ScrollList leftList;
+		[SerializeField]
+		ScrollList rightList;
 
 		public delegate void onListItemCreate(int id, ScrollListItem listItem);
 		public event onListItemCreate OnListItemCreate;
@@ -48,6 +52,21 @@ namespace Utilities.UI
 			instances.Remove(this);
 		}
 
+		private void OnEnable()
+		{
+			scrollRect.enabled = true;
+			for (int i = 0; i < listItems.Count; i++)
+				listItems[i].interactable = true;
+		}
+
+		private void OnDisable()
+		{
+			pointerOver = false;
+			scrollRect.enabled = false;
+			for (int i = 0; i < listItems.Count; i++)
+				listItems[i].interactable = false;
+		}
+
 		private void Update()
 		{
 			if(pointerOver)
@@ -61,7 +80,7 @@ namespace Utilities.UI
 					scrollRect.verticalNormalizedPosition -= Time.deltaTime / listParent.childCount * 20;
 				else
 					updateScrollToTransform = null;
-				if (scrollRect.verticalNormalizedPosition < 0 || scrollRect.verticalNormalizedPosition > 1)
+				if ((selectedId == listItems.Count - 1 && scrollRect.verticalNormalizedPosition < 0) || (selectedId == 0 && scrollRect.verticalNormalizedPosition > 1))
 				{
 					updateScrollToTransform = null;
 					scrollRect.verticalNormalizedPosition = Mathf.Clamp(scrollRect.verticalNormalizedPosition, 0.0f, 1.0f);
@@ -112,6 +131,8 @@ namespace Utilities.UI
 			updateScrollToTransform = listItem.transform;
 			OnListItemSelect?.Invoke(id, listItem);
 			UpdateNavigation();
+			leftList?.UpdateNavigation();
+			rightList?.UpdateNavigation();
 		}
 
 
@@ -124,67 +145,25 @@ namespace Utilities.UI
 		{
 			pointerOver = false;
 		}
-
-		private void OnDisable()
-		{
-			pointerOver = false;
-		}
-
+		
 		private void SelectSelected()
 		{
 			if(selectedId > -1)
 				listParent.GetChild(selectedId).GetComponent<ScrollListItem>().Select();
 		}
 
-		private ScrollList GetListOnLeft()
+		public void UpdateNavigation()
 		{
-			float dist = Mathf.Infinity;
-			ScrollList leftList = null;
-			for (int i = 0; i < instances.Count; i++)
-				if (instances[i] != this && instances[i].gameObject.activeInHierarchy)
-					if (instances[i].transform.position.x < transform.position.x)
-						if (transform.position.x - instances[i].transform.position.x < dist)
-						{
-							leftList = instances[i];
-							dist = transform.position.x - instances[i].transform.position.x;
-						}
-			return leftList;
-		}
-
-		private ScrollList GetListOnRight()
-		{
-			float dist = Mathf.Infinity;
-			ScrollList rightList = null;
-			for (int i = 0; i < instances.Count; i++)
-				if (instances[i] != this && instances[i].gameObject.activeInHierarchy)
-					if (instances[i].transform.position.x > transform.position.x)
-						if (instances[i].transform.position.x - transform.position.x < dist)
-						{
-							rightList = instances[i];
-							dist = instances[i].transform.position.x - transform.position.x;
-						}
-			return rightList;
-		}
-
-		public static void UpdateNavigation()
-		{
-			for (int l = 0; l < instances.Count; l++)
+			for (int i = 0; i < listItems.Count; i++)
 			{
-				ScrollList leftList = instances[l].GetListOnLeft();
-				ScrollList rightList = instances[l].GetListOnRight();
-
-				for (int i = 0; i < instances[l].listItems.Count; i++)
+				listItems[i].navigation = new Navigation
 				{
-
-					instances[l].listItems[i].navigation = new Navigation
-					{
-						mode = Navigation.Mode.Explicit,
-						selectOnDown = instances[l].listItems.Count > 1 ? instances[l].listItems[(i == instances[l].listItems.Count - 1) ? 0 : i + 1] : null,
-						selectOnUp = instances[l].listItems.Count > 1 ? instances[l].listItems[(i == 0) ? instances[l].listItems.Count - 1 : i - 1] : null,
-						selectOnLeft = leftList && leftList.listItems.Count > 0 ? leftList.listItems[leftList.selectedId > 0 ? leftList.selectedId : 0] : null,
-						selectOnRight = rightList && rightList.listItems.Count > 0 ? rightList.listItems[rightList.selectedId > 0 ? rightList.selectedId: 0] : null
-					};
-				}
+					mode = Navigation.Mode.Explicit,
+					selectOnDown = listItems.Count > 1 ? listItems[(i == listItems.Count - 1) ? 0 : i + 1] : null,
+					selectOnUp = listItems.Count > 1 ? listItems[(i == 0) ? listItems.Count - 1 : i - 1] : null,
+					selectOnLeft = leftList && leftList.listItems.Count > 0 ? leftList.listItems[leftList.selectedId > 0 ? leftList.selectedId : 0] : null,
+					selectOnRight = rightList && rightList.listItems.Count > 0 ? rightList.listItems[rightList.selectedId > 0 ? rightList.selectedId: 0] : null
+				};
 			}
 		}
 	}

@@ -53,7 +53,7 @@ namespace UI
 			productsScrollList.OnListItemSelect += SelectProductListItem;
 
 			canvas = GetComponent<Canvas>();
-			canvas.enabled = false;
+			Hide();			
 		}
 
 		private void OnDestroy()
@@ -105,11 +105,12 @@ namespace UI
 				this.structure = structure;
 				structure.ReservedBy = Player.instance;
 				canvas.enabled = true;
+				productsScrollList.enabled = true;
 
 				Player.instance.controlsEnabled = false;
 
 				productsScrollList.Draw(structure.itemTypes.Count, 0);
-				ScrollList.UpdateNavigation();
+				productsScrollList.UpdateNavigation();
 
 				structure.storage.onItemsUpdate += UpdateRequiredList;
 
@@ -125,19 +126,18 @@ namespace UI
 		{
 			if (structure)
 			{
-				if (freeReservation && structure)
+				if (freeReservation)
 					structure.ReservedBy = null;
-
 				structure.storage.onItemsUpdate -= UpdateRequiredList;
-
-				structure = null;
-				itemType = null;
-				canvas.enabled = false;
-
-
-				if (Player.instance)
-					Player.instance.controlsEnabled = true;
 			}
+
+			structure = null;
+			itemType = null;
+			canvas.enabled = false;
+			productsScrollList.enabled = false;
+
+			if (Player.instance)
+				Player.instance.controlsEnabled = true;
 		}
 
 

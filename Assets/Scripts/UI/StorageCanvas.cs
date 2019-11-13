@@ -42,7 +42,7 @@ namespace UI
 			targetStorageScrollList.OnListItemSelect += SelectItem;
 
 			canvas = GetComponent<Canvas>();
-			canvas.enabled = false;
+			Hide();
 		}
 
 		private void OnDestroy()
@@ -80,7 +80,6 @@ namespace UI
 				moneyText.gameObject.SetActive(shopStructure);
 				costText.gameObject.SetActive(shopStructure);
 				targetStorage = storage;
-				canvas.enabled = true;
 
 				Player.instance.controlsEnabled = false;
 
@@ -95,6 +94,9 @@ namespace UI
 				targetStorage.onItemsUpdate += UpdateList;
 
 				controlsUnlocked = false;
+
+				canvas.enabled = true;
+				targetStorageScrollList.enabled = true;
 			}
 		}
 
@@ -104,7 +106,6 @@ namespace UI
 			{
 				targetStorage.onItemsUpdate -= UpdateList;
 				targetStorage = null;
-				canvas.enabled = false;
 
 				selectedItem = null;
 				targetStorage = null;
@@ -113,6 +114,8 @@ namespace UI
 				if (Player.instance)
 					Player.instance.controlsEnabled = true;
 			}
+			canvas.enabled = false;
+			targetStorageScrollList.enabled = false;
 		}
 
 		
@@ -140,7 +143,7 @@ namespace UI
 					itemTypes.Add(targetStorage.items[i].type);
 
 			targetStorageScrollList.Draw(itemTypes.Count, 0);
-			ScrollList.UpdateNavigation();
+			targetStorageScrollList.UpdateNavigation();
 		}
 
 		private void UpdateDetails()
