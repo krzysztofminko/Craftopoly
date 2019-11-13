@@ -17,7 +17,13 @@ public class Plot : MonoBehaviour, IMoney
 
 	public List<StorageStructure> storageStructures = new List<StorageStructure>();
 
-	public float Money { get; set; }
+	[SerializeField]
+	private float _money;
+	public float Money
+	{
+		get => _money;
+		set => _money = value;
+	}
 
 	[Header("References")]
 	public Transform[] corners;
