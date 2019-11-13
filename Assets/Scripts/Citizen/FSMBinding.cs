@@ -28,15 +28,7 @@ public class FSMBinding : MonoBehaviour
 		fsm.FsmVariables.GetFsmGameObject("ItemGO").Value = item.gameObject;
 		fsm.SendEvent("Pick");
 	}
-
-	public void Pick(CraftStructure craftStructure, Item item) 
-	{
-		fsm.FsmVariables.GetFsmGameObject("CraftStructureGO").Value = craftStructure ? craftStructure.gameObject : null;
-		fsm.FsmVariables.GetFsmGameObject("SourceStorageGO").Value = null;
-		fsm.FsmVariables.GetFsmGameObject("ItemGO").Value = item.gameObject;
-		fsm.SendEvent("Pick");
-	}
-
+	
 	public void Pick(Storage sourceStorage, Item item)
 	{
 		fsm.FsmVariables.GetFsmGameObject("CraftStructureGO").Value = null;

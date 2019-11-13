@@ -10,8 +10,6 @@ namespace HutongGames.PlayMaker.Actions
 
 		[CheckForComponent(typeof(Storage))]
 		public FsmGameObject _storage;
-		[CheckForComponent(typeof(CraftStructure))]
-		public FsmGameObject _craftStructure;
 		[CheckForComponent(typeof(Item))]
 		[RequiredField]
 		public FsmGameObject _item;
@@ -21,7 +19,6 @@ namespace HutongGames.PlayMaker.Actions
 		Citizen citizen;
 		Item item;
 		Storage storage;
-		CraftStructure craftStructure;
 
 		public override void OnEnter()
 		{
@@ -30,8 +27,6 @@ namespace HutongGames.PlayMaker.Actions
 				citizen = Owner.GetComponent<Citizen>();
 			item = _item.Value? _item.Value.GetComponent<Item>() : null;
 			storage = _storage.Value ? _storage.Value.GetComponent<Storage>() : null;
-			craftStructure = _craftStructure.Value ? _craftStructure.Value.GetComponent<CraftStructure>() : null;
-
 		}
 
 		public override void OnExit()
@@ -51,7 +46,7 @@ namespace HutongGames.PlayMaker.Actions
 			else if (citizen.GoTo(item.transform))
 			{
 				
-				if (storage && storage.GetComponent<ShopStructure>() && storage.GetComponent<ShopStructure>().plot && citizen.Money < item.type.value)
+				if (storage && storage.moneyReceiver != null && citizen.Money < item.type.value)
 				{
 					citizen.animator.SetFloat("UseAnimationId", 0);
 					Fsm.Event("FAILED");
@@ -72,16 +67,8 @@ namespace HutongGames.PlayMaker.Actions
 						{
 							citizen.pickedItem = storage.RemoveItem(item);
 
-							if (storage.GetComponent<ShopStructure>() && storage.GetComponent<ShopStructure>().plot)
-							{
-								citizen.Pay(storage.GetComponent<ShopStructure>().plot, citizen.pickedItem.type.value);
-								storage.GetComponent<ShopStructure>().FinishTransaction();
-							}
-						}
-						else if (craftStructure)
-						{
-							citizen.pickedItem = craftStructure.craftedItem;
-							craftStructure.craftedItem = null;
+							if (storage.moneyReceiver != null)
+								citizen.Pay(storage.moneyReceiver, citizen.pickedItem.type.value);
 						}
 						else
 						{

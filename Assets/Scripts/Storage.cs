@@ -12,6 +12,8 @@ public class Storage : MonoBehaviour
 	[Header("References")]
 	[SerializeField] private Transform inputTransform;
 	[SerializeField] private Transform releaseTransform;
+	[Tooltip("If not null Picker must pay for Items inside to moneyReceiver.")]
+	public IMoney moneyReceiver;
 
 	[Header("Runtime")]
 	public List<Item> items;

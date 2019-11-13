@@ -93,10 +93,6 @@ public class Player : Citizen
 							{
 								Notifications.instance.Add("Not enough money in shop.");
 							}
-							else if (!focusedOn.GetComponent<ShopStructure>().shopkeeperAvailable)
-							{
-								Notifications.instance.Add("Wait for shopkeeper.");
-							}
 							else
 							{
 								focusedOn.GetComponent<ShopStructure>().plot.Pay(this, pickedItem.type.value);
@@ -169,10 +165,7 @@ public class Player : Citizen
 						if (focusedOn.GetComponent<CraftStructure>().craftedItem)
 						{
 							if (InputHints.GetButtonDown("PrimaryAction", "Pick " + focusedOn.GetComponent<CraftStructure>().craftedItem.name))
-							{
 								fsm.Pick(focusedOn.GetComponent<Storage>(), focusedOn.GetComponent<CraftStructure>().craftedItem);
-								focusedOn.GetComponent<CraftStructure>().craftedItem = null;
-							}
 						}
 						else if(focusedOn.GetComponent<CraftStructure>().currentItemType && (!focusedOn.GetComponent<CraftStructure>().worker || focusedOn.GetComponent<CraftStructure>().worker == this))
 						{
@@ -197,11 +190,7 @@ public class Player : Citizen
 					else if (focusedOn.GetComponent<ShopStructure>())
 					{
 						if (InputHints.GetButtonDown("PrimaryAction", "Buy"))
-							if (focusedOn.GetComponent<ShopStructure>().shopkeeperAvailable)
-								UI.StorageCanvas.instance.Show(focusedOn.GetComponent<ShopStructure>().storage, focusedOn.GetComponent<ShopStructure>());
-							else
-								Notifications.instance.Add("Wait for shopkeeper.");
-
+							UI.StorageCanvas.instance.Show(focusedOn.GetComponent<ShopStructure>().storage, focusedOn.GetComponent<ShopStructure>());
 					}
 
 					if (focusedOn.GetComponent<Storage>())

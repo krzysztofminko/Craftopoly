@@ -13,11 +13,7 @@ public class ShopStructure : Workplace
 	public float resupplyDelay = 1;
 	public Storage supplyStorage;
 	public List<SupplyOrder> orders;
-
-	[Header("Runtime")]
-	public bool shopkeeperAvailable;
-
-	private float timeFromLastTransaction;
+	
 	private bool supply;
 	private SupplyOrder supplyOrder;
 
@@ -26,103 +22,53 @@ public class ShopStructure : Workplace
 	{
 		base.Awake();
 		list.Add(this);
-		FocusTarget.onFocusChange += OnFocusChange;
-	}
-
-	private void OnFocusChange(bool focused)
-	{
-		if (focused)
-		{
-			if (!ReservedBy)
-				StartTransaction(Player.instance);
-		}
-		else
-		{
-			if (ReservedBy == Player.instance)
-				FinishTransaction();
-		}
+		storage.moneyReceiver = plot;
 	}
 
 	protected override void OnDestroy()
 	{
 		base.OnDestroy();
 		list.Remove(this);
-		FocusTarget.onFocusChange -= OnFocusChange;
 	}
 
 	private void Update()
 	{
-		if (!worker)
-		{
-			shopkeeperAvailable = false;
-		}
-		else
-		{
-			shopkeeperAvailable = Distance.Manhattan2D(worker.transform.position, transform.position) < 2;
+		if (worker && worker.WorkTime() && worker.fsm.ActiveStateName == "Idle")
+		{//Resupply Items for sale
 
-			//Is during transaction?
-			if (ReservedBy)
+			if (!supply)
 			{
-				if (worker.fsm.ActiveStateName == "Idle")
-					worker.fsm.GoTo(transform.position);
+				supplyOrder = orders.Find(o => storage.Count(o.type) < o.min);
+				if (supplyOrder != null)
+					supply = true;
 			}
 			else
 			{
-				if (timeFromLastTransaction < resupplyDelay)
-				{
-					//Count time from last transaction
-					timeFromLastTransaction += Time.deltaTime;
-				}
-				else if (worker.WorkTime() && worker.fsm.ActiveStateName == "Idle")
-				{//Resupply Items for sale
+				if (storage.Count(supplyOrder.type) >= supplyOrder.max)
+					supply = false;
+			}
 
-					if (!supply)
-					{
-						supplyOrder = orders.Find(o => storage.Count(o.type) < o.min);
-						if (supplyOrder != null)
-							supply = true;
-					}
-					else
-					{
-						if (storage.Count(supplyOrder.type) >= supplyOrder.max)
-							supply = false;
-					}
+			if (supply)
+			{
+				int missingCount = supplyOrder.max - storage.Count(supplyOrder.type);
 
-					if (supply)
-					{
-						int missingCount = supplyOrder.max - storage.Count(supplyOrder.type);
+				Item item = null;
+				Storage sourceStorage = null;
 
-						Item item = null;
-						Storage sourceStorage = null;
-
-						if (supplyStorage && SearchFor.ItemInStorage(supplyOrder.type, supplyStorage, out item))
-							sourceStorage = supplyStorage;
-						if (!item)
-							SearchFor.ItemInStorageStructures(supplyOrder.type, transform.position, out item, out sourceStorage);
-						if (!item)
-							SearchFor.ItemInCraftStructures(supplyOrder.type, transform.position, out item);
-						//if (!item)
-							//SearchFor.ItemInShopStructures(supplyOrder.type, transform.position, out item, out sourceStorage);
+				if (supplyStorage && SearchFor.ItemInStorage(supplyOrder.type, supplyStorage, out item))
+					sourceStorage = supplyStorage;
+				if (!item)
+					SearchFor.ItemInStorageStructures(supplyOrder.type, transform.position, out item, out sourceStorage);
+				if (!item)
+					SearchFor.ItemInCraftStructures(supplyOrder.type, transform.position, out item);
+				//if (!item)
+					//SearchFor.ItemInShopStructures(supplyOrder.type, transform.position, out item, out sourceStorage);
 							
-						//Store Item
-						if (item)
-							worker.fsm.Store(item, sourceStorage, storage);
-					}
-				}
+				//Store Item
+				if (item)
+					worker.fsm.Store(item, sourceStorage, storage);
 			}
 		}
-	}
-
-
-	public void StartTransaction(Citizen client)
-	{
-		ReservedBy = client;
-	}
-
-	public void FinishTransaction()
-	{
-		ReservedBy = null;
-		timeFromLastTransaction = 0;
 	}
 
 }
