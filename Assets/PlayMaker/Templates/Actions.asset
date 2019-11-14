@@ -207,33 +207,19 @@ MonoBehaviour:
         colorIndex: 0
       actionData:
         actionNames:
-        - HutongGames.PlayMaker.Actions.StartTransaction
         - HutongGames.PlayMaker.Actions.Pick
         - HutongGames.PlayMaker.Actions.Put
         customNames:
         - 
         - 
-        - 
-        actionEnabled: 010101
-        actionIsOpen: 010101
-        actionStartIndex: 000000000100000005000000
-        actionHashCodes: 5c0045057d2457055c004505
+        actionEnabled: 0101
+        actionIsOpen: 0101
+        actionStartIndex: 0000000003000000
+        actionHashCodes: 7baeee035c004505
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
           name: SourceStorageGO
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 0}
-        - useVariable: 1
-          name: SourceStorageGO
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 0}
-        - useVariable: 0
-          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -282,16 +268,14 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 130000001300000013000000130000001100000013000000
+        paramDataType: 13000000130000001100000013000000
         paramName:
         - _storage
-        - _storage
-        - _craftStructure
         - _item
         - updateItemReference
         - _storage
-        paramDataPos: 000000000100000002000000030000000000000004000000
-        paramByteDataSize: 000000000000000000000000000000000000000000000000
+        paramDataPos: 00000000010000000000000002000000
+        paramByteDataSize: 00000000000000000000000000000000
     - name: Craft
       description: 
       colorIndex: 0
@@ -828,17 +812,11 @@ MonoBehaviour:
         actionEnabled: 01
         actionIsOpen: 01
         actionStartIndex: 00000000
-        actionHashCodes: 7d245705
+        actionHashCodes: 7baeee03
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
           name: SourceStorageGO
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 0}
-        - useVariable: 0
-          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -881,14 +859,13 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 13000000130000001300000011000000
+        paramDataType: 130000001300000011000000
         paramName:
         - _storage
-        - _craftStructure
         - _item
         - updateItemReference
-        paramDataPos: 00000000010000000200000000000000
-        paramByteDataSize: 00000000000000000000000000000000
+        paramDataPos: 000000000100000000000000
+        paramByteDataSize: 000000000000000000000000
     - name: Put
       description: 
       colorIndex: 0
