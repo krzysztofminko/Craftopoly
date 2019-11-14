@@ -130,7 +130,6 @@ public class CraftStructure : Workplace
 						{
 							//Refuel
 							float missingFuel = order.itemType.blueprint.duration - fuel;
-							Debug.Log(missingFuel);
 							if (missingFuel > 0)
 							{
 								Item fuelItem = null;
