@@ -14,7 +14,7 @@ public class FocusTarget : MonoBehaviour
 		get => _focused;
 		set
 		{
-			if (_focused != value)
+			if (_focused && _focused != value)
 			{
 				onFocusChange?.Invoke(value);
 

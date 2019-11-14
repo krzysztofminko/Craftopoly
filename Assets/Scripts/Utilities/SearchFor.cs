@@ -90,25 +90,7 @@ public static class SearchFor
 		item = storage.items.OrderByDescending(i => i.type.fuelValue).FirstOrDefault();
 		return item;
 	}
-
-	public static bool FuelInGatherStructures(Vector3 position, out Item item, out Storage storage)
-	{
-		GatherStructure gatherStructure = GatherStructure.list
-							.FindAll(s => s.storage.items.Find(i => i.type.fuelValue > 0))
-							.OrderBy(s => (s.transform.position - position).magnitude)
-							.FirstOrDefault();
-		if (gatherStructure)
-		{
-			item = gatherStructure.storage.items.OrderByDescending(i => i.type.fuelValue).FirstOrDefault();
-			storage = gatherStructure.storage;
-			return true;
-		}
-
-		item = null;
-		storage = null;
-		return false;
-	}
-
+	
 	public static bool FuelInCraftStructures(Vector3 position, out Item item)
 	{
 		CraftStructure craftStructure = CraftStructure.list
@@ -129,12 +111,30 @@ public static class SearchFor
 	{
 		ShopStructure shop = ShopStructure.list
 								.FindAll(s => s.storage.items.Find(i => i.type.fuelValue > 0))
-								.OrderBy(s => /*s.storage.items.Find(i => i.type == missing[0].type).value + */(s.transform.position - position).magnitude)
+								.OrderBy(s => (s.transform.position - position).magnitude)
 								.FirstOrDefault();
 		if (shop)
 		{
 			item = shop.storage.items.OrderByDescending(i => i.type.fuelValue).FirstOrDefault();
 			storage = shop.storage;
+			return true;
+		}
+
+		item = null;
+		storage = null;
+		return false;
+	}
+
+	public static bool FuelInStorageStructures(Vector3 position, out Item item, out Storage storage)
+	{
+		StorageStructure storageStructure = StorageStructure.list
+								.FindAll(s => s.storage.items.Find(i => i.type.fuelValue > 0))
+								.OrderBy(s => (s.transform.position - position).magnitude)
+								.FirstOrDefault();
+		if (storageStructure)
+		{
+			item = storageStructure.storage.items.OrderByDescending(i => i.type.fuelValue).FirstOrDefault();
+			storage = storageStructure.storage;
 			return true;
 		}
 

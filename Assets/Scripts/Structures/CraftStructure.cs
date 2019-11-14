@@ -75,16 +75,12 @@ public class CraftStructure : Workplace
 		base.Awake();
 		list.Add(this);
 		isFueled = fuelMax > 0;
-		if (isFueled)
-			storage.onItemsUpdate += Refuel;
 	}
 
 	protected override void OnDestroy()
 	{
 		base.OnDestroy();
 		list.Remove(this);
-		if (isFueled)
-			storage.onItemsUpdate -= Refuel;
 	}
 
 	private void Start()
@@ -96,7 +92,10 @@ public class CraftStructure : Workplace
 	private void Update()
     {
 		if (isFueled)
+		{
+			Refuel();
 			Burn();
+		}
 
 		if (craftedItem && (craftedItem.transform.parent != transform && craftedItem.transform.parent != craftedTransform))
 			craftedItem = null;
@@ -107,7 +106,7 @@ public class CraftStructure : Workplace
 			if (craftedItem)
 			{
 				if (SearchFor.NearestStorageStructure(plot, transform.position, out StorageStructure targetStorage))
-					worker.fsm.Store(craftedItem, storage, targetStorage.storage);
+					worker.fsm.Store(craftedItem, null, targetStorage.storage);
 				else
 					Debug.LogError("No StorageStructure on plot");
 			}
@@ -138,7 +137,7 @@ public class CraftStructure : Workplace
 								Storage sourceStorage = null;
 
 								if (!fuelItem)
-									SearchFor.FuelInGatherStructures(transform.position, out fuelItem, out sourceStorage);
+									SearchFor.FuelInStorageStructures(transform.position, out fuelItem, out sourceStorage);
 								if (!fuelItem)
 									SearchFor.FuelInCraftStructures(transform.position, out fuelItem);
 								if (!fuelItem)
