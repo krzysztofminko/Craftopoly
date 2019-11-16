@@ -2,7 +2,7 @@ using UnityEngine;
 using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
 
-namespace CitizenTasks
+namespace CitizenTasks.Actions
 {
 	[TaskCategory("Citizen")]
 	public class Gather : Action
@@ -21,8 +21,9 @@ namespace CitizenTasks
 			if (!citizen)
 				citizen = gameObject.GetComponent<Citizen>();
 			source = _source.Value.GetComponent<Source>();
-
 			timer = 0;
+			citizen.animator.SetFloat("UseAnimationId", 1);
+			source.ReservedBy = citizen;
 		}
 
 		public override TaskStatus OnUpdate()
@@ -32,17 +33,8 @@ namespace CitizenTasks
 				citizen.animator.SetFloat("UseAnimationId", 0);
 				return TaskStatus.Failure;
 			}
-			else if (citizen.skills.Get(source.itemType.requiredSkill.name) < source.itemType.requiredSkill.value)
+			else
 			{
-				if (citizen == Player.instance)
-					Utilities.UI.Notifications.instance.Add(source.itemType.requiredSkill.name + " " + source.itemType.requiredSkill.value + " required.");
-				return TaskStatus.Failure;
-			}
-			else if (citizen.GoTo(source.transform))
-			{
-				source.ReservedBy = citizen;
-
-				citizen.animator.SetFloat("UseAnimationId", 1);
 
 				timer += Time.deltaTime;
 				if (timer > animationTimer)

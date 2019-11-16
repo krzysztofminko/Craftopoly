@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+//IMPORTANT: Move all to BT Tasks?
 public static class SearchFor
 {
 	//TODO: Limit search to single plot
@@ -148,5 +149,32 @@ public static class SearchFor
 	{
 		storageStructure = plot.storageStructures.OrderBy(s => (s.transform.position - position).magnitude).FirstOrDefault();
 		return storageStructure;
+	}
+
+	public static bool NearestStorageStructure(Plot plot, Vector3 position, out GameObject storageStructure)
+	{
+		StorageStructure tmp;
+		if(plot)
+			tmp = plot.storageStructures.OrderBy(s => (s.transform.position - position).magnitude).FirstOrDefault();
+		else
+			tmp = StorageStructure.list.OrderBy(s => (s.transform.position - position).magnitude).FirstOrDefault();
+
+		storageStructure = tmp ? tmp.gameObject : null;
+
+		return tmp;
+	}
+
+	public static bool ItemOnTheGround(ItemType itemType, Plot plot, Vector3 position, out GameObject item)
+	{
+		Item i;
+		if(plot)
+			//TODO: implement plot ground searching
+			i = Item.free.FindAll(r => r.type == itemType && !r.ReservedBy).OrderBy(r => Distance.Manhattan2D(position, r.transform.position)).FirstOrDefault();
+		else
+			i = Item.free.FindAll(r => r.type == itemType && !r.ReservedBy).OrderBy(r => Distance.Manhattan2D(position, r.transform.position)).FirstOrDefault();
+
+		item = i ? i.gameObject : null;
+
+		return i;
 	}
 }

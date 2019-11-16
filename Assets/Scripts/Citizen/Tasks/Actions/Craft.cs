@@ -2,7 +2,7 @@ using UnityEngine;
 using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
 
-namespace CitizenTasks
+namespace CitizenTasks.Actions
 {
 	[TaskCategory("Citizen")]
 	public class Craft : Action
@@ -34,13 +34,7 @@ namespace CitizenTasks
 				citizen.animator.SetFloat("UseAnimationId", 0);
 				return TaskStatus.Failure;
 			}
-			if (citizen.skills.Get(itemType.requiredSkill.name) < itemType.requiredSkill.value)
-			{
-				if (citizen == Player.instance)
-					Utilities.UI.Notifications.instance.Add(itemType.requiredSkill.name + " " + itemType.requiredSkill.value + " required.");
-				return TaskStatus.Failure;
-			}
-			else if (citizen.GoTo(craftStructure.transform))
+			else
 			{
 				citizen.animator.SetFloat("UseAnimationId", 1);
 

@@ -8032,24 +8032,24 @@ PrefabInstance:
     - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
         type: 3}
       propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.unityObjects.Array.size
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
         type: 3}
       propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.unityObjects.Array.data[0]
       value: 
-      objectReference: {fileID: 1296966939}
+      objectReference: {fileID: 559135461}
     - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
         type: 3}
       propertyPath: mBehaviorSource.mTaskData.JSONSerialization
-      value: "{\n\t\"EntryTask\":{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.EntryTask\",\n\t\t\"NodeData\":{\n\t\t\t\"Offset\":\"(415,36)\"\n\t\t},\n\t\t\"ID\":0,\n\t\t\"Name\":\"Entry\",\n\t\t\"Instant\":true\n\t},\n\t\"RootTask\":{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Sequence\",\n\t\t\"NodeData\":{\n\t\t\t\"Offset\":\"(4,122)\"\n\t\t},\n\t\t\"ID\":1,\n\t\t\"Name\":\"Sequence\",\n\t\t\"Instant\":true,\n\t\t\"AbortTypeabortType\":\"None\",\n\t\t\"Children\":[{\n\t\t\t\"Type\":\"CitizenTasks.Gather\",\n\t\t\t\"NodeData\":{\n\t\t\t\t\"Offset\":\"(-395.082764,163.837662)\"\n\t\t\t},\n\t\t\t\"ID\":2,\n\t\t\t\"Name\":\"Gather\",\n\t\t\t\"Instant\":true,\n\t\t\t\"SharedGameObject_source\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\"Name\":null,\n\t\t\t\t\"GameObjectmValue\":0\n\t\t\t},\n\t\t\t\"SharedGameObjectreturnItem\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\"Name\":\"gatheredItem\",\n\t\t\t\t\"IsShared\":true\n\t\t\t}\n\t\t},{\n\t\t\t\"Type\":\"CitizenTasks.Pick\",\n\t\t\t\"NodeData\":{\n\t\t\t\t\"Offset\":\"(-280.130646,158.432312)\"\n\t\t\t},\n\t\t\t\"ID\":3,\n\t\t\t\"Name\":\"Pick\",\n\t\t\t\"Instant\":true,\n\t\t\t\"SharedGameObject_item\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\"Name\":\"gatheredItem\",\n\t\t\t\t\"IsShared\":true\n\t\t\t},\n\t\t\t\"SharedGameObject_storage\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\"Name\":null\n\t\t\t}\n\t\t},{\n\t\t\t\"Type\":\"CitizenTasks.Put\",\n\t\t\t\"NodeData\":{\n\t\t\t\t\"Offset\":\"(-155.719116,163.837646)\"\n\t\t\t},\n\t\t\t\"ID\":4,\n\t\t\t\"Name\":\"Put\",\n\t\t\t\"Instant\":true,\n\t\t\t\"SharedGameObject_storage\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\"Name\":null,\n\t\t\t\t\"GameObjectmValue\":1\n\t\t\t}\n\t\t},{\n\t\t\t\"Type\":\"CitizenTasks.Craft\",\n\t\t\t\"NodeData\":{\n\t\t\t\t\"Offset\":\"(-36.35569,157.027008)\"\n\t\t\t},\n\t\t\t\"ID\":5,\n\t\t\t\"Name\":\"Craft\",\n\t\t\t\"Instant\":true,\n\t\t\t\"SharedGameObject_craftStructure\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\"Name\":null,\n\t\t\t\t\"GameObjectmValue\":2\n\t\t\t},\n\t\t\t\"SharedObject_itemType\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedObject\",\n\t\t\t\t\"Name\":null,\n\t\t\t\t\"ObjectmValue\":3\n\t\t\t},\n\t\t\t\"SharedGameObjectreturnItem\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\"Name\":\"craftedItem\",\n\t\t\t\t\"IsShared\":true\n\t\t\t}\n\t\t},{\n\t\t\t\"Type\":\"CitizenTasks.Pick\",\n\t\t\t\"NodeData\":{\n\t\t\t\t\"Offset\":\"(75.7103,159.783569)\"\n\t\t\t},\n\t\t\t\"ID\":6,\n\t\t\t\"Name\":\"Pick\",\n\t\t\t\"Instant\":true,\n\t\t\t\"SharedGameObject_item\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\"Name\":\"craftedItem\",\n\t\t\t\t\"IsShared\":true\n\t\t\t},\n\t\t\t\"SharedGameObject_storage\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\"Name\":null\n\t\t\t}\n\t\t},{\n\t\t\t\"Type\":\"CitizenTasks.Put\",\n\t\t\t\"NodeData\":{\n\t\t\t\t\"Offset\":\"(190.749237,159.783661)\"\n\t\t\t},\n\t\t\t\"ID\":7,\n\t\t\t\"Name\":\"Put\",\n\t\t\t\"Instant\":true,\n\t\t\t\"SharedGameObject_storage\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\"Name\":null,\n\t\t\t\t\"GameObjectmValue\":4\n\t\t\t}\n\t\t},{\n\t\t\t\"Type\":\"CitizenTasks.Pick\",\n\t\t\t\"NodeData\":{\n\t\t\t\t\"Offset\":\"(300.470825,157.080963)\"\n\t\t\t},\n\t\t\t\"ID\":8,\n\t\t\t\"Name\":\"Pick\",\n\t\t\t\"Instant\":true,\n\t\t\t\"SharedGameObject_item\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\"Name\":\"craftedItem\",\n\t\t\t\t\"IsShared\":true\n\t\t\t},\n\t\t\t\"SharedGameObject_storage\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\"Name\":null\n\t\t\t}\n\t\t},{\n\t\t\t\"Type\":\"CitizenTasks.GoTo\",\n\t\t\t\"NodeData\":{\n\t\t\t\t\"Offset\":\"(408.9281,162.48645)\"\n\t\t\t},\n\t\t\t\"ID\":9,\n\t\t\t\"Name\":\"Go
-        To\",\n\t\t\t\"Instant\":true,\n\t\t\t\"SharedGameObjecttarget\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\"Name\":null\n\t\t\t},\n\t\t\t\"SharedVector3position\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedVector3\",\n\t\t\t\t\"Name\":null,\n\t\t\t\t\"Vector3mValue\":\"(0,0,0)\"\n\t\t\t},\n\t\t\t\"SharedFloatproximity\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\"Name\":null,\n\t\t\t\t\"SinglemValue\":0\n\t\t\t}\n\t\t}]\n\t},\n\t\"Variables\":[{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\"Name\":\"craftedItem\",\n\t\t\"IsShared\":true\n\t},{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\"Name\":\"gatheredItem\",\n\t\t\"IsShared\":true\n\t}]\n}"
+      value: "{\n\t\"EntryTask\":{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.EntryTask\",\n\t\t\"NodeData\":{\n\t\t\t\"Offset\":\"(415,36)\"\n\t\t},\n\t\t\"ID\":0,\n\t\t\"Name\":\"Entry\",\n\t\t\"Instant\":true\n\t},\n\t\"RootTask\":{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Sequence\",\n\t\t\"NodeData\":{\n\t\t\t\"Offset\":\"(4,122)\"\n\t\t},\n\t\t\"ID\":1,\n\t\t\"Name\":\"Sequence\",\n\t\t\"Instant\":true,\n\t\t\"AbortTypeabortType\":\"None\",\n\t\t\"Children\":[{\n\t\t\t\"Type\":\"CitizenTasks.Search.ItemOnTheGround\",\n\t\t\t\"NodeData\":{\n\t\t\t\t\"Offset\":\"(-240,160)\"\n\t\t\t},\n\t\t\t\"ID\":2,\n\t\t\t\"Name\":\"Item
+        On The Ground\",\n\t\t\t\"Instant\":true,\n\t\t\t\"SharedObjectitemType\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedObject\",\n\t\t\t\t\"Name\":null\n\t\t\t},\n\t\t\t\"SharedGameObjectplot\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\"Name\":null\n\t\t\t},\n\t\t\t\"SharedGameObjectreturnedItem\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\"Name\":null\n\t\t\t}\n\t\t}]\n\t},\n\t\"Variables\":[{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\"Name\":\"craftedItem\",\n\t\t\"IsShared\":true\n\t},{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\"Name\":\"gatheredItem\",\n\t\t\"IsShared\":true\n\t}]\n}"
       objectReference: {fileID: 0}
     - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
         type: 3}
       propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.unityObjects.Array.data[1]
       value: 
-      objectReference: {fileID: 559135461}
+      objectReference: {fileID: 1967391337393440}
     - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
         type: 3}
       propertyPath: restartWhenComplete
@@ -8079,7 +8079,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 443259757}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1967391337393440}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d4b493b925cf8e4490e340be784e50d, type: 3}
@@ -11726,7 +11726,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000013808736, y: 440125.47}
+  m_AnchoredPosition: {x: 0.0000013808736, y: 477011.78}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &687849194
@@ -11917,7 +11917,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000013808736, y: 390448.1}
+  m_AnchoredPosition: {x: 0.0000013808736, y: 431945.28}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &707932691
@@ -20157,7 +20157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000013808736, y: 440125.47}
+  m_AnchoredPosition: {x: 0.0000013808736, y: 477011.78}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1214577992
@@ -21206,12 +21206,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1282720009}
   m_CullTransparentMesh: 0
---- !u!1 &1296966939 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1005953868837938, guid: baba027f2b7f0e347b89a75cac559a32,
-    type: 3}
-  m_PrefabInstance: {fileID: 1045210665}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1298926710
 GameObject:
   m_ObjectHideFlags: 0
@@ -36232,6 +36226,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2141863244}
   m_CullTransparentMesh: 0
+--- !u!1 &1967391337393440 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 443259757}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2522319751097035775
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@ using UnityEngine;
 using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
 
-namespace CitizenTasks
+namespace CitizenTasks.Actions
 {
 	[TaskCategory("Citizen")]
 	public class Put : Action
@@ -19,31 +19,27 @@ namespace CitizenTasks
 		{
 			if (!citizen)
 				citizen = gameObject.GetComponent<Citizen>();
-			storage = _storage.Value ? _storage.Value.GetComponent<Storage>() : null;
+			storage = _storage.Value.GetComponent<Storage>();
 			timer = 0;
+			citizen.animator.SetFloat("UseAnimationId", 1);
 		}
 
 		public override TaskStatus OnUpdate()
 		{
-			if (!storage || citizen.GoTo(storage.transform))
+			if (!storage)
 			{
-				citizen.animator.SetFloat("UseAnimationId", 1);
-
+				citizen.animator.SetFloat("UseAnimationId", 0);
+				return TaskStatus.Failure;
+			}
+			else
+			{ 
 				timer += Time.deltaTime;
 				if (timer > animationTimer)
 				{
 					citizen.animator.SetFloat("UseAnimationId", 0);
+
 					citizen.pickedItem.ReservedBy = null;
-
-					if (storage)
-					{
-						storage.AddItem(citizen.pickedItem);
-					}
-					else
-					{
-						citizen.pickedItem.SetParent(null);
-					}
-
+					storage.AddItem(citizen.pickedItem);
 					citizen.pickedItem = null;
 
 					return TaskStatus.Success;

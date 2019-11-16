@@ -2,7 +2,7 @@ using UnityEngine;
 using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
 
-namespace CitizenTasks
+namespace CitizenTasks.Actions
 {
 	[TaskCategory("Citizen")]
 	public class Build : Action
@@ -22,18 +22,18 @@ namespace CitizenTasks
 			structure = _structure.Value.GetComponent<Structure>();
 			blueprint = structure.next.blueprint;
 			timer = 0;
+			citizen.animator.SetFloat("UseAnimationId", 1);
 		}
 
 		public override TaskStatus OnUpdate()
 		{
-			if (!_structure.Value)
+			if (!structure)
 			{
 				citizen.animator.SetFloat("UseAnimationId", 0);
 				return TaskStatus.Failure;
 			}
 			else
 			{
-				citizen.animator.SetFloat("UseAnimationId", 1);
 
 				timer += Time.deltaTime;
 				if (timer > blueprint.duration / Mathf.Max(0.1f, citizen.skills.Get(Skills.Name.Building)))

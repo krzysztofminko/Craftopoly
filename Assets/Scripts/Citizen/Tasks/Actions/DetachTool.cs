@@ -2,10 +2,10 @@ using UnityEngine;
 using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
 
-namespace CitizenTasks
+namespace CitizenTasks.Actions
 {
 	[TaskCategory("Citizen")]
-	public class AttachTool : Action
+	public class DetachTool : Action
 	{
 		const float animationTimer = 0.2f;
 
@@ -32,8 +32,8 @@ namespace CitizenTasks
 				if (citizen.attachedTool)
 					tmpTool = citizen.attachedTool;
 
-				citizen.attachedTool = citizen.pickedItem;
-				citizen.pickedItem = tmpTool;
+				citizen.pickedItem = citizen.attachedTool;
+				citizen.attachedTool = null;
 
 				return TaskStatus.Success;
 			}
