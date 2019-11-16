@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-[RequireComponent(typeof(FSMBinding), typeof(CharacterController), typeof(Health))]
+[RequireComponent(typeof(CharacterController), typeof(Health))]
 public class Citizen : MonoBehaviour, IMoney, IReserve
 {
 	public static List<Citizen> list = new List<Citizen>();

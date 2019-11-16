@@ -89,7 +89,7 @@ public class CraftStructure : Workplace
 			orders.Add(new CraftOrder(itemTypes[i], 0, true));
 	}
 
-	private void Update()
+	private void _Update()
     {
 		if (isFueled)
 		{

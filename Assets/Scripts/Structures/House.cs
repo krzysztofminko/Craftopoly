@@ -10,7 +10,7 @@ public class House : Structure
 
 	public List<Citizen> citizens;
 
-	private void Update()
+	private void _Update()
 	{		
 		for (int i = 0; i < citizens.Count; i++)
 			if (citizens[i] && citizens[i].fsm.ActiveStateName == "Idle")

@@ -33,7 +33,7 @@ public class GatherStructure : Workplace
 		list.Remove(this);
 	}
 
-	private void Update()
+	private void _Update()
 	{
 		if (delayNextSearch > 0)
 		{

@@ -3295,6 +3295,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Citizen (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4655,6 +4659,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Citizen (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4
@@ -5285,6 +5293,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Citizen (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2
@@ -5911,6 +5923,10 @@ PrefabInstance:
     - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_Name
       value: Citizen (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8013,11 +8029,48 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114714434507214362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
         type: 3}
-      propertyPath: workPlot
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.unityObjects.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.unityObjects.Array.data[0]
       value: 
-      objectReference: {fileID: 1781227237}
+      objectReference: {fileID: 1296966939}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.JSONSerialization
+      value: "{\n\t\"EntryTask\":{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.EntryTask\",\n\t\t\"NodeData\":{\n\t\t\t\"Offset\":\"(415,36)\"\n\t\t},\n\t\t\"ID\":0,\n\t\t\"Name\":\"Entry\",\n\t\t\"Instant\":true\n\t},\n\t\"RootTask\":{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Sequence\",\n\t\t\"NodeData\":{\n\t\t\t\"Offset\":\"(4,122)\"\n\t\t},\n\t\t\"ID\":1,\n\t\t\"Name\":\"Sequence\",\n\t\t\"Instant\":true,\n\t\t\"AbortTypeabortType\":\"None\",\n\t\t\"Children\":[{\n\t\t\t\"Type\":\"CitizenTasks.Gather\",\n\t\t\t\"NodeData\":{\n\t\t\t\t\"Offset\":\"(-395.082764,163.837662)\"\n\t\t\t},\n\t\t\t\"ID\":2,\n\t\t\t\"Name\":\"Gather\",\n\t\t\t\"Instant\":true,\n\t\t\t\"SharedGameObject_source\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\"Name\":null,\n\t\t\t\t\"GameObjectmValue\":0\n\t\t\t},\n\t\t\t\"SharedGameObjectreturnItem\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\"Name\":\"gatheredItem\",\n\t\t\t\t\"IsShared\":true\n\t\t\t}\n\t\t},{\n\t\t\t\"Type\":\"CitizenTasks.Pick\",\n\t\t\t\"NodeData\":{\n\t\t\t\t\"Offset\":\"(-280.130646,158.432312)\"\n\t\t\t},\n\t\t\t\"ID\":3,\n\t\t\t\"Name\":\"Pick\",\n\t\t\t\"Instant\":true,\n\t\t\t\"SharedGameObject_item\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\"Name\":\"gatheredItem\",\n\t\t\t\t\"IsShared\":true\n\t\t\t},\n\t\t\t\"SharedGameObject_storage\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\"Name\":null\n\t\t\t}\n\t\t},{\n\t\t\t\"Type\":\"CitizenTasks.Put\",\n\t\t\t\"NodeData\":{\n\t\t\t\t\"Offset\":\"(-155.719116,163.837646)\"\n\t\t\t},\n\t\t\t\"ID\":4,\n\t\t\t\"Name\":\"Put\",\n\t\t\t\"Instant\":true,\n\t\t\t\"SharedGameObject_storage\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\"Name\":null,\n\t\t\t\t\"GameObjectmValue\":1\n\t\t\t}\n\t\t},{\n\t\t\t\"Type\":\"CitizenTasks.Craft\",\n\t\t\t\"NodeData\":{\n\t\t\t\t\"Offset\":\"(-36.35569,157.027008)\"\n\t\t\t},\n\t\t\t\"ID\":5,\n\t\t\t\"Name\":\"Craft\",\n\t\t\t\"Instant\":true,\n\t\t\t\"SharedGameObject_craftStructure\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\"Name\":null,\n\t\t\t\t\"GameObjectmValue\":2\n\t\t\t},\n\t\t\t\"SharedObject_itemType\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedObject\",\n\t\t\t\t\"Name\":null,\n\t\t\t\t\"ObjectmValue\":3\n\t\t\t},\n\t\t\t\"SharedGameObjectreturnItem\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\"Name\":\"craftedItem\",\n\t\t\t\t\"IsShared\":true\n\t\t\t}\n\t\t},{\n\t\t\t\"Type\":\"CitizenTasks.Pick\",\n\t\t\t\"NodeData\":{\n\t\t\t\t\"Offset\":\"(75.7103,159.783569)\"\n\t\t\t},\n\t\t\t\"ID\":6,\n\t\t\t\"Name\":\"Pick\",\n\t\t\t\"Instant\":true,\n\t\t\t\"SharedGameObject_item\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\"Name\":\"craftedItem\",\n\t\t\t\t\"IsShared\":true\n\t\t\t},\n\t\t\t\"SharedGameObject_storage\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\"Name\":null\n\t\t\t}\n\t\t},{\n\t\t\t\"Type\":\"CitizenTasks.Put\",\n\t\t\t\"NodeData\":{\n\t\t\t\t\"Offset\":\"(190.749237,159.783661)\"\n\t\t\t},\n\t\t\t\"ID\":7,\n\t\t\t\"Name\":\"Put\",\n\t\t\t\"Instant\":true,\n\t\t\t\"SharedGameObject_storage\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\"Name\":null,\n\t\t\t\t\"GameObjectmValue\":4\n\t\t\t}\n\t\t},{\n\t\t\t\"Type\":\"CitizenTasks.Pick\",\n\t\t\t\"NodeData\":{\n\t\t\t\t\"Offset\":\"(300.470825,157.080963)\"\n\t\t\t},\n\t\t\t\"ID\":8,\n\t\t\t\"Name\":\"Pick\",\n\t\t\t\"Instant\":true,\n\t\t\t\"SharedGameObject_item\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\"Name\":\"craftedItem\",\n\t\t\t\t\"IsShared\":true\n\t\t\t},\n\t\t\t\"SharedGameObject_storage\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\"Name\":null\n\t\t\t}\n\t\t},{\n\t\t\t\"Type\":\"CitizenTasks.GoTo\",\n\t\t\t\"NodeData\":{\n\t\t\t\t\"Offset\":\"(408.9281,162.48645)\"\n\t\t\t},\n\t\t\t\"ID\":9,\n\t\t\t\"Name\":\"Go
+        To\",\n\t\t\t\"Instant\":true,\n\t\t\t\"SharedGameObjecttarget\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\"Name\":null\n\t\t\t},\n\t\t\t\"SharedVector3position\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedVector3\",\n\t\t\t\t\"Name\":null,\n\t\t\t\t\"Vector3mValue\":\"(0,0,0)\"\n\t\t\t},\n\t\t\t\"SharedFloatproximity\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\"Name\":null,\n\t\t\t\t\"SinglemValue\":0\n\t\t\t}\n\t\t}]\n\t},\n\t\"Variables\":[{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\"Name\":\"craftedItem\",\n\t\t\"IsShared\":true\n\t},{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\"Name\":\"gatheredItem\",\n\t\t\"IsShared\":true\n\t}]\n}"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.unityObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 559135461}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: restartWhenComplete
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.unityObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 559135461}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.unityObjects.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: fa532b2403ca90c43971af9265de12cd,
+        type: 2}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.unityObjects.Array.data[4]
+      value: 
+      objectReference: {fileID: 1025298817}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
 --- !u!114 &443259758 stripped
@@ -9026,6 +9079,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Citizen (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2
@@ -9147,6 +9204,10 @@ PrefabInstance:
     - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_Name
       value: Citizen (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9548,6 +9609,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 548233328}
   m_CullTransparentMesh: 0
+--- !u!1 &559135461 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2620101557835651566, guid: 6ba733231981f6647b8af91754c25817,
+    type: 3}
+  m_PrefabInstance: {fileID: 156250658}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &562025901
 GameObject:
   m_ObjectHideFlags: 0
@@ -9914,6 +9981,10 @@ PrefabInstance:
     - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_Name
       value: Citizen (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11655,7 +11726,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000013808736, y: 150037.48}
+  m_AnchoredPosition: {x: 0.0000013808736, y: 440125.47}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &687849194
@@ -11846,7 +11917,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000013808736, y: 64098.81}
+  m_AnchoredPosition: {x: 0.0000013808736, y: 390448.1}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &707932691
@@ -12294,6 +12365,10 @@ PrefabInstance:
     - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_Name
       value: Citizen (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13049,6 +13124,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Citizen (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2
@@ -13365,6 +13444,10 @@ PrefabInstance:
     - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_Name
       value: Citizen (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17200,6 +17283,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Citizen (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4
@@ -17486,6 +17573,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textId: CRAFT_BUTTON
+--- !u!1 &1025298817 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4612960513587907383, guid: 9f60d1794badc7d4ca0cdccaee47a746,
+    type: 3}
+  m_PrefabInstance: {fileID: 2522319751097035775}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1025457904
 GameObject:
   m_ObjectHideFlags: 0
@@ -18147,7 +18240,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1080271840}
   m_Direction: 2
   m_Value: 1
-  m_Size: 1
+  m_Size: 0.39423078
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -19142,6 +19235,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Citizen (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -19660,7 +19757,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1723956165}
   m_Direction: 2
   m_Value: 1
-  m_Size: 1
+  m_Size: 0.5555556
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -20060,7 +20157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000013808736, y: 150037.48}
+  m_AnchoredPosition: {x: 0.0000013808736, y: 440125.47}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1214577992
@@ -20710,6 +20807,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Citizen (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4
@@ -21105,6 +21206,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1282720009}
   m_CullTransparentMesh: 0
+--- !u!1 &1296966939 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1005953868837938, guid: baba027f2b7f0e347b89a75cac559a32,
+    type: 3}
+  m_PrefabInstance: {fileID: 1045210665}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1298926710
 GameObject:
   m_ObjectHideFlags: 0
@@ -26699,6 +26806,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Citizen (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4
@@ -28836,6 +28947,10 @@ PrefabInstance:
     - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_Name
       value: Citizen (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -31502,6 +31617,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Citizen (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -32259,6 +32378,10 @@ PrefabInstance:
     - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_Name
       value: Citizen (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -33635,7 +33758,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 465971350}
   m_Direction: 2
   m_Value: 1
-  m_Size: 1
+  m_Size: 0.5555556
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -33689,6 +33812,10 @@ PrefabInstance:
     - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_Name
       value: Citizen (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -35388,6 +35515,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Citizen (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2
@@ -35497,6 +35628,296 @@ PrefabInstance:
       propertyPath: workPlot
       value: 
       objectReference: {fileID: 1781227237}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.types.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.parentIndex.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.startIndex.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.fieldNameHash.Array.size
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.startIndex.Array.size
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.dataPosition.Array.size
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.byteData.Array.size
+      value: 192
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.types.Array.data[2]
+      value: BehaviorDesigner.Runtime.Tasks.Interrupt
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.parentIndex.Array.data[2]
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.startIndex.Array.data[2]
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.fieldNameHash.Array.data[32]
+      value: 729302057
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.fieldNameHash.Array.data[33]
+      value: -402451819
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.fieldNameHash.Array.data[34]
+      value: 2021245713
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.fieldNameHash.Array.data[35]
+      value: 578134980
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.fieldNameHash.Array.data[36]
+      value: -1767897170
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.fieldNameHash.Array.data[37]
+      value: 1628720612
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.fieldNameHash.Array.data[38]
+      value: -1021717905
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.fieldNameHash.Array.data[39]
+      value: 834073509
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.fieldNameHash.Array.data[40]
+      value: 479864393
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.fieldNameHash.Array.data[41]
+      value: 33146026
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.startIndex.Array.data[32]
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.startIndex.Array.data[33]
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.startIndex.Array.data[34]
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.startIndex.Array.data[35]
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.startIndex.Array.data[36]
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.startIndex.Array.data[37]
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.startIndex.Array.data[38]
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.startIndex.Array.data[39]
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.startIndex.Array.data[40]
+      value: 37
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.startIndex.Array.data[41]
+      value: 38
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.dataPosition.Array.data[29]
+      value: 192
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.dataPosition.Array.data[30]
+      value: 196
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.dataPosition.Array.data[31]
+      value: 205
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.dataPosition.Array.data[32]
+      value: 206
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.dataPosition.Array.data[33]
+      value: 207
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.dataPosition.Array.data[34]
+      value: 215
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.dataPosition.Array.data[35]
+      value: 215
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.dataPosition.Array.data[36]
+      value: 216
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.dataPosition.Array.data[37]
+      value: 217
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.dataPosition.Array.data[38]
+      value: 221
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.byteData.Array.data[192]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.byteData.Array.data[196]
+      value: 73
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.byteData.Array.data[197]
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.byteData.Array.data[198]
+      value: 116
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.byteData.Array.data[199]
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.byteData.Array.data[200]
+      value: 114
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.byteData.Array.data[201]
+      value: 114
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.byteData.Array.data[202]
+      value: 117
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.byteData.Array.data[203]
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.byteData.Array.data[204]
+      value: 116
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.byteData.Array.data[205]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.byteData.Array.data[209]
+      value: 82
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.byteData.Array.data[210]
+      value: 67
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.byteData.Array.data[212]
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.byteData.Array.data[213]
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.byteData.Array.data[214]
+      value: 67
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.byteData.Array.data[206]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.byteData.Array.data[216]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5134390623069297734, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
         type: 3}
       propertyPath: list.Array.size

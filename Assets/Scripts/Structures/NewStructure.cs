@@ -35,7 +35,7 @@ public class NewStructure : Workplace
 		GetComponent<Collider>().enabled = false;
 	}
 
-	private void Update()
+	private void _Update()
 	{
 		//TODO: Rewrite NewStructure with new rules
 		/*

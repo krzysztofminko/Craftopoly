@@ -46,7 +46,6 @@ GameObject:
   - component: {fileID: 114714434507214362}
   - component: {fileID: 5134390623069297734}
   - component: {fileID: 3940434027186459210}
-  - component: {fileID: 114799535719127540}
   - component: {fileID: 8244620182860005223}
   m_Layer: 9
   m_Name: Citizen
@@ -183,209 +182,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0deb9e75441fa1418a0e6386991d2d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114799535719127540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1967391337393440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1384774831, guid: e743331561ef77147ae48cda9bcb8209, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fsm:
-    dataVersion: 2
-    usedInTemplate: {fileID: 0}
-    name: Actions
-    startState: State 1
-    states:
-    - name: State 1
-      description: 
-      colorIndex: 0
-      position:
-        serializedVersion: 2
-        x: 50
-        y: 100
-        width: 100
-        height: 16
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions: []
-      actionData:
-        actionNames: []
-        customNames: []
-        actionEnabled: 
-        actionIsOpen: 
-        actionStartIndex: 
-        actionHashCodes: 
-        unityObjectParams: []
-        fsmGameObjectParams: []
-        fsmOwnerDefaultParams: []
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams: []
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams: []
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams: []
-        byteData: 
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 
-        paramName: []
-        paramDataPos: 
-        paramByteDataSize: 
-    events: []
-    globalTransitions: []
-    variables:
-      floatVariables: []
-      intVariables:
-      - useVariable: 1
-        name: Count
-        tooltip: 
-        showInInspector: 0
-        networkSync: 0
-        value: 0
-      boolVariables: []
-      stringVariables: []
-      vector2Variables: []
-      vector3Variables:
-      - useVariable: 1
-        name: Position
-        tooltip: 
-        showInInspector: 0
-        networkSync: 0
-        value: {x: 0, y: 0, z: 0}
-      colorVariables: []
-      rectVariables: []
-      quaternionVariables: []
-      gameObjectVariables:
-      - useVariable: 1
-        name: ItemGO
-        tooltip: 
-        showInInspector: 0
-        networkSync: 0
-        value: {fileID: 0}
-      - useVariable: 1
-        name: SourceGO
-        tooltip: 
-        showInInspector: 0
-        networkSync: 0
-        value: {fileID: 0}
-      - useVariable: 1
-        name: SourceStorageGO
-        tooltip: 
-        showInInspector: 0
-        networkSync: 0
-        value: {fileID: 0}
-      - useVariable: 1
-        name: StackGO
-        tooltip: 
-        showInInspector: 0
-        networkSync: 0
-        value: {fileID: 0}
-      - useVariable: 1
-        name: StorageGO
-        tooltip: 
-        showInInspector: 0
-        networkSync: 0
-        value: {fileID: 0}
-      - useVariable: 1
-        name: StructureGO
-        tooltip: 
-        showInInspector: 0
-        networkSync: 0
-        value: {fileID: 0}
-      - useVariable: 1
-        name: TargetGO
-        tooltip: 
-        showInInspector: 0
-        networkSync: 0
-        value: {fileID: 0}
-      objectVariables:
-      - useVariable: 1
-        name: ItemTypeSO
-        tooltip: 
-        showInInspector: 0
-        networkSync: 0
-        typeName: ItemType
-        value: {fileID: 0}
-      - useVariable: 1
-        name: Target
-        tooltip: 
-        showInInspector: 0
-        networkSync: 0
-        typeName: Target
-        value: {fileID: 0}
-      materialVariables: []
-      textureVariables: []
-      arrayVariables: []
-      enumVariables: []
-      categories:
-      - 
-      variableCategoryIDs: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-    description: 
-    docUrl: 
-    showStateLabel: 0
-    maxLoopCount: 0
-    watermark: 
-    password: 
-    locked: 0
-    manualUpdate: 0
-    keepDelayedEventsOnStateExit: 0
-    preprocessed: 1
-    ExposedEvents: []
-    RestartOnEnable: 1
-    EnableDebugFlow: 1
-    EnableBreakpoints: 1
-    editorFlags: 7
-    activeStateName: 
-    mouseEvents: 0
-    handleLevelLoaded: 0
-    handleTriggerEnter2D: 0
-    handleTriggerExit2D: 0
-    handleTriggerStay2D: 0
-    handleCollisionEnter2D: 0
-    handleCollisionExit2D: 0
-    handleCollisionStay2D: 0
-    handleTriggerEnter: 0
-    handleTriggerExit: 0
-    handleTriggerStay: 0
-    handleCollisionEnter: 0
-    handleCollisionExit: 0
-    handleCollisionStay: 0
-    handleParticleCollision: 0
-    handleControllerColliderHit: 0
-    handleJointBreak: 0
-    handleJointBreak2D: 0
-    handleOnGUI: 0
-    handleFixedUpdate: 0
-    handleLateUpdate: 0
-    handleApplicationEvents: 0
-    handleUiEvents: 0
-    handleLegacyNetworking: 0
-    handleAnimatorMove: 0
-    handleAnimatorIK: 0
-  fsmTemplate: {fileID: 11400000, guid: 06660c595aacae641814f170cb693906, type: 2}
-  eventHandlerComponentsAdded: 1
 --- !u!114 &8244620182860005223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,16 +210,18 @@ MonoBehaviour:
       parentIndex: 
       startIndex: 
       variableStartIndex: 
-      JSONSerialization: 
+      JSONSerialization: "{\n\t\"EntryTask\":{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.EntryTask\",\n\t\t\"NodeData\":{\n\t\t\t\"Offset\":\"(415,36)\"\n\t\t},\n\t\t\"ID\":0,\n\t\t\"Name\":\"Entry\",\n\t\t\"Instant\":true\n\t},\n\t\"RootTask\":{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Sequence\",\n\t\t\"NodeData\":{\n\t\t\t\"Offset\":\"(4,122)\"\n\t\t},\n\t\t\"ID\":1,\n\t\t\"Name\":\"Sequence\",\n\t\t\"Instant\":true,\n\t\t\"AbortTypeabortType\":\"None\",\n\t\t\"Children\":[{\n\t\t\t\"Type\":\"CitizenTasks.Gather\",\n\t\t\t\"NodeData\":{\n\t\t\t\t\"Offset\":\"(-100,130)\"\n\t\t\t},\n\t\t\t\"ID\":2,\n\t\t\t\"Name\":\"Gather\",\n\t\t\t\"Instant\":true,\n\t\t\t\"SharedBehaviour_source\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedBehaviour\",\n\t\t\t\t\"Name\":\"\",\n\t\t\t\t\"BehaviourmValue\":0\n\t\t\t},\n\t\t\t\"SharedBehaviourreturnItem\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedBehaviour\",\n\t\t\t\t\"Name\":\"gatheredItem\",\n\t\t\t\t\"IsShared\":true\n\t\t\t}\n\t\t},{\n\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Unity.UnityDebug.LogFormat\",\n\t\t\t\"NodeData\":{\n\t\t\t\t\"Offset\":\"(80,130)\"\n\t\t\t},\n\t\t\t\"ID\":3,\n\t\t\t\"Name\":\"Log
+        Format\",\n\t\t\t\"Instant\":true,\n\t\t\t\"SharedStringtextFormat\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedString\",\n\t\t\t\t\"Name\":null,\n\t\t\t\t\"StringmValue\":\"{0}\"\n\t\t\t},\n\t\t\t\"SharedBoollogError\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedBool\",\n\t\t\t\t\"Name\":null,\n\t\t\t\t\"BooleanmValue\":false\n\t\t\t},\n\t\t\t\"SharedVariablearg0\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedBehaviour\",\n\t\t\t\t\"Name\":\"gatheredItem\",\n\t\t\t\t\"IsShared\":true\n\t\t\t}\n\t\t}]\n\t},\n\t\"Variables\":[{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedBehaviour\",\n\t\t\"Name\":\"gatheredItem\",\n\t\t\"IsShared\":true\n\t}]\n}"
       fieldSerializationData:
         typeName: []
         fieldNameHash: 
         startIndex: 
         dataPosition: 
-        unityObjects: []
+        unityObjects:
+        - {fileID: 0}
         byteData: 
         byteDataArray: 
-      Version: 
+      Version: 1.6.3
   gizmoViewMode: 2
   showBehaviorDesignerGizmo: 1
 --- !u!1 &9138948360774595791
@@ -631,16 +429,8 @@ PrefabInstance:
       value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 400020, guid: 23535cd8ce8c52844b7ba3e1162190ef, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400020, guid: 23535cd8ce8c52844b7ba3e1162190ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 400014, guid: 23535cd8ce8c52844b7ba3e1162190ef, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.4515956
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 23535cd8ce8c52844b7ba3e1162190ef, type: 3}
       propertyPath: m_LocalRotation.x
@@ -659,12 +449,12 @@ PrefabInstance:
       value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 23535cd8ce8c52844b7ba3e1162190ef, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 90
+      propertyPath: m_LocalPosition.x
+      value: 0.4515956
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 23535cd8ce8c52844b7ba3e1162190ef, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 400016, guid: 23535cd8ce8c52844b7ba3e1162190ef, type: 3}
       propertyPath: m_LocalRotation.x
