@@ -187,7 +187,7 @@ namespace UI
 			{
 				MessageForm.instance.Show("Do you really want to fire this worker?", new Dictionary<string, UnityAction>
 				{
-					{"Yes", delegate { selectedCitizen.workplace.worker.AssignWorkplace(null); UpdateWorkplacePanel(); } },
+					{"Yes", delegate { selectedCitizen.AssignWorkplace(null); UpdateWorkplacePanel(); } },
 					{"No", null }
 				}, transform.GetChild(0).GetComponent<RectTransform>());
 			}

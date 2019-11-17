@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-//IMPORTANT: Move all to BT Tasks?
 public static class SearchFor
 {
 	//TODO: Limit search to single plot

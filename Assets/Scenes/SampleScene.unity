@@ -3297,7 +3297,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3408,6 +3408,11 @@ PrefabInstance:
       propertyPath: workPlot
       value: 
       objectReference: {fileID: 1781227237}
+    - target: {fileID: 114714434507214362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: workplace
+      value: 
+      objectReference: {fileID: 468696729}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
 --- !u!1001 &156250658
@@ -4661,7 +4666,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4712,6 +4717,11 @@ PrefabInstance:
       propertyPath: workPlot
       value: 
       objectReference: {fileID: 1781227237}
+    - target: {fileID: 114714434507214362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: workplace
+      value: 
+      objectReference: {fileID: 468696729}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
 --- !u!1 &234753577
@@ -5295,7 +5305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5406,6 +5416,11 @@ PrefabInstance:
       propertyPath: workPlot
       value: 
       objectReference: {fileID: 1781227237}
+    - target: {fileID: 114714434507214362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: workplace
+      value: 
+      objectReference: {fileID: 468696729}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
 --- !u!4 &276723547 stripped
@@ -5926,7 +5941,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6042,6 +6057,11 @@ PrefabInstance:
       propertyPath: workPlot
       value: 
       objectReference: {fileID: 1781227237}
+    - target: {fileID: 114714434507214362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: workplace
+      value: 
+      objectReference: {fileID: 468696729}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
 --- !u!1 &345884641
@@ -8029,48 +8049,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+    - target: {fileID: 114714434507214362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
         type: 3}
-      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.unityObjects.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
-        type: 3}
-      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.unityObjects.Array.data[0]
+      propertyPath: workplace
       value: 
-      objectReference: {fileID: 559135461}
-    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
-        type: 3}
-      propertyPath: mBehaviorSource.mTaskData.JSONSerialization
-      value: "{\n\t\"EntryTask\":{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.EntryTask\",\n\t\t\"NodeData\":{\n\t\t\t\"Offset\":\"(415,36)\"\n\t\t},\n\t\t\"ID\":0,\n\t\t\"Name\":\"Entry\",\n\t\t\"Instant\":true\n\t},\n\t\"RootTask\":{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Sequence\",\n\t\t\"NodeData\":{\n\t\t\t\"Offset\":\"(4,122)\"\n\t\t},\n\t\t\"ID\":1,\n\t\t\"Name\":\"Sequence\",\n\t\t\"Instant\":true,\n\t\t\"AbortTypeabortType\":\"None\",\n\t\t\"Children\":[{\n\t\t\t\"Type\":\"CitizenTasks.Search.ItemOnTheGround\",\n\t\t\t\"NodeData\":{\n\t\t\t\t\"Offset\":\"(-240,160)\"\n\t\t\t},\n\t\t\t\"ID\":2,\n\t\t\t\"Name\":\"Item
-        On The Ground\",\n\t\t\t\"Instant\":true,\n\t\t\t\"SharedObjectitemType\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedObject\",\n\t\t\t\t\"Name\":null\n\t\t\t},\n\t\t\t\"SharedGameObjectplot\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\"Name\":null\n\t\t\t},\n\t\t\t\"SharedGameObjectreturnedItem\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\"Name\":null\n\t\t\t}\n\t\t}]\n\t},\n\t\"Variables\":[{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\"Name\":\"craftedItem\",\n\t\t\"IsShared\":true\n\t},{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\"Name\":\"gatheredItem\",\n\t\t\"IsShared\":true\n\t}]\n}"
-      objectReference: {fileID: 0}
-    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
-        type: 3}
-      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.unityObjects.Array.data[1]
-      value: 
-      objectReference: {fileID: 1967391337393440}
-    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
-        type: 3}
-      propertyPath: restartWhenComplete
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
-        type: 3}
-      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.unityObjects.Array.data[2]
-      value: 
-      objectReference: {fileID: 559135461}
-    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
-        type: 3}
-      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.unityObjects.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: fa532b2403ca90c43971af9265de12cd,
-        type: 2}
-    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
-        type: 3}
-      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.unityObjects.Array.data[4]
-      value: 
-      objectReference: {fileID: 1025298817}
+      objectReference: {fileID: 468696729}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
 --- !u!114 &443259758 stripped
@@ -8079,7 +8062,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 443259757}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1967391337393440}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d4b493b925cf8e4490e340be784e50d, type: 3}
@@ -8507,6 +8490,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 465971349}
   m_CullTransparentMesh: 0
+--- !u!114 &468696729 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3943385134653158310, guid: 9a3442da2aabdeb4297e966c1d7e496c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1947087804}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b9dc66505d89943b4fdda46b460ead, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &479256920
 GameObject:
   m_ObjectHideFlags: 0
@@ -9081,7 +9076,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9192,6 +9187,11 @@ PrefabInstance:
       propertyPath: workPlot
       value: 
       objectReference: {fileID: 1781227237}
+    - target: {fileID: 114714434507214362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: workplace
+      value: 
+      objectReference: {fileID: 468696729}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
 --- !u!1001 &544124102
@@ -9207,7 +9207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9318,6 +9318,11 @@ PrefabInstance:
       propertyPath: workPlot
       value: 
       objectReference: {fileID: 1781227237}
+    - target: {fileID: 114714434507214362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: workplace
+      value: 
+      objectReference: {fileID: 468696729}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
 --- !u!1 &548059520
@@ -9609,12 +9614,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 548233328}
   m_CullTransparentMesh: 0
---- !u!1 &559135461 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2620101557835651566, guid: 6ba733231981f6647b8af91754c25817,
-    type: 3}
-  m_PrefabInstance: {fileID: 156250658}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &562025901
 GameObject:
   m_ObjectHideFlags: 0
@@ -9984,7 +9983,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10100,6 +10099,11 @@ PrefabInstance:
       propertyPath: workPlot
       value: 
       objectReference: {fileID: 1781227237}
+    - target: {fileID: 114714434507214362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: workplace
+      value: 
+      objectReference: {fileID: 468696729}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
 --- !u!4 &583147472 stripped
@@ -11726,7 +11730,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000013808736, y: 477011.78}
+  m_AnchoredPosition: {x: 0.0000013808736, y: 621191.44}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &687849194
@@ -11917,7 +11921,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000013808736, y: 431945.28}
+  m_AnchoredPosition: {x: 0.0000013808736, y: 594146.8}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &707932691
@@ -12368,7 +12372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12479,6 +12483,11 @@ PrefabInstance:
       propertyPath: workPlot
       value: 
       objectReference: {fileID: 1781227237}
+    - target: {fileID: 114714434507214362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: workplace
+      value: 
+      objectReference: {fileID: 468696729}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
 --- !u!1 &760881053
@@ -13126,7 +13135,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13237,6 +13246,11 @@ PrefabInstance:
       propertyPath: workPlot
       value: 
       objectReference: {fileID: 1781227237}
+    - target: {fileID: 114714434507214362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: workplace
+      value: 
+      objectReference: {fileID: 468696729}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
 --- !u!1 &809731247
@@ -13447,7 +13461,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13558,6 +13572,11 @@ PrefabInstance:
       propertyPath: workPlot
       value: 
       objectReference: {fileID: 1781227237}
+    - target: {fileID: 114714434507214362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: workplace
+      value: 
+      objectReference: {fileID: 468696729}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
 --- !u!1 &819050609
@@ -17285,7 +17304,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17396,6 +17415,11 @@ PrefabInstance:
       propertyPath: workPlot
       value: 
       objectReference: {fileID: 1781227237}
+    - target: {fileID: 114714434507214362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: workplace
+      value: 
+      objectReference: {fileID: 468696729}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
 --- !u!1 &1021878452
@@ -17573,12 +17597,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textId: CRAFT_BUTTON
---- !u!1 &1025298817 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4612960513587907383, guid: 9f60d1794badc7d4ca0cdccaee47a746,
-    type: 3}
-  m_PrefabInstance: {fileID: 2522319751097035775}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1025457904
 GameObject:
   m_ObjectHideFlags: 0
@@ -18240,7 +18258,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1080271840}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.39423078
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -19237,7 +19255,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19348,6 +19366,11 @@ PrefabInstance:
       propertyPath: workPlot
       value: 
       objectReference: {fileID: 1781227237}
+    - target: {fileID: 114714434507214362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: workplace
+      value: 
+      objectReference: {fileID: 468696729}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
 --- !u!1 &1172395555
@@ -19757,7 +19780,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1723956165}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.5555556
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -20157,7 +20180,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000013808736, y: 477011.78}
+  m_AnchoredPosition: {x: 0.0000013808736, y: 621191.44}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1214577992
@@ -20809,7 +20832,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20920,6 +20943,11 @@ PrefabInstance:
       propertyPath: workPlot
       value: 
       objectReference: {fileID: 1781227237}
+    - target: {fileID: 114714434507214362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: workplace
+      value: 
+      objectReference: {fileID: 468696729}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
 --- !u!1 &1271979669
@@ -26802,7 +26830,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26913,6 +26941,11 @@ PrefabInstance:
       propertyPath: workPlot
       value: 
       objectReference: {fileID: 1781227237}
+    - target: {fileID: 114714434507214362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: workplace
+      value: 
+      objectReference: {fileID: 468696729}
     - target: {fileID: 114799535719127540, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
         type: 3}
       propertyPath: fsm.preprocessed
@@ -28944,7 +28977,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -29060,6 +29093,11 @@ PrefabInstance:
       propertyPath: workPlot
       value: 
       objectReference: {fileID: 1781227237}
+    - target: {fileID: 114714434507214362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: workplace
+      value: 
+      objectReference: {fileID: 468696729}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
 --- !u!1 &1723956164
@@ -31613,7 +31651,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -31724,6 +31762,11 @@ PrefabInstance:
       propertyPath: workPlot
       value: 
       objectReference: {fileID: 1781227237}
+    - target: {fileID: 114714434507214362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: workplace
+      value: 
+      objectReference: {fileID: 468696729}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
 --- !u!115 &1872460531
@@ -32375,7 +32418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -32491,6 +32534,11 @@ PrefabInstance:
       propertyPath: DEBUG
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114714434507214362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: workplace
+      value: 
+      objectReference: {fileID: 468696729}
     - target: {fileID: 114799535719127540, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
         type: 3}
       propertyPath: fsm.preprocessed
@@ -33752,7 +33800,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 465971350}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.5555556
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -33809,7 +33857,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -33920,6 +33968,11 @@ PrefabInstance:
       propertyPath: workPlot
       value: 
       objectReference: {fileID: 1781227237}
+    - target: {fileID: 114714434507214362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: workplace
+      value: 
+      objectReference: {fileID: 468696729}
     - target: {fileID: 5134390623069297734, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
         type: 3}
       propertyPath: list.Array.size
@@ -35511,7 +35564,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -35622,6 +35675,11 @@ PrefabInstance:
       propertyPath: workPlot
       value: 
       objectReference: {fileID: 1781227237}
+    - target: {fileID: 114714434507214362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: workplace
+      value: 
+      objectReference: {fileID: 468696729}
     - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
         type: 3}
       propertyPath: mBehaviorSource.mTaskData.types.Array.size
@@ -36226,12 +36284,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2141863244}
   m_CullTransparentMesh: 0
---- !u!1 &1967391337393440 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
-    type: 3}
-  m_PrefabInstance: {fileID: 443259757}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2522319751097035775
 PrefabInstance:
   m_ObjectHideFlags: 0

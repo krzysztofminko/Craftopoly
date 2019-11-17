@@ -10,7 +10,7 @@ namespace CitizenTasks.Actions
 		const float animationTimer = 0.2f;
 
 		public SharedGameObject _source;
-		public SharedGameObject returnItem;
+		public SharedGameObject outItem;
 
 		private Citizen citizen;
 		private Source source;
@@ -24,6 +24,7 @@ namespace CitizenTasks.Actions
 			timer = 0;
 			citizen.animator.SetFloat("UseAnimationId", 1);
 			source.ReservedBy = citizen;
+			outItem.Value = null;
 		}
 
 		public override TaskStatus OnUpdate()
@@ -44,7 +45,7 @@ namespace CitizenTasks.Actions
 					Item item = source.Gather(20 * Mathf.Max(0.1f, citizen.skills.Get(source.itemType.requiredSkill.name)));
 					if (item)
 					{
-						returnItem.Value = item.gameObject;
+						outItem.Value = item.gameObject;
 						source.ReservedBy = null;
 						return TaskStatus.Success;
 					}
