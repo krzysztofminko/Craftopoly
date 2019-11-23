@@ -2,10 +2,10 @@ using UnityEngine;
 using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
 
-namespace CitizenTasks.Actions
+namespace BTNodes.Actions
 {
 	[TaskCategory("Citizen")]
-	public class GoTo : Action
+	public class GoTo : CitizenAction
 	{
 		public SharedGameObject target;
 		public SharedVector3 position;
@@ -13,14 +13,13 @@ namespace CitizenTasks.Actions
 		public bool reserveTarget;
 		public bool failureIfReserved;
 
-		private Citizen citizen;
 		private IReserve reserve;
 		private bool goToTarget;
 
 		public override void OnStart()
 		{
-			if (!citizen)
-				citizen = gameObject.GetComponent<Citizen>();
+			base.OnStart();
+
 			goToTarget = target.Value;
 			if (failureIfReserved || reserveTarget)
 				reserve = target.Value.GetComponent<IReserve>();

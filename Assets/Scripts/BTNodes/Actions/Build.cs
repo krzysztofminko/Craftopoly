@@ -2,23 +2,22 @@ using UnityEngine;
 using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
 
-namespace CitizenTasks.Actions
+namespace BTNodes.Actions
 {
 	[TaskCategory("Citizen")]
-	public class Build : Action
+	public class Build : CitizenAction
 	{
 		public SharedGameObject _structure;
 		public SharedGameObject returnStructure;
 
-		private Citizen citizen;
 		private Structure structure;
 		private Blueprint blueprint;
 		private float timer;
 
 		public override void OnStart()
 		{
-			if (!citizen)
-				citizen = gameObject.GetComponent<Citizen>();
+			base.OnStart();
+
 			structure = _structure.Value.GetComponent<Structure>();
 			blueprint = structure.next.blueprint;
 			timer = 0;

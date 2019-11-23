@@ -2,17 +2,15 @@ using UnityEngine;
 using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
 
-namespace CitizenTasks.Conditionals
+namespace BTNodes.Conditionals
 {
 	[TaskCategory("Citizen")]
-	public class WorkTime : Conditional
+	public class IsWorkTime : CitizenConditional
 	{
-		private Citizen citizen;
-
 		public override TaskStatus OnUpdate()
 		{
-			if(!citizen)
-				citizen = gameObject.GetComponent<Citizen>();
+			base.OnUpdate();
+
 			if (!citizen.workplace)
 				return TaskStatus.Failure;
 			return citizen.WorkTime() ? TaskStatus.Success : TaskStatus.Failure;

@@ -12,13 +12,13 @@ public class GatherStructure : Workplace
 	public float rangeOfSearch = 100;
 	public ItemType itemType;
 
-	[Header("Private")]
-	[SerializeField]
-	private List<Item> items = new List<Item>();
-	[SerializeField]
-	private List<Source> sources = new List<Source>();
+	[Header("Runtime")]
+	public List<Source> sources = new List<Source>();
 
-	private float delayNextSearch;
+	// [Header("Private")]
+	//[SerializeField] private List<Item> items = new List<Item>();
+
+	//private float delayNextSearch;
 
 
 	protected override void Awake()
@@ -27,12 +27,18 @@ public class GatherStructure : Workplace
 		list.Add(this);
 	}
 
+	private void Start()
+	{
+		sources = Source.list.FindAll(s => s.itemType == itemType && !s.ReservedBy && s.Health.HP > 0 && Distance.Manhattan2D(transform.position, s.transform.position) < rangeOfSearch).OrderBy(s => Distance.Manhattan2D(transform.position, s.transform.position)).ToList();
+	}
+
 	protected override void OnDestroy()
 	{
 		base.OnDestroy();
 		list.Remove(this);
 	}
 
+	/* Obsolete
 	private void _Update()
 	{
 		if (delayNextSearch > 0)
@@ -65,4 +71,5 @@ public class GatherStructure : Workplace
 			}
 		}
 	}
+	*/
 }

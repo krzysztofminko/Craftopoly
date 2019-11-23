@@ -2,20 +2,19 @@ using UnityEngine;
 using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
 
-namespace CitizenTasks.Actions
+namespace BTNodes.Actions
 {
 	[TaskCategory("Citizen")]
-	public class AttachTool : Action
+	public class AttachTool : CitizenAction
 	{
 		const float animationTimer = 0.2f;
 
-		private Citizen citizen;
 		private float timer;
 
 		public override void OnStart()
 		{
-			if (!citizen)
-				citizen = gameObject.GetComponent<Citizen>();
+			base.OnUpdate();
+
 			timer = 0;
 		}
 

@@ -2,10 +2,10 @@ using UnityEngine;
 using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
 
-namespace CitizenTasks.Actions
+namespace BTNodes.Actions
 {
 	[TaskCategory("Citizen")]
-	public class Pick : Action
+	public class Pick : CitizenAction
 	{
 		const float animationTimer = 0.2f;
 
@@ -13,15 +13,14 @@ namespace CitizenTasks.Actions
 		[BehaviorDesigner.Runtime.Tasks.Tooltip("Optional")]
 		public SharedGameObject _storage;
 
-		private Citizen citizen;
 		private Item item;
 		private Storage storage;
 		private float timer;
 
 		public override void OnStart()
 		{
-			if (!citizen)
-				citizen = gameObject.GetComponent<Citizen>();
+			base.OnStart();
+
 			item = _item.Value.GetComponent<Item>();
 			storage = _storage.Value? _storage.Value.GetComponent<Storage>() : null;
 			timer = 0;

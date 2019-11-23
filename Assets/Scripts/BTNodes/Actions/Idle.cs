@@ -2,20 +2,19 @@ using UnityEngine;
 using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
 
-namespace CitizenTasks.Actions
+namespace BTNodes.Actions
 {
 	[TaskCategory("Citizen")]
-	public class Idle : Action
+	public class Idle : CitizenAction
 	{
 		public SharedFloat duration = 1;
 
-		private Citizen citizen;
 		private float timer;
 
 		public override void OnStart()
 		{
-			if (!citizen)
-				citizen = gameObject.GetComponent<Citizen>();
+			base.OnStart();
+
 			citizen.animator.SetBool("Walk", false);
 			citizen.animator.SetFloat("UseAnimationId", 0);
 			timer = 0;

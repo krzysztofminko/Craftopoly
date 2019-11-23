@@ -2,38 +2,32 @@ using UnityEngine;
 using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
 
-namespace CitizenTasks.Actions
+namespace BTNodes.Actions
 {
 	[TaskCategory("Citizen")]
-	public class DetachTool : Action
+	public class Release : CitizenAction
 	{
 		const float animationTimer = 0.2f;
 
-		private Citizen citizen;
 		private float timer;
 
 		public override void OnStart()
 		{
-			if (!citizen)
-				citizen = gameObject.GetComponent<Citizen>();
+			base.OnStart();
 			timer = 0;
+			citizen.animator.SetFloat("UseAnimationId", 1);
 		}
 
 		public override TaskStatus OnUpdate()
 		{
-			citizen.animator.SetFloat("UseAnimationId", 1);
-
 			timer += Time.deltaTime;
 			if (timer > animationTimer)
 			{
 				citizen.animator.SetFloat("UseAnimationId", 0);
 
-				Item tmpTool = null;
-				if (citizen.attachedTool)
-					tmpTool = citizen.attachedTool;
-
-				citizen.pickedItem = citizen.attachedTool;
-				citizen.attachedTool = null;
+				citizen.pickedItem.ReservedBy = null;
+				citizen.pickedItem.SetParent(null);
+				citizen.pickedItem = null;
 
 				return TaskStatus.Success;
 			}

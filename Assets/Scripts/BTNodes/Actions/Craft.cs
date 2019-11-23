@@ -2,25 +2,23 @@ using UnityEngine;
 using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
 
-namespace CitizenTasks.Actions
+namespace BTNodes.Actions
 {
 	[TaskCategory("Citizen")]
-	public class Craft : Action
+	public class Craft : CitizenAction
 	{
 		public SharedGameObject _craftStructure;
 		public SharedObject _itemType;
 		public SharedGameObject returnItem;
 
-		private Citizen citizen;
 		private CraftStructure craftStructure;
 		private ItemType itemType;
 		private float timer;
 
 		public override void OnStart()
 		{
+			base.OnStart();
 
-			if (!citizen)
-				citizen = gameObject.GetComponent<Citizen>();
 			craftStructure = _craftStructure.Value.GetComponent<CraftStructure>();
 			itemType = (ItemType)_itemType.Value;
 			timer = 0;

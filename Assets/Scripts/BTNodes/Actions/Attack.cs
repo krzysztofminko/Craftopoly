@@ -2,23 +2,22 @@ using UnityEngine;
 using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
 
-namespace CitizenTasks.Actions
+namespace BTNodes.Actions
 {
 	[TaskCategory("Citizen")]
-	public class Attack : Action
+	public class Attack : CitizenAction
 	{
 		const float animationTimer = 0.2f;
 
 		public SharedGameObject _targetHealth;
 
-		private Citizen citizen;
 		private Health targetHealth;
 		private float timer;
 
 		public override void OnStart()
 		{
-			if (!citizen)
-				citizen = gameObject.GetComponent<Citizen>();
+			base.OnStart();
+
 			targetHealth = _targetHealth.Value.GetComponent<Health>();
 		}
 

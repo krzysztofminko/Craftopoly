@@ -16,11 +16,11 @@ public class CraftStructure : Workplace
 		public int count;
 		public bool maintainAmount;
 
-		public CraftOrder(ItemType itemType, int count, bool decreaseCount)
+		public CraftOrder(ItemType itemType, int count, bool maintainAmount)
 		{
 			this.itemType = itemType;
 			this.count = count;
-			this.maintainAmount = decreaseCount;
+			this.maintainAmount = maintainAmount;
 		}
 	}
 
@@ -89,8 +89,8 @@ public class CraftStructure : Workplace
 			orders.Add(new CraftOrder(itemTypes[i], 0, true));
 	}
 
-	private void _Update()
-    {
+	private void Update()
+	{
 		if (isFueled)
 		{
 			Refuel();
@@ -99,6 +99,10 @@ public class CraftStructure : Workplace
 
 		if (craftedItem && (craftedItem.transform.parent != transform && craftedItem.transform.parent != craftedTransform))
 			craftedItem = null;
+	}
+
+	private void _Update()
+    {
 
 		if (ReservedBy != Player.instance && worker && worker.WorkTime() && worker.fsm.ActiveStateName == "Idle")
 		{

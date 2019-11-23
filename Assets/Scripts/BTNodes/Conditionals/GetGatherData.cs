@@ -3,22 +3,27 @@ using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
 using System.Linq;
 
-namespace CitizenTasks.Conditionals
+namespace BTNodes.Conditionals
 {
 	[TaskCategory("Citizen")]
-	public class IsGatherer : Conditional
+	public class GetGatherData : CitizenConditional
 	{
-		public SharedGameObject outItem;
 		public SharedGameObject outStorage;
 		public SharedGameObject outSource;
+		public SharedGameObject outItem;
 
-		private Citizen citizen;
-
+		/* 
+		 * is gatherer
+		 * search storage
+		 * search item on the ground
+		 * search source
+		 * store item
+		 * gather source
+		 */
 
 		public override TaskStatus OnUpdate()
 		{
-			if (!citizen)
-				citizen = gameObject.GetComponent<Citizen>();
+			base.OnUpdate();
 
 			outItem.Value = null;
 			outStorage.Value = null;
@@ -39,7 +44,8 @@ namespace CitizenTasks.Conditionals
 				}
 				else
 				{
-					Source source = Source.list.FindAll(s => s.itemType == gatherStructure.itemType && !s.ReservedBy && s.Health.HP > 0 && Distance.Manhattan2D(gatherStructure.transform.position, s.transform.position) < gatherStructure.rangeOfSearch).OrderBy(s => Distance.Manhattan2D(gatherStructure.transform.position, s.transform.position)).FirstOrDefault();
+					Source source = gatherStructure.sources.FirstOrDefault(s => s && s.gameObject.activeSelf);
+						//Source.list.FindAll(s => s.itemType == gatherStructure.itemType && !s.ReservedBy && s.Health.HP > 0 && Distance.Manhattan2D(gatherStructure.transform.position, s.transform.position) < gatherStructure.rangeOfSearch).OrderBy(s => Distance.Manhattan2D(gatherStructure.transform.position, s.transform.position)).FirstOrDefault();
 					if (source)
 						outSource.Value = source.gameObject;
 				}
