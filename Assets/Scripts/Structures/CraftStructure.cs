@@ -117,7 +117,7 @@ public class CraftStructure : Workplace
 			else
 			{
 				//Find first uncomplete order
-				CraftOrder order = orders.Find(o => (!o.maintainAmount && o.count > 0) || (o.maintainAmount && o.count > storage.Count(o.itemType)));
+				CraftOrder order = GetOrder();
 				if (order != null)
 				{
 					currentItemType = order.itemType;
@@ -161,6 +161,10 @@ public class CraftStructure : Workplace
 		}
     }
 
+	public CraftOrder GetOrder()
+	{
+		return orders.Find(o => (!o.maintainAmount && o.count > 0) || (o.maintainAmount && o.count > storage.Count(o.itemType)));
+	}
 
 	private void Burn()
 	{

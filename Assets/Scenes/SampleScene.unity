@@ -11729,7 +11729,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000013808736, y: 845307.8}
+  m_AnchoredPosition: {x: 0.0000013808736, y: 852886.5}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &687849194
@@ -11920,7 +11920,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000013808736, y: 846277.25}
+  m_AnchoredPosition: {x: 0.0000013808736, y: 854803.4}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &707932691
@@ -20179,7 +20179,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000013808736, y: 845307.8}
+  m_AnchoredPosition: {x: 0.0000013808736, y: 852886.5}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1214577992
@@ -35679,26 +35679,6 @@ PrefabInstance:
       propertyPath: workplace
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 5134390623069297734, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
-        type: 3}
-      propertyPath: list.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134390623069297734, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
-        type: 3}
-      propertyPath: list.Array.data[2].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134390623069297734, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
-        type: 3}
-      propertyPath: list.Array.data[1].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134390623069297734, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
-        type: 3}
-      propertyPath: list.Array.data[1].name
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
         type: 3}
       propertyPath: mBehaviorSource.mTaskData.types.Array.size
@@ -35988,6 +35968,26 @@ PrefabInstance:
         type: 3}
       propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.byteData.Array.data[216]
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5134390623069297734, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: list.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5134390623069297734, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: list.Array.data[2].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5134390623069297734, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: list.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5134390623069297734, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: list.Array.data[1].name
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
