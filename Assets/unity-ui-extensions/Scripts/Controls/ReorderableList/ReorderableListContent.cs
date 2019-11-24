@@ -52,7 +52,7 @@ namespace UnityEngine.UI.Extensions
                 _cachedListElement.Add(_ele);
             }
 
-            //!HACK a little hack, if I don't wait one frame I don't have the right deleted children
+            //HACK a little hack, if I don't wait one frame I don't have the right deleted children
             yield return 0;
 
             //Remove deleted child

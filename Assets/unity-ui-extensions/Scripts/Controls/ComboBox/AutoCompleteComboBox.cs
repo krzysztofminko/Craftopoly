@@ -95,7 +95,7 @@ namespace UnityEngine.UI.Extensions
 			}
 		}
 
-		//!TODO design as foldout for Inspector
+		//TODO design as foldout for Inspector
 		public Color ValidSelectionTextColor = Color.green;
 		public Color MatchingItemsRemainingTextColor = Color.black;
 		public Color NoItemsRemainingTextColor = Color.red;

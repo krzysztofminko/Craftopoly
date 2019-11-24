@@ -10,7 +10,7 @@
 namespace UnityEngine.UI.Extensions
 {
     /// <summary>
-    /// !TODO:
+    /// TODO:
     /// - add automatic child sizing, like in the HorizontalOrVerticalLayoutGroup.cs
     /// - nicer anchor handling for initial child positions
     /// </summary>

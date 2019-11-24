@@ -4,6 +4,7 @@ using BehaviorDesigner.Runtime.Tasks;
 
 namespace BTNodes
 {
+
 	public abstract class CitizenConditional : Conditional
 	{
 		protected Citizen citizen;
