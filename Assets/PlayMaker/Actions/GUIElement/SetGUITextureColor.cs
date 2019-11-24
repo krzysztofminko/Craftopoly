@@ -5,6 +5,8 @@ using System;
 
 namespace HutongGames.PlayMaker.Actions
 {
+#if !UNITY_2019_3_OR_NEWER
+
 	[ActionCategory(ActionCategory.GUIElement)]
 	[Tooltip("Sets the Color of the GUITexture attached to a Game Object.")]
 	#if UNITY_2017_2_OR_NEWER
@@ -51,4 +53,18 @@ namespace HutongGames.PlayMaker.Actions
 			}
 		}
 	}
+
+#else
+
+    [ActionCategory(ActionCategory.GUIElement)]
+    [Tooltip("Sets the Color of the GUITexture attached to a Game Object.")]
+    [Obsolete("GUITexture is part of the legacy UI system removed in 2019.3")]
+    public class SetGUITextureColor : FsmStateAction
+    {
+        [ActionSection("Obsolete. Use Unity UI instead.")]
+
+        public FsmColor color;
+    }
+
+#endif
 }

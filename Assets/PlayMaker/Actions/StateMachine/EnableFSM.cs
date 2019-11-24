@@ -69,7 +69,7 @@ namespace HutongGames.PlayMaker.Actions
 			
 			if (fsmComponent == null)
 			{
-				// #TODO: Not sure if this is an error condition... 
+				// TODO: Not sure if this is an error condition... 
 				LogError("Missing FsmComponent!");
 				return;
 			}

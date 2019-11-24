@@ -242,7 +242,7 @@ namespace HutongGames.PlayMaker.Actions
                     if (storeCollider != null)
                         storeCollider.Value = other;
 
-                    storeForce.Value = 0f; //#TODO: impact force?
+                    storeForce.Value = 0f; //TODO: impact force?
                     Fsm.Event(sendEvent);
                 }
             }

@@ -33,7 +33,7 @@ namespace HutongGames.PlayMaker.Actions
 		}
 
 		/* Transform scale doesn't stick in OnEnter
-		 * #TODO: figure out why...
+		 * TODO: figure out why...
 		public override void OnEnter()
 		{
 			DoSetPosition();

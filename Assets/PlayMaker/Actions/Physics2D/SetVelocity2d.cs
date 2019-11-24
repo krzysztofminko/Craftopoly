@@ -42,7 +42,7 @@ namespace HutongGames.PlayMaker.Actions
 			Fsm.HandleFixedUpdate = true;
 		}		
 		
-		// #TODO: test this works in OnEnter!
+		// TODO: test this works in OnEnter!
 		public override void OnEnter()
 		{
 			DoSetVelocity();

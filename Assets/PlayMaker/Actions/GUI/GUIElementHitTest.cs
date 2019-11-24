@@ -7,14 +7,21 @@ namespace HutongGames.PlayMaker.Actions
 {
 	[ActionCategory(ActionCategory.GUIElement)]
 	[Tooltip("Performs a Hit Test on a Game Object with a GUITexture or GUIText component.")]
-	#if UNITY_2017_2_OR_NEWER
+    #if UNITY_2019_3_OR_NEWER
+    [Obsolete("GUIElement is part of the legacy UI system removed in 2019.3")]
+	#elif UNITY_2017_2_OR_NEWER
 	#pragma warning disable CS0618  
 	[Obsolete("GUIElement is part of the legacy UI system and will be removed in a future release")]
 	#endif
+
 	public class GUIElementHitTest : FsmStateAction
 	{
 		[RequiredField]
+#if !UNITY_2019_3_OR_NEWER
 		[CheckForComponent(typeof(GUIElement))]
+#else
+        [ActionSection("Obsolete. Use Unity UI instead.")]
+#endif
 		[Tooltip("The GameObject that has a GUITexture or GUIText component.")]
 		public FsmOwnerDefault gameObject;
 		[Tooltip("Specify camera or use MainCamera as default.")]
@@ -35,9 +42,10 @@ namespace HutongGames.PlayMaker.Actions
 		[Tooltip("Repeat every frame. Useful if you want to wait for the hit test to return true.")]
 		public FsmBool everyFrame;
 
+#if !UNITY_2019_3_OR_NEWER
 		// cache component
 		private GUIElement guiElement;
-
+#endif
 		// remember game object cached, so we can re-cache component if it changes
 		private GameObject gameObjectCached;
 
@@ -55,14 +63,19 @@ namespace HutongGames.PlayMaker.Actions
 
 		public override void OnEnter()
 		{
+#if !UNITY_2019_3_OR_NEWER
 			DoHitTest();
 
 			if (!everyFrame.Value)
 			{
 				Finish();
 			}
+#else
+            Finish();
+#endif
 		}
-	
+
+#if !UNITY_2019_3_OR_NEWER
 		public override void OnUpdate()
 		{
 			DoHitTest();
@@ -122,6 +135,6 @@ namespace HutongGames.PlayMaker.Actions
 				storeResult.Value = false;
 			}
 		}
-
+#endif
 	}
 }

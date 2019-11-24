@@ -1,74 +1,209 @@
 fileFormatVersion: 2
 guid: 79805bb54de9ba347ad9cb85a885af1f
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: Body
-    100002: Cube
-    100004: Hair
-    100006: HandLeft
-    100008: HandLParent
-    100010: HandRight
-    100012: HandRParent
-    100014: Head
-    100016: //RootNode
-    100018: Root
-    100020: ToolParent
-    100022: WeaponParent
-    100024: StoneHammer
-    100026: StoneAxe
-    100028: StonePickaxe
-    400000: Body
-    400002: Cube
-    400004: Hair
-    400006: HandLeft
-    400008: HandLParent
-    400010: HandRight
-    400012: HandRParent
-    400014: Head
-    400016: //RootNode
-    400018: Root
-    400020: ToolParent
-    400022: WeaponParent
-    400024: StoneHammer
-    400026: StoneAxe
-    400028: StonePickaxe
-    2100000: StoneToolHead
-    2100002: StoneToolGrip
-    2100004: Body_001
-    2100006: Hair1_001
-    2100008: Body_006
-    2100010: Hair1_006
-    2300000: Body
-    2300002: Cube
-    2300004: Hair
-    2300006: HandLeft
-    2300008: HandRight
-    2300010: Head
-    2300012: StoneHammer
-    2300014: StoneAxe
-    2300016: StonePickaxe
-    3300000: Body
-    3300002: Cube
-    3300004: Hair
-    3300006: HandLeft
-    3300008: HandRight
-    3300010: Head
-    3300012: StoneHammer
-    3300014: StoneAxe
-    3300016: StonePickaxe
-    4300000: Cube
-    4300002: Body
-    4300004: HandRight
-    4300006: HandLeft
-    4300008: Head
-    4300010: Hair
-    4300012: StoneHammer
-    4300014: StoneAxe
-    4300016: StonePickaxe
-    7400000: Default Take
-    9500000: //RootNode
-    2186277476908879412: ImportLogs
+  serializedVersion: 26
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Body
+  - first:
+      1: 100002
+    second: Cube
+  - first:
+      1: 100004
+    second: Hair
+  - first:
+      1: 100006
+    second: HandLeft
+  - first:
+      1: 100008
+    second: HandLParent
+  - first:
+      1: 100010
+    second: HandRight
+  - first:
+      1: 100012
+    second: HandRParent
+  - first:
+      1: 100014
+    second: Head
+  - first:
+      1: 100016
+    second: //RootNode
+  - first:
+      1: 100018
+    second: Root
+  - first:
+      1: 100020
+    second: ToolParent
+  - first:
+      1: 100022
+    second: WeaponParent
+  - first:
+      1: 100024
+    second: StoneHammer
+  - first:
+      1: 100026
+    second: StoneAxe
+  - first:
+      1: 100028
+    second: StonePickaxe
+  - first:
+      4: 400000
+    second: Body
+  - first:
+      4: 400002
+    second: Cube
+  - first:
+      4: 400004
+    second: Hair
+  - first:
+      4: 400006
+    second: HandLeft
+  - first:
+      4: 400008
+    second: HandLParent
+  - first:
+      4: 400010
+    second: HandRight
+  - first:
+      4: 400012
+    second: HandRParent
+  - first:
+      4: 400014
+    second: Head
+  - first:
+      4: 400016
+    second: //RootNode
+  - first:
+      4: 400018
+    second: Root
+  - first:
+      4: 400020
+    second: ToolParent
+  - first:
+      4: 400022
+    second: WeaponParent
+  - first:
+      4: 400024
+    second: StoneHammer
+  - first:
+      4: 400026
+    second: StoneAxe
+  - first:
+      4: 400028
+    second: StonePickaxe
+  - first:
+      21: 2100000
+    second: StoneToolHead
+  - first:
+      21: 2100002
+    second: StoneToolGrip
+  - first:
+      21: 2100004
+    second: Body_001
+  - first:
+      21: 2100006
+    second: Hair1_001
+  - first:
+      21: 2100008
+    second: Body_006
+  - first:
+      21: 2100010
+    second: Hair1_006
+  - first:
+      23: 2300000
+    second: Body
+  - first:
+      23: 2300002
+    second: Cube
+  - first:
+      23: 2300004
+    second: Hair
+  - first:
+      23: 2300006
+    second: HandLeft
+  - first:
+      23: 2300008
+    second: HandRight
+  - first:
+      23: 2300010
+    second: Head
+  - first:
+      23: 2300012
+    second: StoneHammer
+  - first:
+      23: 2300014
+    second: StoneAxe
+  - first:
+      23: 2300016
+    second: StonePickaxe
+  - first:
+      33: 3300000
+    second: Body
+  - first:
+      33: 3300002
+    second: Cube
+  - first:
+      33: 3300004
+    second: Hair
+  - first:
+      33: 3300006
+    second: HandLeft
+  - first:
+      33: 3300008
+    second: HandRight
+  - first:
+      33: 3300010
+    second: Head
+  - first:
+      33: 3300012
+    second: StoneHammer
+  - first:
+      33: 3300014
+    second: StoneAxe
+  - first:
+      33: 3300016
+    second: StonePickaxe
+  - first:
+      43: 4300000
+    second: Cube
+  - first:
+      43: 4300002
+    second: Body
+  - first:
+      43: 4300004
+    second: HandRight
+  - first:
+      43: 4300006
+    second: HandLeft
+  - first:
+      43: 4300008
+    second: Head
+  - first:
+      43: 4300010
+    second: Hair
+  - first:
+      43: 4300012
+    second: StoneHammer
+  - first:
+      43: 4300014
+    second: StoneAxe
+  - first:
+      43: 4300016
+    second: StonePickaxe
+  - first:
+      74: 7400000
+    second: Default Take
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      41386430: 2186277476908879412
+    second: ImportLogs
+  - first:
+      74: -623603649343465320
+    second: Scene
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -104,6 +239,7 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -111,18 +247,19 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -131,10 +268,11 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -144,6 +282,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

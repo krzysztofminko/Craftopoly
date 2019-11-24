@@ -22,7 +22,10 @@
 #endif
 
 using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using HutongGames.PlayMaker;
 using UnityEditor;
@@ -30,6 +33,8 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 #endif
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using Debug = UnityEngine.Debug;
 
 namespace HutongGames.PlayMakerEditor
 {
@@ -51,6 +56,33 @@ namespace HutongGames.PlayMakerEditor
             UpdateScenesInBuild();
         }
 
+        [MenuItem(MenuRoot + "Tools/Preprocess Prefab FSMs in Build", false, 27)]
+        public static void PreprocessPrefabFSMs()
+        {   
+            if (!EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
+
+            var timer = Stopwatch.StartNew();
+
+            var logOutput = DoPreprocessPrefabFSMsInBuild();
+
+            logOutput += "\nElapsed Time: " + timer.Elapsed.Seconds + "s";
+
+            Debug.Log(logOutput);
+        }
+
+        [MenuItem(MenuRoot + "Tools/Preprocess All Prefab FSMs", false, 27)]
+        public static void PreprocessAllPrefabFSMs()
+        {
+            var timer = Stopwatch.StartNew();
+
+            var logOutput = DoPreprocessAllPrefabFSMs();
+
+            logOutput += "\nElapsed Time: " + timer.Elapsed.Seconds + "s";
+
+            Debug.Log(logOutput);
+        }
+
+
         /*WIP
         [MenuItem(MenuRoot + "Tools/Scan Scenes", false, 33)]
         public static void ScanScenesInProject()
@@ -58,6 +90,317 @@ namespace HutongGames.PlayMakerEditor
             FindAllScenes();
         }
 */
+
+        /// <summary>
+        /// Collects all prefabs with FSMs referenced by scenes in the build.
+        /// Then preprocess all FSMs on those prefabs.
+        /// TODO: check if this handles:
+        /// - PlayMakerFSMs referenced in actions
+        /// - PlayMakerFSMs in Resources folders
+        /// </summary>
+        private static string DoPreprocessPrefabFSMsInBuild()
+        {
+            var loadedScenes = GetLoadedScenes();
+
+            var report = "Preprocess Prefab FSMs in Build:";
+
+            // We open enabled scenes in the build to find prefabs with PlayMakerFSMs
+            // We do this first to avoid an AssetDatabase reload for each scene
+            // Processing fsms in the scene load loop is much slower
+
+            var prefabs = GetAllPrefabFSMsInBuild();
+            report += "\nPrefab FSMs found: " + prefabs.Count;
+
+            if (prefabs.Count == 0) return report;
+
+            // Note: StartAssetEditing/StopAssetEditing doesn't seem to work across scene loading.
+            // another reason to collect all the prefabs first.
+
+            AssetDatabase.StartAssetEditing();
+
+            report += DoPreprocessPrefabFSMs(prefabs);
+
+            AssetDatabase.StopAssetEditing();
+
+            LoadScenes(loadedScenes);
+
+            return report;
+        }
+
+        /// <summary>
+        /// Get the main GameObject for a prefab file.
+        /// In 2018.3+ loads the prefab so it can be edited.
+        /// </summary>
+        public static GameObject GetPrefabGameObject(string prefabPath)
+        {
+            GameObject go = null;
+
+            // We need to put this in a try block otherwise it can hang Unity editor
+
+            try
+            {
+#if UNITY_2018_3_OR_NEWER
+
+                go = PrefabUtility.LoadPrefabContents(prefabPath);
+#else
+                go = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);
+#endif
+            }
+            catch (Exception e)
+            {
+                Debug.LogException(e);
+            }
+
+            return go;
+        }
+
+        /// <summary>
+        /// Get all scenes currently open in the editor
+        /// </summary>
+        public static List<string> GetLoadedScenes()
+        {
+            var openScenes = new List<string>();
+            for (var i = 0; i < EditorSceneManager.loadedSceneCount; i++)
+            {
+                openScenes.Add(SceneManager.GetSceneAt(i).path);
+            }
+
+            return openScenes;    
+        }
+
+        /// <summary>
+        /// Get all enabled scenes in Build Settings.
+        /// </summary>
+        public static List<string> GetScenesInBuild()
+        {
+            return (from scene in EditorBuildSettings.scenes where scene.enabled select scene.path).ToList();
+        }
+
+        /// <summary>
+        /// Load multiple scenes in the editor.
+        /// </summary>
+        /// <param name="scenes"></param>
+        public static void LoadScenes(List<string> scenes)
+        {
+            if (scenes.Count == 0 || string.IsNullOrEmpty(scenes[0])) return;
+            
+            var loadedScenes = GetLoadedScenes();
+            if (loadedScenes.SequenceEqual(scenes)) return;
+
+            EditorSceneManager.OpenScene(scenes[0], OpenSceneMode.Single);
+            for (var i = 1; i < scenes.Count; i++)
+            {
+                EditorSceneManager.OpenScene(scenes[i], OpenSceneMode.Additive);
+            }
+        }
+
+        /// <summary>
+        /// Get all prefab files in build that have PlayMakerFSMs
+        /// </summary>
+        public static List<string> GetAllPrefabFSMsInBuild()
+        {
+            var scenes = GetScenesInBuild();
+            var loadedScenes = GetLoadedScenes();
+            var prefabs = new List<string>();
+
+            // first get prefab FSMs that are already loaded
+
+            GetLoadedPrefabFSMs(prefabs);
+
+            foreach (var scene in loadedScenes)
+            {
+                scenes.Remove(scene);
+            }
+
+            // now iterate through other scenes in build
+
+            float sceneCount = scenes.Count;
+            if (sceneCount > 0)
+            {
+                for (var i = 0; i < scenes.Count; i++)
+                {
+                    var scene = scenes[i];
+                    EditorSceneManager.OpenScene(scene, OpenSceneMode.Single);
+
+                    var cancel = EditorUtility.DisplayCancelableProgressBar("PlayMaker",
+                        "Finding prefab FSMs in scene: " + scene, i / sceneCount);
+                    if (cancel) return new List<string>();
+
+                    GetLoadedPrefabFSMs(prefabs);
+                }
+
+                EditorUtility.ClearProgressBar();
+            }
+            
+            return prefabs;
+        }
+
+        /// <summary>
+        /// Get loaded prefab files that have PlayMakerFSMs
+        /// </summary>
+        public static void GetLoadedPrefabFSMs(List<string> prefabs)
+        {
+            var fsmList = Resources.FindObjectsOfTypeAll<PlayMakerFSM>();
+            for (var i = 0; i < fsmList.Length; i++)
+            {
+                var playMakerFSM = fsmList[i];
+                if (playMakerFSM == null || !FsmPrefabs.IsPrefab(playMakerFSM.Fsm)) continue;
+
+                var assetPath = AssetDatabase.GetAssetPath(playMakerFSM);
+                if (prefabs.Contains(assetPath)) continue;
+
+                prefabs.Add(assetPath);
+            }
+        }
+
+        private static string DoPreprocessPrefabFSMs(List<string> prefabs)
+        {
+            var report = "";
+            if (prefabs.Count == 0) return report;
+
+            float prefabCount = prefabs.Count;           
+            for (int i = 0; i < prefabCount; i++)
+            {
+                var prefab = prefabs[i];
+                if (prefab == null) continue;
+
+                var cancel = EditorUtility.DisplayCancelableProgressBar("PlayMaker", prefab.Substring(7), i/prefabCount);
+                if (cancel) return report + "\nCancelled";
+                
+                var go = GetPrefabGameObject(prefab);
+                if (go == null) continue;
+
+                var prefabFSMs = go.GetComponentsInChildren<PlayMakerFSM>();
+                if (prefabFSMs.Length > 0)
+                {
+                    foreach (var prefabFSM in prefabFSMs)
+                    {                
+
+#if UNITY_2018_3_OR_NEWER
+                    
+                        // nested prefab will be processes as a prefab, so skip here
+                        if (PrefabUtility.IsPartOfPrefabInstance(prefabFSM))
+                        {
+                            //report += "\nSkipping Nested Prefab: " + FsmUtility.GetFullFsmLabel(prefabFSM);
+                            continue;
+                        }   
+#endif
+
+                        //report += "\nPreprocess: " + FsmUtility.GetFullFsmLabel(prefabFSM);
+
+                        prefabFSM.Preprocess();
+                    }
+
+                    EditorUtility.SetDirty(go);
+
+#if UNITY_2018_3_OR_NEWER                
+
+                    PrefabUtility.SaveAsPrefabAsset(go, prefab);
+                }
+
+                PrefabUtility.UnloadPrefabContents(go);
+#else
+                }
+#endif
+            }
+
+            EditorUtility.ClearProgressBar();
+
+            return report;
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private static string DoPreprocessAllPrefabFSMs()
+        {
+            var report = "Preprocess All Prefab FSMs:";
+
+            AssetDatabase.StartAssetEditing();
+
+            var prefabs = Files.GetPrefabsWithFsmComponent();
+            report += "\nPrefabs found: " + prefabs.Count;
+
+            if (prefabs.Count == 0) return report;
+
+            float prefabCount = prefabs.Count;
+            
+            for (int i = 0; i < prefabCount; i++)
+            {
+                var prefab = prefabs[i];
+                if (prefab == null) continue;
+
+                var cancel = EditorUtility.DisplayCancelableProgressBar("PlayMaker", prefab, i/prefabCount);
+                if (cancel) return report + "\nCancelled";
+                
+                var go = GetPrefabGameObject(prefab);
+                if (go == null) continue;
+
+                var prefabFSMs = go.GetComponentsInChildren<PlayMakerFSM>();
+                if (prefabFSMs.Length > 0)
+                {
+                    foreach (var prefabFSM in prefabFSMs)
+                    {                
+
+#if UNITY_2018_3_OR_NEWER
+                    
+                        // nested prefab will be processes as a prefab, so skip here
+                        if (PrefabUtility.IsPartOfPrefabInstance(prefabFSM))
+                        {
+                            //report += "\nSkipping Nested Prefab: " + FsmUtility.GetFullFsmLabel(prefabFSM);
+                            continue;
+                        }   
+#endif
+
+                        //report += "\nPreprocess: " + FsmUtility.GetFullFsmLabel(prefabFSM);
+
+                        prefabFSM.Preprocess();
+                    }
+
+                    EditorUtility.SetDirty(go);
+
+#if UNITY_2018_3_OR_NEWER                
+
+                    PrefabUtility.SaveAsPrefabAsset(go, prefab);
+                }
+                PrefabUtility.UnloadPrefabContents(go);
+#else
+                }
+#endif
+            }
+
+            EditorUtility.ClearProgressBar();
+
+            AssetDatabase.StopAssetEditing();
+
+            return report;
+        }
+
+        private static List<string> GetAllPrefabFiles()
+        {
+            var searchDirectory = new DirectoryInfo(Application.dataPath);
+            var prefabFiles = searchDirectory.GetFiles("*.prefab", SearchOption.AllDirectories);
+
+            var paths = new List<string>();
+            float totalFiles = prefabFiles.Length;
+
+            for (int i = 0; i < prefabFiles.Length; i++)
+            {
+                var file = prefabFiles[i];
+                EditorUtility.DisplayProgressBar("PlayMaker", "Finding prefabs...",
+                    i / totalFiles);
+
+                var filePath = file.FullName.Replace('\\', '/').Replace(Application.dataPath, "Assets");
+                //Debug.Log(filePath + "\n" + Application.dataPath);
+
+                paths.Add(filePath);
+            }
+
+            EditorUtility.ClearProgressBar();
+
+            return paths;
+        }
 
         private static void ReSaveAllLoadedFSMs()
         {

@@ -25,7 +25,7 @@ namespace HutongGames.PlayMaker.Actions
         public FsmInt index;
 
         [RequiredField]
-        //[MatchElementType("array")] #TODO
+        //[MatchElementType("array")] TODO
         [Tooltip("Set the value of the array at the specified index.")]
         public FsmVar value;
 		

@@ -52,9 +52,11 @@ namespace HutongGames.PlayMakerEditor
             BuildTarget.StandaloneOSX,
 #endif
 
+#if !UNITY_2019_2_OR_NEWER
             BuildTarget.StandaloneLinux,
-            BuildTarget.StandaloneLinux64,
             BuildTarget.StandaloneLinuxUniversal,
+#endif
+            BuildTarget.StandaloneLinux64,
             BuildTarget.StandaloneWindows,
             BuildTarget.StandaloneWindows64,
             BuildTarget.iOS
@@ -65,7 +67,7 @@ namespace HutongGames.PlayMakerEditor
         {
             if (EditorStartupPrefs.AutoUpdateProject)
             {
-                // Can't call assetdatabase here, so use update callback
+                // Can't call asset database here, so use update callback
                 EditorApplication.update -= RunAutoUpdate;
                 EditorApplication.update += RunAutoUpdate;
             }

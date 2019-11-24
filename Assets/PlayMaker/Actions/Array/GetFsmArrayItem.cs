@@ -26,7 +26,7 @@ namespace HutongGames.PlayMaker.Actions
 
         [RequiredField]
         [UIHint(UIHint.Variable)]
-        //[MatchElementType("array")] #TODO
+        //[MatchElementType("array")] TODO
         [Tooltip("Get the value of the array at the specified index.")]
         public FsmVar storeValue;
 

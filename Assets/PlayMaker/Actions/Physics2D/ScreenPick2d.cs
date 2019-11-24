@@ -108,7 +108,7 @@ namespace HutongGames.PlayMaker.Actions
 			}
 			else
 			{
-				// #TODO: not sure if this is the right strategy...
+				// TODO: not sure if this is the right strategy...
 				storeGameObject.Value = null;
 				storePoint.Value = Vector3.zero;
 			}

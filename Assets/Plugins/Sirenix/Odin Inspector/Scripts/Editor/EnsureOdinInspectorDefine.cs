@@ -1,9 +1,11 @@
-﻿#if UNITY_EDITOR
-//-----------------------------------------------------------------------
+﻿//-----------------------------------------------------------------------
 // <copyright file="EnsureOdinInspectorDefine.cs" company="Sirenix IVS">
 // Copyright (c) Sirenix IVS. All rights reserved.
 // </copyright>
 //-----------------------------------------------------------------------
+
+#if UNITY_EDITOR
+
 namespace Sirenix.Utilities
 {
     using System;
@@ -93,6 +95,7 @@ namespace Sirenix.Utilities
     //
     //                if (linesWithoutOdinDefine.Length == 0)
     //                {
+    //                    // Optional - Remove the mcs file instead if it doesn't contain any lines.
     //                    File.Delete(mcsPath);
     //                }
     //                else
@@ -105,4 +108,5 @@ namespace Sirenix.Utilities
     //        }
     //    }
 }
-#endif
+
+#endif // UNITY_EDITOR

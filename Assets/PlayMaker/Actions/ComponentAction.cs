@@ -59,6 +59,8 @@ namespace HutongGames.PlayMaker.Actions
             get { return cachedComponent as Camera; }
         }
 
+#if !UNITY_2019_3_OR_NEWER
+
 		#if UNITY_2017_2_OR_NEWER
 		#pragma warning disable CS0618 
         #endif
@@ -74,6 +76,8 @@ namespace HutongGames.PlayMaker.Actions
         #if UNITY_2017_2_OR_NEWER
         #pragma warning restore CS0618 
 		#endif
+
+#endif
 
         protected Light light
         {

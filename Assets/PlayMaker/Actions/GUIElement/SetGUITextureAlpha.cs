@@ -5,6 +5,8 @@ using System;
 
 namespace HutongGames.PlayMaker.Actions
 {
+#if !UNITY_2019_3_OR_NEWER
+
 	[ActionCategory(ActionCategory.GUIElement)]
 	[Tooltip("Sets the Alpha of the GUITexture attached to a Game Object. Useful for fading GUI elements in/out.")]
 	#if UNITY_2017_2_OR_NEWER
@@ -52,4 +54,18 @@ namespace HutongGames.PlayMaker.Actions
 			}			
 		}
 	}
+
+#else
+
+    [ActionCategory(ActionCategory.GUIElement)]
+    [Tooltip("Sets the Alpha of the GUITexture attached to a Game Object. Useful for fading GUI elements in/out.")]
+    [Obsolete("GUITexture is part of the legacy UI system removed in 2019.3")]
+    public class SetGUITextureAlpha : FsmStateAction
+    {
+        [ActionSection("Obsolete. Use Unity UI instead.")]
+
+        public FsmFloat alpha;
+    }
+
+#endif
 }

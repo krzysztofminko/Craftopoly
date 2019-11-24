@@ -59,7 +59,7 @@ namespace HutongGames.PlayMaker.Actions
 			if (positionInCameraSpace.z < 0)
 			{
 				// behind camera, but still need to BeginArea()
-				// #TODO option to keep onscreen
+				// TODO option to keep onscreen
 				DummyBeginArea();
 				return;
 			}

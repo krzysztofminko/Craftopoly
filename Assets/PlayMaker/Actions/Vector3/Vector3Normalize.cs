@@ -1,5 +1,5 @@
 // (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
-// _BUG FIX: http://hutonggames.com/playmakerforum/index.php?topic=476.0;topicseen
+// BUG FIX: http://hutonggames.com/playmakerforum/index.php?topic=476.0;topicseen
 
 namespace HutongGames.PlayMaker.Actions
 {
