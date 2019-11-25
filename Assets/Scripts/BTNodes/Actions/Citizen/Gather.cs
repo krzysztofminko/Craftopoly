@@ -19,22 +19,22 @@ namespace BTNodes.Actions
 		{
 			base.OnStart();
 
-			source = _source.Value.GetComponent<Source>();
+			source = _source.Value? _source.Value.GetComponent<Source>() : null;
 			timer = 0;
-			citizen.animator.SetFloat("UseAnimationId", 1);
-			source.ReservedBy = citizen;
 			outItem.Value = null;
 		}
 
 		public override TaskStatus OnUpdate()
 		{
-			if (!source)
+			if (!source || (source.ReservedBy && source.ReservedBy != citizen))
 			{
 				citizen.animator.SetFloat("UseAnimationId", 0);
 				return TaskStatus.Failure;
 			}
-			else
+			else if(citizen.GoTo(source.transform, 1))
 			{
+				citizen.animator.SetFloat("UseAnimationId", 1);
+				source.ReservedBy = citizen;
 
 				timer += Time.deltaTime;
 				if (timer > animationTimer)

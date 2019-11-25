@@ -7996,22 +7996,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
-        type: 3}
-      propertyPath: mBehaviorSource.mTaskData.JSONSerialization
-      value: "{\n\t\"EntryTask\":{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.EntryTask\",\n\t\t\"NodeData\":{\n\t\t\t\"Offset\":\"(415,36)\"\n\t\t},\n\t\t\"ID\":0,\n\t\t\"Name\":\"Entry\",\n\t\t\"Instant\":true\n\t},\n\t\"RootTask\":{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Selector\",\n\t\t\"NodeData\":{\n\t\t\t\"Offset\":\"(2,111)\"\n\t\t},\n\t\t\"ID\":1,\n\t\t\"Name\":\"Selector\",\n\t\t\"Instant\":true,\n\t\t\"AbortTypeabortType\":\"None\",\n\t\t\"Children\":[{\n\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Sequence\",\n\t\t\t\"NodeData\":{\n\t\t\t\t\"Offset\":\"(-60,110)\"\n\t\t\t},\n\t\t\t\"ID\":2,\n\t\t\t\"Name\":\"Work\",\n\t\t\t\"Instant\":true,\n\t\t\t\"AbortTypeabortType\":\"None\",\n\t\t\t\"Children\":[{\n\t\t\t\t\"Type\":\"BTNodes.Conditionals.IsWorkTime\",\n\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\"Offset\":\"(-190,150)\"\n\t\t\t\t},\n\t\t\t\t\"ID\":3,\n\t\t\t\t\"Name\":\"Is
-        Work Time\",\n\t\t\t\t\"Instant\":true\n\t\t\t},{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Sequence\",\n\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\"Offset\":\"(-59.5,149)\"\n\t\t\t\t},\n\t\t\t\t\"ID\":4,\n\t\t\t\t\"Name\":\"Gatherer\",\n\t\t\t\t\"Instant\":true,\n\t\t\t\t\"AbortTypeabortType\":\"None\",\n\t\t\t\t\"Children\":[{\n\t\t\t\t\t\"Type\":\"BTNodes.Conditionals.GetGatherData\",\n\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\"Offset\":\"(-200,140)\"\n\t\t\t\t\t},\n\t\t\t\t\t\"ID\":5,\n\t\t\t\t\t\"Name\":\"Get
-        Gather Data\",\n\t\t\t\t\t\"Instant\":true,\n\t\t\t\t\t\"SharedGameObjectoutStorage\":{\n\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\t\t\"Name\":\"storage\",\n\t\t\t\t\t\t\"IsShared\":true,\n\t\t\t\t\t\t\"IsDynamic\":true\n\t\t\t\t\t},\n\t\t\t\t\t\"SharedGameObjectoutSource\":{\n\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\t\t\"Name\":\"source\",\n\t\t\t\t\t\t\"IsShared\":true,\n\t\t\t\t\t\t\"IsDynamic\":true\n\t\t\t\t\t},\n\t\t\t\t\t\"SharedGameObjectoutItem\":{\n\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\t\t\"Name\":\"item\",\n\t\t\t\t\t\t\"IsShared\":true,\n\t\t\t\t\t\t\"IsDynamic\":true\n\t\t\t\t\t}\n\t\t\t\t},{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Selector\",\n\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\"Offset\":\"(-70,140)\"\n\t\t\t\t\t},\n\t\t\t\t\t\"ID\":6,\n\t\t\t\t\t\"Name\":\"Selector\",\n\t\t\t\t\t\"Instant\":true,\n\t\t\t\t\t\"AbortTypeabortType\":\"None\",\n\t\t\t\t\t\"Children\":[{\n\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Sequence\",\n\t\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\t\"Offset\":\"(-400.3856,130.564026)\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"ID\":7,\n\t\t\t\t\t\t\"Name\":\"Store
-        Item\",\n\t\t\t\t\t\t\"Instant\":true,\n\t\t\t\t\t\t\"AbortTypeabortType\":\"None\",\n\t\t\t\t\t\t\"Children\":[{\n\t\t\t\t\t\t\t\"Type\":\"BTNodes.Conditionals.IsHoldingItem\",\n\t\t\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\t\t\"Offset\":\"(-90,130)\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"ID\":8,\n\t\t\t\t\t\t\t\"Name\":\"Is
-        Holding Item\",\n\t\t\t\t\t\t\t\"Instant\":true,\n\t\t\t\t\t\t\t\"SharedGameObjectoutItem\":{\n\t\t\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\t\t\t\t\"Name\":null\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t},{\n\t\t\t\t\t\t\t\"Type\":\"BTNodes.Actions.GoTo\",\n\t\t\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\t\t\"Offset\":\"(40,130)\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"ID\":9,\n\t\t\t\t\t\t\t\"Name\":\"Go
-        To\",\n\t\t\t\t\t\t\t\"Instant\":true,\n\t\t\t\t\t\t\t\"SharedGameObjecttarget\":{\n\t\t\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\t\t\t\t\"Name\":\"storage\",\n\t\t\t\t\t\t\t\t\"IsShared\":true,\n\t\t\t\t\t\t\t\t\"IsDynamic\":true\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"SharedVector3position\":{\n\t\t\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedVector3\",\n\t\t\t\t\t\t\t\t\"Name\":null,\n\t\t\t\t\t\t\t\t\"Vector3mValue\":\"(0,0,0)\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"SharedFloatproximity\":{\n\t\t\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\t\t\t\t\"Name\":null,\n\t\t\t\t\t\t\t\t\"SinglemValue\":1\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"BooleanreserveTarget\":false,\n\t\t\t\t\t\t\t\"BooleanfailureIfReserved\":false\n\t\t\t\t\t\t},{\n\t\t\t\t\t\t\t\"Type\":\"BTNodes.Actions.Put\",\n\t\t\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\t\t\"Offset\":\"(160,130)\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"ID\":10,\n\t\t\t\t\t\t\t\"Name\":\"Put\",\n\t\t\t\t\t\t\t\"Instant\":true,\n\t\t\t\t\t\t\t\"SharedGameObject_storage\":{\n\t\t\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\t\t\t\t\"Name\":\"storage\",\n\t\t\t\t\t\t\t\t\"IsShared\":true,\n\t\t\t\t\t\t\t\t\"IsDynamic\":true\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}]\n\t\t\t\t\t},{\n\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Sequence\",\n\t\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\t\"Offset\":\"(20.713913,130)\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"ID\":11,\n\t\t\t\t\t\t\"Name\":\"Pick
-        Item\",\n\t\t\t\t\t\t\"Instant\":true,\n\t\t\t\t\t\t\"AbortTypeabortType\":\"None\",\n\t\t\t\t\t\t\"Children\":[{\n\t\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Inverter\",\n\t\t\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\t\t\"Offset\":\"(-112.857117,110)\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"ID\":12,\n\t\t\t\t\t\t\t\"Name\":\"Inverter\",\n\t\t\t\t\t\t\t\"Instant\":true,\n\t\t\t\t\t\t\t\"Children\":[{\n\t\t\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Unity.SharedVariables.CompareSharedGameObject\",\n\t\t\t\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\t\t\t\"Offset\":\"(-0.610946655,99.53665)\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\"ID\":13,\n\t\t\t\t\t\t\t\t\"Name\":\"item
-        == null?\",\n\t\t\t\t\t\t\t\t\"Instant\":true,\n\t\t\t\t\t\t\t\t\"SharedGameObjectvariable\":{\n\t\t\t\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\t\t\t\t\t\"Name\":\"item\",\n\t\t\t\t\t\t\t\t\t\"IsShared\":true,\n\t\t\t\t\t\t\t\t\t\"IsDynamic\":true\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\"SharedGameObjectcompareTo\":{\n\t\t\t\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\t\t\t\t\t\"Name\":null\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}]\n\t\t\t\t\t\t},{\n\t\t\t\t\t\t\t\"Type\":\"BTNodes.Actions.GoTo\",\n\t\t\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\t\t\"Offset\":\"(10,110)\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"ID\":14,\n\t\t\t\t\t\t\t\"Name\":\"Go
-        To\",\n\t\t\t\t\t\t\t\"Instant\":true,\n\t\t\t\t\t\t\t\"SharedGameObjecttarget\":{\n\t\t\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\t\t\t\t\"Name\":\"item\",\n\t\t\t\t\t\t\t\t\"IsShared\":true,\n\t\t\t\t\t\t\t\t\"IsDynamic\":true\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"SharedVector3position\":{\n\t\t\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedVector3\",\n\t\t\t\t\t\t\t\t\"Name\":null,\n\t\t\t\t\t\t\t\t\"Vector3mValue\":\"(0,0,0)\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"SharedFloatproximity\":{\n\t\t\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\t\t\t\t\"Name\":null,\n\t\t\t\t\t\t\t\t\"SinglemValue\":1\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"BooleanreserveTarget\":false,\n\t\t\t\t\t\t\t\"BooleanfailureIfReserved\":true\n\t\t\t\t\t\t},{\n\t\t\t\t\t\t\t\"Type\":\"BTNodes.Actions.Pick\",\n\t\t\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\t\t\"Offset\":\"(130,110)\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"ID\":15,\n\t\t\t\t\t\t\t\"Name\":\"Pick\",\n\t\t\t\t\t\t\t\"Instant\":true,\n\t\t\t\t\t\t\t\"SharedGameObject_item\":{\n\t\t\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\t\t\t\t\"Name\":\"item\",\n\t\t\t\t\t\t\t\t\"IsShared\":true,\n\t\t\t\t\t\t\t\t\"IsDynamic\":true\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"SharedGameObject_storage\":{\n\t\t\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\t\t\t\t\"Name\":null\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}]\n\t\t\t\t\t},{\n\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Sequence\",\n\t\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\t\"Offset\":\"(458.9538,134.849609)\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"ID\":16,\n\t\t\t\t\t\t\"Name\":\"Gather
-        Source\",\n\t\t\t\t\t\t\"Instant\":true,\n\t\t\t\t\t\t\"AbortTypeabortType\":\"None\",\n\t\t\t\t\t\t\"Children\":[{\n\t\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Inverter\",\n\t\t\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\t\t\"Offset\":\"(-132.474731,136.278076)\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"ID\":17,\n\t\t\t\t\t\t\t\"Name\":\"Inverter\",\n\t\t\t\t\t\t\t\"Instant\":true,\n\t\t\t\t\t\t\t\"Children\":[{\n\t\t\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Unity.SharedVariables.CompareSharedGameObject\",\n\t\t\t\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\t\t\t\"Offset\":\"(3.23956871,96.2780762)\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\"ID\":18,\n\t\t\t\t\t\t\t\t\"Name\":\"source
-        == null?\",\n\t\t\t\t\t\t\t\t\"Instant\":true,\n\t\t\t\t\t\t\t\t\"SharedGameObjectvariable\":{\n\t\t\t\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\t\t\t\t\t\"Name\":\"source\",\n\t\t\t\t\t\t\t\t\t\"IsShared\":true,\n\t\t\t\t\t\t\t\t\t\"IsDynamic\":true\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\"SharedGameObjectcompareTo\":{\n\t\t\t\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\t\t\t\t\t\"Name\":null\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}]\n\t\t\t\t\t\t},{\n\t\t\t\t\t\t\t\"Type\":\"BTNodes.Actions.GoTo\",\n\t\t\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\t\t\"Offset\":\"(-20,140)\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"ID\":19,\n\t\t\t\t\t\t\t\"Name\":\"Go
-        To\",\n\t\t\t\t\t\t\t\"Instant\":true,\n\t\t\t\t\t\t\t\"SharedGameObjecttarget\":{\n\t\t\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\t\t\t\t\"Name\":\"source\",\n\t\t\t\t\t\t\t\t\"IsShared\":true,\n\t\t\t\t\t\t\t\t\"IsDynamic\":true\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"SharedVector3position\":{\n\t\t\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedVector3\",\n\t\t\t\t\t\t\t\t\"Name\":null,\n\t\t\t\t\t\t\t\t\"Vector3mValue\":\"(0,0,0)\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"SharedFloatproximity\":{\n\t\t\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\t\t\t\t\"Name\":null,\n\t\t\t\t\t\t\t\t\"SinglemValue\":1\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"BooleanreserveTarget\":false,\n\t\t\t\t\t\t\t\"BooleanfailureIfReserved\":false\n\t\t\t\t\t\t},{\n\t\t\t\t\t\t\t\"Type\":\"BTNodes.Actions.Gather\",\n\t\t\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\t\t\"Offset\":\"(90,140)\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"ID\":20,\n\t\t\t\t\t\t\t\"Name\":\"Gather\",\n\t\t\t\t\t\t\t\"Instant\":true,\n\t\t\t\t\t\t\t\"SharedGameObject_source\":{\n\t\t\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\t\t\t\t\"Name\":\"source\",\n\t\t\t\t\t\t\t\t\"IsShared\":true,\n\t\t\t\t\t\t\t\t\"IsDynamic\":true\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"SharedGameObjectoutItem\":{\n\t\t\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\t\t\t\t\"Name\":null\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}]\n\t\t\t\t\t}]\n\t\t\t\t}]\n\t\t\t}]\n\t\t},{\n\t\t\t\"Type\":\"BTNodes.Actions.Idle\",\n\t\t\t\"NodeData\":{\n\t\t\t\t\"Offset\":\"(100,110)\"\n\t\t\t},\n\t\t\t\"ID\":21,\n\t\t\t\"Name\":\"Idle\",\n\t\t\t\"Instant\":true,\n\t\t\t\"SharedFloatduration\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\"Name\":null,\n\t\t\t\t\"SinglemValue\":0\n\t\t\t}\n\t\t}]\n\t}\n}"
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
 --- !u!114 &443259758 stripped
@@ -14116,9 +14100,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 857009698}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4375, y: 0.4375, z: 0.4375}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 704693067}
   m_Father: {fileID: 302535379}
@@ -14126,9 +14110,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 420, y: 320}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &857009700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31371,10 +31355,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Citizen (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -31418,76 +31398,6 @@ PrefabInstance:
     - target: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114714434507214362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
-        type: 3}
-      propertyPath: skills.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114714434507214362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
-        type: 3}
-      propertyPath: skills.Array.data[0].value
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114714434507214362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
-        type: 3}
-      propertyPath: skills.Array.data[1].name
-      value: woodCutting
-      objectReference: {fileID: 0}
-    - target: {fileID: 114714434507214362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
-        type: 3}
-      propertyPath: skills.Array.data[1].value
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114714434507214362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
-        type: 3}
-      propertyPath: skills.Array.data[2].name
-      value: mining
-      objectReference: {fileID: 0}
-    - target: {fileID: 114714434507214362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
-        type: 3}
-      propertyPath: skills.Array.data[2].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114714434507214362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
-        type: 3}
-      propertyPath: skills.Array.data[1].skill
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114714434507214362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
-        type: 3}
-      propertyPath: skills.Array.data[2].skill
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114714434507214362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
-        type: 3}
-      propertyPath: skills.Array.data[3].skill
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114714434507214362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
-        type: 3}
-      propertyPath: skills.Array.data[4].skill
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114714434507214362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
-        type: 3}
-      propertyPath: skills.Array.data[3].value
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114714434507214362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
-        type: 3}
-      propertyPath: skills.Array.data[4].value
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114714434507214362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
-        type: 3}
-      propertyPath: workPlot
-      value: 
-      objectReference: {fileID: 1781227237}
-    - target: {fileID: 114714434507214362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
-        type: 3}
-      propertyPath: workplace
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}
@@ -35374,6 +35284,26 @@ PrefabInstance:
       propertyPath: workplace
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5134390623069297734, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: list.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5134390623069297734, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: list.Array.data[2].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5134390623069297734, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: list.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5134390623069297734, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+        type: 3}
+      propertyPath: list.Array.data[1].name
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8244620182860005223, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
         type: 3}
       propertyPath: mBehaviorSource.mTaskData.types.Array.size
@@ -35663,26 +35593,6 @@ PrefabInstance:
         type: 3}
       propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.byteData.Array.data[216]
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134390623069297734, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
-        type: 3}
-      propertyPath: list.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134390623069297734, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
-        type: 3}
-      propertyPath: list.Array.data[2].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134390623069297734, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
-        type: 3}
-      propertyPath: list.Array.data[1].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134390623069297734, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
-        type: 3}
-      propertyPath: list.Array.data[1].name
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b4f513584ee5624d9f5b28b80b9b8fa, type: 3}

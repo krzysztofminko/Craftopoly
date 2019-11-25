@@ -21,10 +21,9 @@ namespace BTNodes.Actions
 		{
 			base.OnStart();
 
-			item = _item.Value.GetComponent<Item>();
+			item = _item.Value? _item.Value.GetComponent<Item>() : null;
 			storage = _storage.Value? _storage.Value.GetComponent<Storage>() : null;
 			timer = 0;
-			citizen.animator.SetFloat("UseAnimationId", 1);
 		}
 
 		public override TaskStatus OnUpdate()
@@ -39,8 +38,9 @@ namespace BTNodes.Actions
 				citizen.animator.SetFloat("UseAnimationId", 0);
 				return TaskStatus.Failure;
 			}
-			else
+			else if (citizen.GoTo(item.transform, 1))
 			{
+				citizen.animator.SetFloat("UseAnimationId", 1);
 				item.ReservedBy = citizen;
 
 				timer += Time.deltaTime;

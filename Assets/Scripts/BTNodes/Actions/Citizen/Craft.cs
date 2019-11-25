@@ -1,6 +1,7 @@
 using UnityEngine;
 using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
+using BTVariables;
 
 namespace BTNodes.Actions
 {
@@ -8,11 +9,10 @@ namespace BTNodes.Actions
 	public class Craft : CitizenAction
 	{
 		public SharedGameObject _craftStructure;
-		public SharedObject _itemType;
+		public SharedItemType itemType;
 		public SharedGameObject returnItem;
 
 		private CraftStructure craftStructure;
-		private ItemType itemType;
 		private float timer;
 
 		public override void OnStart()
@@ -20,14 +20,13 @@ namespace BTNodes.Actions
 			base.OnStart();
 
 			craftStructure = _craftStructure.Value.GetComponent<CraftStructure>();
-			itemType = (ItemType)_itemType.Value;
 			timer = 0;
 			returnItem = null;
 		}
 
 		public override TaskStatus OnUpdate()
 		{
-			if (!craftStructure)
+			if (!craftStructure || !itemType.Value)
 			{
 				citizen.animator.SetFloat("UseAnimationId", 0);
 				return TaskStatus.Failure;
@@ -37,24 +36,25 @@ namespace BTNodes.Actions
 				citizen.animator.SetFloat("UseAnimationId", 1);
 
 				timer += Time.deltaTime;
-				if (timer > itemType.blueprint.duration / Mathf.Max(0.1f, citizen.skills.Get(itemType.requiredSkill.name)))
+				if (timer > itemType.Value.blueprint.duration / Mathf.Max(0.1f, citizen.skills.Get(itemType.Value.requiredSkill.name)))
 				{
 					citizen.animator.SetFloat("UseAnimationId", 0);
 
-					if (itemType.blueprint.MissingResources(craftStructure.storage).Count > 0)
+					if (itemType.Value.blueprint.MissingResources(craftStructure.storage).Count > 0)
 					{
 						return TaskStatus.Failure;
 					}
 					else
 					{
-						for (int i = 0; i < itemType.blueprint.requiredItems.Count; i++)
-							craftStructure.storage.DestroyItemType(itemType.blueprint.requiredItems[i].type, itemType.blueprint.requiredItems[i].count);
+						for (int i = 0; i < itemType.Value.blueprint.requiredItems.Count; i++)
+							craftStructure.storage.DestroyItemType(itemType.Value.blueprint.requiredItems[i].type, itemType.Value.blueprint.requiredItems[i].count);
 
-						Item crafted = itemType.Spawn(1, craftStructure.transform.position, craftStructure.transform.rotation);
+						Item crafted = itemType.Value.Spawn(1, craftStructure.transform.position, craftStructure.transform.rotation);
 						craftStructure.craftedItem = crafted;
-						returnItem.Value = crafted.gameObject;
+						if (returnItem != null)
+							returnItem.Value = crafted.gameObject;
 
-						CraftStructure.CraftOrder order = craftStructure.orders.Find(o => o.itemType == itemType);
+						CraftStructure.CraftOrder order = craftStructure.orders.Find(o => o.itemType == itemType.Value);
 						if (!order.maintainAmount)
 							order.count = Mathf.Max(0, order.count - 1);
 

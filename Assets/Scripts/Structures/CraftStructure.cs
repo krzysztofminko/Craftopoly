@@ -68,13 +68,12 @@ public class CraftStructure : Workplace
 	}
 	public List<CraftOrder> orders;
 
-	private bool isFueled;
+	public bool IsFueled { get => fuelMax > 0; }
 
 	protected override void Awake()
 	{
 		base.Awake();
 		list.Add(this);
-		isFueled = fuelMax > 0;
 	}
 
 	protected override void OnDestroy()
@@ -91,7 +90,7 @@ public class CraftStructure : Workplace
 
 	private void Update()
 	{
-		if (isFueled)
+		if (IsFueled)
 		{
 			Refuel();
 			Burn();
@@ -130,7 +129,7 @@ public class CraftStructure : Workplace
 					}
 					else
 					{
-						if (isFueled)
+						if (IsFueled)
 						{
 							//Refuel
 							float missingFuel = order.itemType.blueprint.duration - fuel;
@@ -164,6 +163,11 @@ public class CraftStructure : Workplace
 	public CraftOrder GetOrder()
 	{
 		return orders.Find(o => (!o.maintainAmount && o.count > 0) || (o.maintainAmount && o.count > storage.Count(o.itemType)));
+	}
+
+	public StorageStructure GetNearestStorageStructure()
+	{
+		return plot.storageStructures.OrderBy(s => (s.transform.position - transform.position).sqrMagnitude).FirstOrDefault();
 	}
 
 	private void Burn()

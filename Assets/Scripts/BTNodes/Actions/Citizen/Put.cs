@@ -20,18 +20,19 @@ namespace BTNodes.Actions
 
 			storage = _storage.Value.GetComponent<Storage>();
 			timer = 0;
-			citizen.animator.SetFloat("UseAnimationId", 1);
 		}
 
 		public override TaskStatus OnUpdate()
 		{
-			if (!storage)
+			if (!storage || !citizen.pickedItem)
 			{
 				citizen.animator.SetFloat("UseAnimationId", 0);
 				return TaskStatus.Failure;
 			}
-			else
-			{ 
+			else if (citizen.GoTo(storage.transform, 1))
+			{
+				citizen.animator.SetFloat("UseAnimationId", 1);
+
 				timer += Time.deltaTime;
 				if (timer > animationTimer)
 				{

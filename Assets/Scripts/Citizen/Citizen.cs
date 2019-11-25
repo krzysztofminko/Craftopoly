@@ -10,8 +10,9 @@ public class Citizen : MonoBehaviour, IMoney, IReserve
 {
 	public static List<Citizen> list = new List<Citizen>();
 
-	[Header("Settings")]
-	public bool DEBUG;
+	//[Header("Settings")]
+	[ShowInInspector]
+	public bool DEBUG { get; set; }
 
 	public float walkSpeed = 1.0f;
 	public float runSpeed = 2.0f;
@@ -27,6 +28,10 @@ public class Citizen : MonoBehaviour, IMoney, IReserve
 
 	[Header("Runtime")]
 	public Workplace workplace;
+	public GameObject WorkplaceGO
+	{
+		get => workplace ? workplace.gameObject : null;
+	}
 	public House house;
 	public Plot workPlot;
 	[SerializeField] private Item _pickedItem;

@@ -30,29 +30,28 @@ namespace BTNodes.Conditionals
 			outSource.Value = null;
 
 			GatherStructure gatherStructure = citizen.workplace.GetComponent<GatherStructure>();
-			if (gatherStructure)
+			if (!gatherStructure)
+				return TaskStatus.Failure;
+
+			if (SearchFor.NearestStorageStructure(gatherStructure.plot, transform.position, out StorageStructure storage))
+				outStorage.Value = storage.gameObject;
+			else
+				//TODO: "No storage" notification
+				return TaskStatus.Failure;
+
+			if (SearchFor.ItemOnTheGround(gatherStructure.itemType, gatherStructure.plot, gatherStructure.transform.position, out GameObject item))
 			{
-				if (SearchFor.NearestStorageStructure(gatherStructure.plot, transform.position, out StorageStructure storage))
-					outStorage.Value = storage.gameObject;
-				else
-					//TODO: "No storage" notification
-					return TaskStatus.Failure;
-
-				if (SearchFor.ItemOnTheGround(gatherStructure.itemType, gatherStructure.plot, gatherStructure.transform.position, out GameObject item))
-				{
-					outItem.Value = item;
-				}
-				else
-				{
-					Source source = gatherStructure.sources.FirstOrDefault(s => s && s.gameObject.activeSelf);
-						//Source.list.FindAll(s => s.itemType == gatherStructure.itemType && !s.ReservedBy && s.Health.HP > 0 && Distance.Manhattan2D(gatherStructure.transform.position, s.transform.position) < gatherStructure.rangeOfSearch).OrderBy(s => Distance.Manhattan2D(gatherStructure.transform.position, s.transform.position)).FirstOrDefault();
-					if (source)
-						outSource.Value = source.gameObject;
-				}
-
-				return TaskStatus.Success;
+				outItem.Value = item;
 			}
-			return TaskStatus.Failure;
+			else
+			{
+				Source source = gatherStructure.sources.FirstOrDefault(s => s && s.gameObject.activeSelf);
+					//Source.list.FindAll(s => s.itemType == gatherStructure.itemType && !s.ReservedBy && s.Health.HP > 0 && Distance.Manhattan2D(gatherStructure.transform.position, s.transform.position) < gatherStructure.rangeOfSearch).OrderBy(s => Distance.Manhattan2D(gatherStructure.transform.position, s.transform.position)).FirstOrDefault();
+				if (source)
+					outSource.Value = source.gameObject;
+			}
+
+			return TaskStatus.Success;
 		}
 	}
 }
