@@ -31,7 +31,7 @@ public class ShopStructure : Workplace
 		list.Remove(this);
 	}
 
-	private void _Update()
+	private void Update()
 	{
 		if (worker && worker.WorkTime() && worker.fsm.ActiveStateName == "Idle")
 		{//Resupply Items for sale

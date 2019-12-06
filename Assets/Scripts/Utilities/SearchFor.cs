@@ -34,12 +34,12 @@ public static class SearchFor
 	public static bool ItemInCraftStructures(ItemType itemType, Vector3 position, out Item item, CraftStructure exclude = null)
 	{
 		CraftStructure craftStructure = CraftStructure.list
-			.FindAll(s => s != exclude && s.craftedItem && s.craftedItem.type == itemType)
+			.FindAll(s => s != exclude && s.CraftedItem && s.CraftedItem.type == itemType)
 			.OrderBy(s => (s.transform.position - position).sqrMagnitude)
 			.FirstOrDefault();
 		if (craftStructure)
 		{
-			item = craftStructure.craftedItem;
+			item = craftStructure.CraftedItem;
 			return true;
 		}
 
@@ -94,12 +94,12 @@ public static class SearchFor
 	public static bool FuelInCraftStructures(Vector3 position, out Item item)
 	{
 		CraftStructure craftStructure = CraftStructure.list
-			.FindAll(s => s.craftedItem && s.craftedItem.type.fuelValue > 0)
+			.FindAll(s => s.CraftedItem && s.CraftedItem.type.fuelValue > 0)
 			.OrderBy(s => (s.transform.position - position).sqrMagnitude)
 			.FirstOrDefault();
 		if (craftStructure)
 		{
-			item = craftStructure.craftedItem;
+			item = craftStructure.CraftedItem;
 			return true;
 		}
 

@@ -12,7 +12,12 @@ public class Item : MonoBehaviour, IReserve
 	[ShowInInspector]
 	public static List<Item> free = new List<Item>();
 	private static bool prefabThumbnailsGenerated;
-	
+
+	public delegate void OnItemSpawn(Item item);
+	public static event OnItemSpawn onItemSpawn;
+	public delegate void OnItemDespawn(Item item);
+	public static event OnItemDespawn onItemDespawn;
+
 	[Header("Runtime")]
 	public ItemType type;
 	public float durability;
@@ -23,15 +28,28 @@ public class Item : MonoBehaviour, IReserve
 	[ShowInInspector]
 	public Citizen ReservedBy { get; set; }
 
+	private bool spawned;
+
 	private void Awake()
-	{		
+	{
+		if (!spawned)
+		{
+			OnSpawn();
+			spawned = true;
+		}
+	}
+
+	public void OnSpawn()
+	{
 		list.Add(this);
+		onItemSpawn?.Invoke(this);
 	}
 	
-	private void OnDestroy()
+	public void OnDespawn()
 	{
 		list.Remove(this);
 		free.Remove(this);
+		onItemDespawn?.Invoke(this);
 	}
 
 	public void SetParent(Transform parent, Vector3? localPosition = null, Quaternion? localRotation = null)

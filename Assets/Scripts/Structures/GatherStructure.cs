@@ -1,6 +1,9 @@
-﻿using System.Collections;
+﻿using Sirenix.OdinInspector;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Tasks;
 using UnityEngine;
 
 public class GatherStructure : Workplace
@@ -13,32 +16,90 @@ public class GatherStructure : Workplace
 	public ItemType itemType;
 
 	[Header("Runtime")]
-	public List<Source> sources = new List<Source>();
+	public StorageStructure targetStorage;
+	//public List<Source> sources = new List<Source>();
 
-	// [Header("Private")]
-	//[SerializeField] private List<Item> items = new List<Item>();
+	[Header("Private")]
+	[SerializeField] private List<Item> items = new List<Item>();
+	private float delayNextSearch;
 
-	//private float delayNextSearch;
-
+	private TaskProvider taskProvider;
 
 	protected override void Awake()
 	{
 		base.Awake();
 		list.Add(this);
-	}
+		taskProvider = GetComponent<TaskProvider>();
 
+		SearchFor.NearestStorageStructure(plot, transform.position, out targetStorage);
+
+		Source.onSourceSpawn += AddGatherTask;
+		Item.onItemSpawn += AddStoreTask;
+	}
+	
 	private void Start()
 	{
-		sources = Source.list.FindAll(s => s.itemType == itemType && !s.ReservedBy && s.Health.HP > 0 && Distance.Manhattan2D(transform.position, s.transform.position) < rangeOfSearch).OrderBy(s => Distance.Manhattan2D(transform.position, s.transform.position)).ToList();
-	}
+		//sources = Source.list.FindAll(s => s.itemType == itemType && !s.ReservedBy && s.Health.HP > 0 && Distance.Manhattan2D(transform.position, s.transform.position) < rangeOfSearch).OrderBy(s => Distance.Manhattan2D(transform.position, s.transform.position)).ToList();
 
+	}
+	
 	protected override void OnDestroy()
 	{
 		base.OnDestroy();
 		list.Remove(this);
+
+		Source.onSourceSpawn -= AddGatherTask;
+		Item.onItemSpawn -= AddStoreTask;
+		for (int i = taskProvider.tasks.Count - 1; i >= 0; i--)
+			taskProvider.tasks[i].onFinish -= RemoveTask;
 	}
 
-	/* Obsolete
+	private void AddGatherTask(Source source)
+	{
+		if (source.itemType == itemType)
+		{
+			float targetDistance = Distance.Manhattan2D(transform.position, source.transform.position);
+			if (targetDistance < rangeOfSearch)
+			{
+				Task task = new Gather(source);
+
+				int id = taskProvider.tasks.FindIndex(t => Distance.Manhattan2D(transform.position, t.target.position) > targetDistance);
+				if (id > -1)
+					taskProvider.tasks.Insert(id, task);
+				else
+					taskProvider.tasks.Add(task);
+
+				task.onFinish += RemoveTask;
+			}
+		}
+	}
+
+	private void AddStoreTask(Item item)
+	{
+		if (item.type == itemType)
+		{
+			float targetDistance = Distance.Manhattan2D(transform.position, item.transform.position);
+			if (targetDistance < rangeOfSearch)
+			{
+				Task task = new Store(item, targetStorage.storage);
+
+				int id = taskProvider.tasks.FindIndex(t => t is Gather || Distance.Manhattan2D(transform.position, t.target.position) > targetDistance);
+				if (id > -1)
+					taskProvider.tasks.Insert(id, task);
+				else
+					taskProvider.tasks.Add(task);
+
+				task.onFinish += RemoveTask;
+			}
+		}
+	}
+
+	private void RemoveTask(Task task)
+	{
+		taskProvider.tasks.Remove(task);
+		task.onFinish -= RemoveTask;
+	}
+
 	private void _Update()
 	{
 		if (delayNextSearch > 0)
@@ -59,7 +120,7 @@ public class GatherStructure : Workplace
 			else
 			{
 				//Find sources
-				sources = Source.list.FindAll(s => s.itemType == itemType && !s.ReservedBy && s.Health.HP > 0 && Distance.Manhattan2D(transform.position, s.transform.position) < rangeOfSearch).OrderBy(s => Distance.Manhattan2D(transform.position, s.transform.position)).ToList();
+				/*sources = Source.list.FindAll(s => s.itemType == itemType && !s.ReservedBy && s.Health.HP > 0 && Distance.Manhattan2D(transform.position, s.transform.position) < rangeOfSearch).OrderBy(s => Distance.Manhattan2D(transform.position, s.transform.position)).ToList();
 				if (sources.Count > 0)
 				{
 					worker.fsm.Gather(sources[0], storage);
@@ -67,9 +128,8 @@ public class GatherStructure : Workplace
 				else
 				{
 					delayNextSearch = 10;
-				}
+				}*/
 			}
 		}
 	}
-	*/
 }

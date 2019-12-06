@@ -77,6 +77,8 @@ public class ItemType : ScriptableObject
 
 			GameObject child = Instantiate(model, item.transform);
 			child.transform.localPosition = Vector3.zero;
+
+			item.OnSpawn();
 		}
 		//Return last spawned item
 		return item;

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Tasks;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Utilities.UI;
@@ -14,11 +15,14 @@ public class Player : Citizen
 	public bool controlsEnabled = true;
 	public FocusTarget focusedOn;
 
-	public override void Awake()
+	private TaskReceiver taskReceiver;
+
+	protected override void Awake()
 	{
 		base.Awake();
 		instance = this;
 		list.Remove(this);
+		taskReceiver = GetComponent<TaskReceiver>();
 	}
 
 	void Update()
@@ -106,9 +110,9 @@ public class Player : Citizen
 							bool refuel = pickedItem.type.fuelValue > 0 && focusedOn.GetComponent<CraftStructure>().fuelMax > 0;
 							if (InputHints.GetButtonDown("PrimaryAction", refuel ? "Refuel" : "Put"))
 							{
-								if (focusedOn.GetComponent<CraftStructure>().currentItemType)
+								if (focusedOn.GetComponent<CraftStructure>().CurrentItemType)
 								{
-									List<ItemCount> missing = focusedOn.GetComponent<CraftStructure>().currentItemType.blueprint.MissingResources(focusedOn.GetComponent<CraftStructure>().storage);
+									List<ItemCount> missing = focusedOn.GetComponent<CraftStructure>().CurrentItemType.blueprint.MissingResources(focusedOn.GetComponent<CraftStructure>().storage);
 									ItemCount mic = missing.Find(m => m.type == pickedItem.type);
 									if (mic != null)
 									{
@@ -126,7 +130,8 @@ public class Player : Citizen
 						}
 						else if (InputHints.GetButtonDown("PrimaryAction", "Put"))
 						{
-							fsm.Put(focusedOn.GetComponent<Storage>());
+							taskReceiver.Receive(new Put(focusedOn.GetComponent<Storage>()));
+							//fsm.Put(focusedOn.GetComponent<Storage>());
 						}
 					}
 				}
@@ -135,12 +140,15 @@ public class Player : Citizen
 					if (focusedOn.GetComponent<Source>())
 					{
 						if (InputHints.GetButtonDown("PrimaryAction", "Gather"))
-							fsm.Gather(focusedOn.GetComponent<Source>());
+							taskReceiver.Receive(new Gather(focusedOn.GetComponent<Source>()));
+							//fsm.Gather(focusedOn.GetComponent<Source>());
+
 					}
 					else if (focusedOn.GetComponent<Item>())
 					{
 						if (InputHints.GetButtonDown("PrimaryAction", "Pick " + focusedOn.GetComponent<Item>().name))
-							fsm.Pick(focusedOn.GetComponent<Item>());
+							taskReceiver.Receive(new Pick(focusedOn.GetComponent<Item>()));
+							//fsm.Pick(focusedOn.GetComponent<Item>());
 					}
 					else if (focusedOn.GetComponent<NewStructure>())
 					{
@@ -162,16 +170,16 @@ public class Player : Citizen
 					}
 					else if (focusedOn.GetComponent<CraftStructure>())
 					{
-						if (focusedOn.GetComponent<CraftStructure>().craftedItem)
+						if (focusedOn.GetComponent<CraftStructure>().CraftedItem)
 						{
-							if (InputHints.GetButtonDown("PrimaryAction", "Pick " + focusedOn.GetComponent<CraftStructure>().craftedItem.name))
-								fsm.Pick(focusedOn.GetComponent<Storage>(), focusedOn.GetComponent<CraftStructure>().craftedItem);
+							if (InputHints.GetButtonDown("PrimaryAction", "Pick " + focusedOn.GetComponent<CraftStructure>().CraftedItem.name))
+								fsm.Pick(focusedOn.GetComponent<Storage>(), focusedOn.GetComponent<CraftStructure>().CraftedItem);
 						}
-						else if(focusedOn.GetComponent<CraftStructure>().currentItemType && (!focusedOn.GetComponent<CraftStructure>().worker || focusedOn.GetComponent<CraftStructure>().worker == this))
+						else if(focusedOn.GetComponent<CraftStructure>().CurrentItemType && (!focusedOn.GetComponent<CraftStructure>().worker || focusedOn.GetComponent<CraftStructure>().worker == this))
 						{
-							if (InputHints.GetButtonDown("PrimaryAction", "Craft " + focusedOn.GetComponent<CraftStructure>().currentItemType.name))
+							if (InputHints.GetButtonDown("PrimaryAction", "Craft " + focusedOn.GetComponent<CraftStructure>().CurrentItemType.name))
 							{
-								List<ItemCount> missing = focusedOn.GetComponent<CraftStructure>().currentItemType.blueprint.MissingResources(focusedOn.GetComponent<CraftStructure>().storage);
+								List<ItemCount> missing = focusedOn.GetComponent<CraftStructure>().CurrentItemType.blueprint.MissingResources(focusedOn.GetComponent<CraftStructure>().storage);
 								if (missing.Count > 0)
 								{
 									string itemsListString = "";
@@ -181,8 +189,8 @@ public class Player : Citizen
 								}
 								else
 								{
-									fsm.Craft(focusedOn.GetComponent<CraftStructure>().currentItemType, focusedOn.GetComponent<CraftStructure>());
-									focusedOn.GetComponent<CraftStructure>().currentItemType = null;
+									fsm.Craft(focusedOn.GetComponent<CraftStructure>().CurrentItemType, focusedOn.GetComponent<CraftStructure>());
+									focusedOn.GetComponent<CraftStructure>().CurrentItemType = null;
 								}
 							}
 						}//Craft currentItemType

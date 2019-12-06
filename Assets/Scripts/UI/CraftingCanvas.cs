@@ -249,7 +249,7 @@ namespace UI
 		{
 			if (craftButton.interactable)
 			{
-				structure.currentItemType = itemType;
+				structure.CurrentItemType = itemType;
 				if(structure.fuelMax == 0)
 					Hide(false);
 			}

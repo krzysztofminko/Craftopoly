@@ -88,7 +88,7 @@ public class Citizen : MonoBehaviour, IMoney, IReserve
 	int GetItemCalls;
 
 
-	public virtual void Awake ()
+	protected virtual void Awake ()
 	{
 		list.Add(this);
 		fsm = GetComponent<FSMBinding>();
@@ -233,7 +233,7 @@ public class Citizen : MonoBehaviour, IMoney, IReserve
 						else
 						{
 							if (DEBUG) Debug.Log("Craft");
-							craftStructure.currentItemType = items[i].type;
+							craftStructure.CurrentItemType = items[i].type;
 							fsm.Craft(items[i].type, craftStructure);
 							GetItemCalls--;
 							return true;
@@ -262,6 +262,103 @@ public class Citizen : MonoBehaviour, IMoney, IReserve
 				{
 					if (DEBUG) Debug.Log("Store");
 					fsm.Store(item, sourceStorage, inStorage);
+					GetItemCalls--;
+					return true;
+				}
+			}
+		}
+
+		if (DEBUG) Debug.Log("Can't get");
+		GetItemCalls--;
+		return false;
+	}
+
+	public bool GetItemsV2(List<ItemCount> items, Storage inStorage, out Storage outStorage, out Item outItem)
+	{
+		outStorage = null;
+		outItem = null;
+		GetItemCalls++;
+		if (DEBUG) Debug.Log("GetItems " + GetItemCalls);
+		if (GetItemCalls > GetItemCallsMax)
+		{
+			GetItemCalls--;
+			if (DEBUG) Debug.LogWarning(("Maximum of GetItem calls reached ({0})", GetItemCalls));
+			return false;
+		}
+
+		for (int i = 0; i < items.Count; i++)
+		{
+			if (DEBUG) Debug.Log(String.Format("{0}, need: {1}, has {2}", items[i].type.name, items[i].count, inStorage.Count(items[i].type)));
+			if (inStorage.Count(items[i].type) < items[i].count)
+			{
+				Item item = null;
+				Storage sourceStorage = null;
+
+				//if (supplyStorage && SearchFor.ItemInStorage(items[i].type, supplyStorage, out item))
+				//	sourceStorage = supplyStorage;
+				if (!item)
+				{
+					if (SearchFor.ItemInCraftStructures(items[i].type, inStorage.transform.position, out item))
+						if (DEBUG) Debug.Log(String.Format("{0} in CraftStructure", item));
+				}
+				if (!item)
+				{
+					if (SearchFor.ItemInStorageStructures(items[i].type, inStorage.transform.position, out item, out sourceStorage))
+						if (DEBUG) Debug.Log(String.Format("{0} in GatherStructure", item));
+				}
+				if (!item)
+				{
+					//TODO: Limit to the plot
+					item = Item.free.Find(it => it.type == items[i].type);
+					if (item)
+						if (DEBUG) Debug.Log(String.Format("{0} lying on the ground.", item));
+				}/*
+				if (!item)
+				{
+					//TODO: Crafting must be accessed by some method, not copy-paste code (from Craft.cs) like here (same for Gathering)
+					if (SearchFor.CraftStructureWithItemType(items[i].type, inStorage.transform.position, out CraftStructure craftStructure))
+					{
+						if (DEBUG) Debug.Log(String.Format("{0} in CraftStructure blueprints", items[i].type));
+						List<ItemCount> missing = items[i].type.blueprint.MissingResources(craftStructure.storage);
+						if (missing.Count > 0)
+						{
+							GetItemCalls--;
+							return GetItems(missing, craftStructure.storage);
+						}
+						else
+						{
+							if (DEBUG) Debug.Log("Craft");
+							craftStructure.CurrentItemType = items[i].type;
+							fsm.Craft(items[i].type, craftStructure);
+							GetItemCalls--;
+							return true;
+						}
+					}
+				}*/
+				//TODO: Gather
+				/*
+				if (!item)
+				{
+					if(SearchFor.GatherStructureWithItemType(items[i].type, inStorage.transform.position, out GatherStructure gatherStructure))
+					{
+
+					}
+				}
+				*/
+				if (!item)
+				{
+					//TODO: SearchFor.ItemTypeInPlots else increase itemType request in shop
+					if (SearchFor.ItemInShopStructures(items[i].type, inStorage.transform.position, out item, out sourceStorage))
+						if (DEBUG) Debug.Log(String.Format("{0} in ShopStructure", item));
+				}
+
+				//Store Item
+				if (item)
+				{
+					if (DEBUG) Debug.Log("Store");
+					//fsm.Store(item, sourceStorage, inStorage);
+					outStorage = sourceStorage;
+					outItem = item;
 					GetItemCalls--;
 					return true;
 				}

@@ -34,7 +34,7 @@ public class Health : MonoBehaviour
 	{
 		HP -= value;
 		if (HP == 0)
-			Destroy(gameObject);			
+			Game.Depawn(gameObject);			
 		return HP == 0;
 	}
 

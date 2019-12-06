@@ -53,7 +53,7 @@ public class Storage : MonoBehaviour
 		return item;
 	}
 
-	public void DestroyItemType(ItemType itemType, int count = 0)
+	public void DespawnItemType(ItemType itemType, int count = 0)
 	{
 		int inStorage = Count(itemType);
 		if(inStorage == 0)
@@ -72,7 +72,7 @@ public class Storage : MonoBehaviour
 		{
 			if(items[i].type == itemType)
 			{
-				Destroy(items[i].gameObject);
+				Game.Depawn(items[i].gameObject);
 				items.RemoveAt(i);
 			}
 		}

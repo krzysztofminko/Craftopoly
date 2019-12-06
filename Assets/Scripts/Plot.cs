@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using Sirenix.OdinInspector;
+using System.Collections;
 using System.Collections.Generic;
+using Tasks;
 using UnityEngine;
 
 public class Plot : MonoBehaviour, IMoney

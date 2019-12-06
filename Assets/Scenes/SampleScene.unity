@@ -754,6 +754,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 31503090}
   m_CullTransparentMesh: 0
+--- !u!1 &36242991 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1871358258}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &36242999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36242991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98e1fc3e7167204ba1b4cd208c8f94a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &36243000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36242991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b681f3de0dda8d4ba65e160baa44e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: tasks
+      Entry: 7
+      Data: 0|System.Collections.Generic.Stack`1[[Tasks.Task, Scripts]], System
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  log: 0
+  toConsole: 1
+  logBook: []
 --- !u!1001 &41066999
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4732,6 +4786,60 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &236265532 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1894782338}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &236265540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236265532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98e1fc3e7167204ba1b4cd208c8f94a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &236265541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236265532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b681f3de0dda8d4ba65e160baa44e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: tasks
+      Entry: 7
+      Data: 0|System.Collections.Generic.Stack`1[[Tasks.Task, Scripts]], System
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  log: 0
+  toConsole: 1
+  logBook: []
 --- !u!1 &247078591
 GameObject:
   m_ObjectHideFlags: 0
@@ -8004,7 +8112,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 443259757}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1052834926}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d4b493b925cf8e4490e340be784e50d, type: 3}
@@ -8789,6 +8897,45 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 507574426}
   m_CullTransparentMesh: 0
+--- !u!1 &515414232 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2347181485376876854, guid: cea28075c9c641a4a9b152893888f609,
+    type: 3}
+  m_PrefabInstance: {fileID: 1836439624}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &515414237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515414232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c188345916ec18544b14801e67f5340f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: tasks
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[Tasks.Task, Scripts]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
 --- !u!1 &515550048
 GameObject:
   m_ObjectHideFlags: 0
@@ -10193,6 +10340,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 592508091}
   m_CullTransparentMesh: 0
+--- !u!1 &598545883 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1616343006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &598545891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598545883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98e1fc3e7167204ba1b4cd208c8f94a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &598545892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598545883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b681f3de0dda8d4ba65e160baa44e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: tasks
+      Entry: 7
+      Data: 0|System.Collections.Generic.Stack`1[[Tasks.Task, Scripts]], System
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  log: 0
+  toConsole: 1
+  logBook: []
 --- !u!1 &599347872
 GameObject:
   m_ObjectHideFlags: 0
@@ -11815,7 +12016,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000013808736, y: -0.000030517578}
+  m_AnchoredPosition: {x: 0.0000013808736, y: -0.00004079938}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &707932691
@@ -13011,6 +13212,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 774101426}
   m_CullTransparentMesh: 0
+--- !u!1 &788323859 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 333000704}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &788323867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788323859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98e1fc3e7167204ba1b4cd208c8f94a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &788323868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788323859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b681f3de0dda8d4ba65e160baa44e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: tasks
+      Entry: 7
+      Data: 0|System.Collections.Generic.Stack`1[[Tasks.Task, Scripts]], System
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  log: 0
+  toConsole: 1
+  logBook: []
 --- !u!1001 &808438817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15606,6 +15861,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 932146902}
   m_CullTransparentMesh: 0
+--- !u!1 &933656350 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1980740421}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &933656358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933656350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98e1fc3e7167204ba1b4cd208c8f94a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &933656359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933656350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b681f3de0dda8d4ba65e160baa44e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: tasks
+      Entry: 7
+      Data: 0|System.Collections.Generic.Stack`1[[Tasks.Task, Scripts]], System
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  log: 0
+  toConsole: 1
+  logBook: []
 --- !u!1 &944646425
 GameObject:
   m_ObjectHideFlags: 0
@@ -16091,7 +16400,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000013808736, y: 0.000028654322}
+  m_AnchoredPosition: {x: 0.0000013808736, y: 0.000021211803}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &980904914
@@ -16482,6 +16791,45 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 998154185}
   m_CullTransparentMesh: 0
+--- !u!1 &998617629 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1623709131591762, guid: 9a3442da2aabdeb4297e966c1d7e496c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1947087804}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &998617634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998617629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c188345916ec18544b14801e67f5340f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: tasks
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[Tasks.Task, Scripts]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
 --- !u!1 &999782225
 GameObject:
   m_ObjectHideFlags: 0
@@ -17823,6 +18171,60 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1045210665}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1052834926 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 443259757}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1052834927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052834926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b681f3de0dda8d4ba65e160baa44e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: tasks
+      Entry: 7
+      Data: 0|System.Collections.Generic.Stack`1[[Tasks.Task, Scripts]], System
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  log: 0
+  toConsole: 1
+  logBook: []
+--- !u!114 &1052834934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052834926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98e1fc3e7167204ba1b4cd208c8f94a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1060942057
 GameObject:
   m_ObjectHideFlags: 0
@@ -18021,6 +18423,60 @@ MonoBehaviour:
   _startHour: 0
   _hourDuration: 1
   _nightDuration: 8
+--- !u!1 &1073495710 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 2115245069}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1073495718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073495710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98e1fc3e7167204ba1b4cd208c8f94a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1073495719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073495710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b681f3de0dda8d4ba65e160baa44e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: tasks
+      Entry: 7
+      Data: 0|System.Collections.Generic.Stack`1[[Tasks.Task, Scripts]], System
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  log: 0
+  toConsole: 1
+  logBook: []
 --- !u!1 &1076109221
 GameObject:
   m_ObjectHideFlags: 0
@@ -18280,6 +18736,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1080271839}
   m_CullTransparentMesh: 0
+--- !u!1 &1093140211 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1261321698}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1093140219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093140211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98e1fc3e7167204ba1b4cd208c8f94a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1093140220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093140211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b681f3de0dda8d4ba65e160baa44e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: tasks
+      Entry: 7
+      Data: 0|System.Collections.Generic.Stack`1[[Tasks.Task, Scripts]], System
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  log: 0
+  toConsole: 1
+  logBook: []
 --- !u!1 &1100200321
 GameObject:
   m_ObjectHideFlags: 0
@@ -20002,7 +20512,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000013808736, y: 0.00015258789}
+  m_AnchoredPosition: {x: 0.0000013808736, y: 0.000051870942}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1214577992
@@ -22195,6 +22705,60 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1363230119 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 272199537}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1363230127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363230119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98e1fc3e7167204ba1b4cd208c8f94a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1363230128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363230119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b681f3de0dda8d4ba65e160baa44e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: tasks
+      Entry: 7
+      Data: 0|System.Collections.Generic.Stack`1[[Tasks.Task, Scripts]], System
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  log: 0
+  toConsole: 1
+  logBook: []
 --- !u!1 &1364838226
 GameObject:
   m_ObjectHideFlags: 0
@@ -23398,6 +23962,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1423219129}
   m_CullTransparentMesh: 0
+--- !u!1 &1429587921 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 537830904}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1429587929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429587921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98e1fc3e7167204ba1b4cd208c8f94a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1429587930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429587921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b681f3de0dda8d4ba65e160baa44e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: tasks
+      Entry: 7
+      Data: 0|System.Collections.Generic.Stack`1[[Tasks.Task, Scripts]], System
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  log: 0
+  toConsole: 1
+  logBook: []
 --- !u!1 &1429609018
 GameObject:
   m_ObjectHideFlags: 0
@@ -23658,6 +24276,60 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!1 &1441908937 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1019008861}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1441908945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441908937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98e1fc3e7167204ba1b4cd208c8f94a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1441908946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441908937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b681f3de0dda8d4ba65e160baa44e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: tasks
+      Entry: 7
+      Data: 0|System.Collections.Generic.Stack`1[[Tasks.Task, Scripts]], System
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  log: 0
+  toConsole: 1
+  logBook: []
 --- !u!1 &1442153010
 GameObject:
   m_ObjectHideFlags: 0
@@ -24994,6 +25666,60 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1509212523 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 544124102}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1509212531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509212523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98e1fc3e7167204ba1b4cd208c8f94a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1509212532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509212523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b681f3de0dda8d4ba65e160baa44e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: tasks
+      Entry: 7
+      Data: 0|System.Collections.Generic.Stack`1[[Tasks.Task, Scripts]], System
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  log: 0
+  toConsole: 1
+  logBook: []
 --- !u!1 &1513250439
 GameObject:
   m_ObjectHideFlags: 0
@@ -27334,6 +28060,60 @@ MonoBehaviour:
   listParent: {fileID: 707932690}
   leftList: {fileID: 0}
   rightList: {fileID: 0}
+--- !u!1 &1638819748 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1723432195}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1638819756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638819748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98e1fc3e7167204ba1b4cd208c8f94a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1638819757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638819748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b681f3de0dda8d4ba65e160baa44e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: tasks
+      Entry: 7
+      Data: 0|System.Collections.Generic.Stack`1[[Tasks.Task, Scripts]], System
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  log: 0
+  toConsole: 1
+  logBook: []
 --- !u!1 &1641274429
 GameObject:
   m_ObjectHideFlags: 0
@@ -28233,6 +29013,168 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1677327910}
   m_CullTransparentMesh: 0
+--- !u!1 &1686576321 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1163003402}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1686576329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686576321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98e1fc3e7167204ba1b4cd208c8f94a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1686576330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686576321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b681f3de0dda8d4ba65e160baa44e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: tasks
+      Entry: 7
+      Data: 0|System.Collections.Generic.Stack`1[[Tasks.Task, Scripts]], System
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  log: 0
+  toConsole: 1
+  logBook: []
+--- !u!1 &1688517860 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 814399023}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1688517868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688517860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98e1fc3e7167204ba1b4cd208c8f94a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1688517869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688517860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b681f3de0dda8d4ba65e160baa44e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: tasks
+      Entry: 7
+      Data: 0|System.Collections.Generic.Stack`1[[Tasks.Task, Scripts]], System
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  log: 0
+  toConsole: 1
+  logBook: []
+--- !u!1 &1699593325 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 575920302}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1699593333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699593325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98e1fc3e7167204ba1b4cd208c8f94a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1699593334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699593325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b681f3de0dda8d4ba65e160baa44e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: tasks
+      Entry: 7
+      Data: 0|System.Collections.Generic.Stack`1[[Tasks.Task, Scripts]], System
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  log: 0
+  toConsole: 1
+  logBook: []
 --- !u!1 &1700521725
 GameObject:
   m_ObjectHideFlags: 0
@@ -28403,6 +29345,60 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textId: NEW_PLOT_LABEL
+--- !u!1 &1709215131 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 751984132}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1709215139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709215131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98e1fc3e7167204ba1b4cd208c8f94a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1709215140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709215131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b681f3de0dda8d4ba65e160baa44e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: tasks
+      Entry: 7
+      Data: 0|System.Collections.Generic.Stack`1[[Tasks.Task, Scripts]], System
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  log: 0
+  toConsole: 1
+  logBook: []
 --- !u!1 &1718617039
 GameObject:
   m_ObjectHideFlags: 0
@@ -29173,6 +30169,60 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textId: CRAFT_LABEL
+--- !u!1 &1742571914 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 148246879}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1742571922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742571914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98e1fc3e7167204ba1b4cd208c8f94a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1742571923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742571914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b681f3de0dda8d4ba65e160baa44e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: tasks
+      Entry: 7
+      Data: 0|System.Collections.Generic.Stack`1[[Tasks.Task, Scripts]], System
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  log: 0
+  toConsole: 1
+  logBook: []
 --- !u!4 &1743860039 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4407423471522362, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
@@ -29874,6 +30924,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1759899981}
   m_CullTransparentMesh: 0
+--- !u!1 &1766244840 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 808438817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1766244848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766244840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98e1fc3e7167204ba1b4cd208c8f94a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1766244849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766244840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b681f3de0dda8d4ba65e160baa44e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: tasks
+      Entry: 7
+      Data: 0|System.Collections.Generic.Stack`1[[Tasks.Task, Scripts]], System
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  log: 0
+  toConsole: 1
+  logBook: []
 --- !u!1001 &1781227236
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33463,6 +34567,48 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1970860018}
   m_CullTransparentMesh: 0
+--- !u!1 &1976857422 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2014268682883897364, guid: 705afe72eb243c9439d90be705ba884a,
+    type: 3}
+  m_PrefabInstance: {fileID: 4774127212139604125}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1976857432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976857422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b681f3de0dda8d4ba65e160baa44e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: tasks
+      Entry: 7
+      Data: 0|System.Collections.Generic.Stack`1[[Tasks.Task, Scripts]], System
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  log: 1
+  toConsole: 1
+  logBook: []
 --- !u!1001 &1980740421
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34137,6 +35283,60 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2028898547 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1967391337393440, guid: 4b4f513584ee5624d9f5b28b80b9b8fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 214336300}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2028898555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028898547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98e1fc3e7167204ba1b4cd208c8f94a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2028898556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028898547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b681f3de0dda8d4ba65e160baa44e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: tasks
+      Entry: 7
+      Data: 0|System.Collections.Generic.Stack`1[[Tasks.Task, Scripts]], System
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  log: 0
+  toConsole: 1
+  logBook: []
 --- !u!1 &2038799579
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,0 +1,33 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Tasks
+{
+	public class #SCRIPTNAME# : CitizenTask
+	{
+		
+		public #SCRIPTNAME#()
+		{
+			//target = .transform;
+			#NOTRIM#
+		}
+
+		public override string ToString()
+		{
+			return $"{base.ToString()}()";
+		}
+
+		protected override void Start()
+		{
+			base.Start();
+			#NOTRIM#
+		}
+
+		protected override TaskState Execute()
+		{
+			#NOTRIM#
+			return TaskState.Running;
+		}
+	}
+}

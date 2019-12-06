@@ -75,5 +75,32 @@ public class Game : MonoBehaviour {
 			newStructurePlot = null;
 		}
 	}
-	
+
+
+
+	public static GameObject Spawn(GameObject prefab, Vector3? position = null, Quaternion? rotation = null)
+	{
+#if UNITY_EDITOR
+		if (prefab.GetComponent<Item>())
+			Debug.LogError("Items must be spawned by ItemType not Game class.");
+#endif
+
+		GameObject gameObject = Instantiate(prefab, position ?? Vector3.zero, rotation ?? Quaternion.identity);
+
+		ISpawnable[] spawnables = gameObject.GetComponents<ISpawnable>();
+		for(int i = 0; i < spawnables.Length; i++)
+			spawnables[i].OnSpawn();
+
+		return gameObject;
+	}
+
+	public static void Depawn(GameObject gameObject)
+	{
+		ISpawnable[] spawnables = gameObject.GetComponents<ISpawnable>();
+		for (int i = 0; i < spawnables.Length; i++)
+			spawnables[i].OnDespawn();
+
+		Destroy(gameObject);
+	}
+
 }

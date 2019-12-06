@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Tasks;
 using UnityEngine;
 
 [RequireComponent(typeof(Storage))]
@@ -45,7 +46,7 @@ public class CraftStructure : Workplace
 	private bool resourcesUsed;
 	[SerializeField]
 	private ItemType _currentItemType;
-	public ItemType currentItemType
+	public ItemType CurrentItemType
 	{
 		get => _currentItemType;
 		set
@@ -57,23 +58,30 @@ public class CraftStructure : Workplace
 	}
 	[SerializeField]
 	private Item _craftedItem;
-	public Item craftedItem
+	public Item CraftedItem
 	{
 		get => _craftedItem;
 		set
 		{
-			_craftedItem = value;
-			_craftedItem?.SetParent(craftedTransform ? craftedTransform : transform);
+			if (_craftedItem != value)
+			{
+				_craftedItem = value;
+				_craftedItem?.SetParent(craftedTransform ? craftedTransform : transform);
+			}
 		}
 	}
 	public List<CraftOrder> orders;
+	public StorageStructure targetStorage;
 
 	public bool IsFueled { get => fuelMax > 0; }
+
+	private TaskProvider taskProvider;
 
 	protected override void Awake()
 	{
 		base.Awake();
 		list.Add(this);
+		taskProvider = GetComponent<TaskProvider>();
 	}
 
 	protected override void OnDestroy()
@@ -86,40 +94,55 @@ public class CraftStructure : Workplace
 	{
 		for (int i = 0; i < itemTypes.Count; i++)
 			orders.Add(new CraftOrder(itemTypes[i], 0, true));
+
+		if (!SearchFor.NearestStorageStructure(plot, transform.position, out targetStorage))
+			Debug.Log("No StorageStructure on plot");
+	}
+
+	public void UpdateTasks()
+	{
+		taskProvider.tasks.Clear();
+		if (CraftedItem)
+		{
+			if (targetStorage)
+				taskProvider.tasks.Add(new Store(CraftedItem, targetStorage.storage));
+		}
+		else
+		{
+			for (int i = 0; i < orders.Count; i++)
+				if(orders[i].count > 0)
+					taskProvider.tasks.Add(new Craft(this,orders[i].itemType));
+		}
 	}
 
 	private void Update()
-	{
+    {
 		if (IsFueled)
 		{
 			Refuel();
 			Burn();
 		}
 
-		if (craftedItem && (craftedItem.transform.parent != transform && craftedItem.transform.parent != craftedTransform))
-			craftedItem = null;
-	}
-
-	private void _Update()
-    {
+		if (CraftedItem && (CraftedItem.transform.parent != transform && CraftedItem.transform.parent != craftedTransform))
+			CraftedItem = null;
 
 		if (ReservedBy != Player.instance && worker && worker.WorkTime() && worker.fsm.ActiveStateName == "Idle")
 		{
 			//Store craftedItem
-			if (craftedItem)
+			if (CraftedItem)
 			{
-				if (SearchFor.NearestStorageStructure(plot, transform.position, out StorageStructure targetStorage))
-					worker.fsm.Store(craftedItem, null, targetStorage.storage);
+				if (SearchFor.NearestStorageStructure(plot, transform.position, out targetStorage))
+					worker.fsm.Store(CraftedItem, null, targetStorage.storage);
 				else
 					Debug.LogError("No StorageStructure on plot");
 			}
 			else
 			{
 				//Find first uncomplete order
-				CraftOrder order = GetOrder();
+				CraftOrder order = orders.Find(o => (!o.maintainAmount && o.count > 0) || (o.maintainAmount && o.count > storage.Count(o.itemType)));
 				if (order != null)
 				{
-					currentItemType = order.itemType;
+					CurrentItemType = order.itemType;
 
 					//Find what is missing
 					List<ItemCount> missing = order.itemType.blueprint.MissingResources(storage);
@@ -159,17 +182,7 @@ public class CraftStructure : Workplace
 			}
 		}
     }
-
-	public CraftOrder GetOrder()
-	{
-		return orders.Find(o => (!o.maintainAmount && o.count > 0) || (o.maintainAmount && o.count > storage.Count(o.itemType)));
-	}
-
-	public StorageStructure GetNearestStorageStructure()
-	{
-		return plot.storageStructures.OrderBy(s => (s.transform.position - transform.position).sqrMagnitude).FirstOrDefault();
-	}
-
+	
 	private void Burn()
 	{
 		//Burn
@@ -181,29 +194,29 @@ public class CraftStructure : Workplace
 			if (!fireParticles.isPlaying)
 				fireParticles.Play();
 
-			if (!craftedItem && currentItemType)
+			if (!CraftedItem && CurrentItemType)
 			{
 				//Use resources
 				if (!resourcesUsed)
 				{
-					if (currentItemType.blueprint.MissingResources(storage).Count == 0)
+					if (CurrentItemType.blueprint.MissingResources(storage).Count == 0)
 					{
-						for (int i = 0; i < currentItemType.blueprint.requiredItems.Count; i++)
-							storage.DestroyItemType(currentItemType.blueprint.requiredItems[i].type, currentItemType.blueprint.requiredItems[i].count);
+						for (int i = 0; i < CurrentItemType.blueprint.requiredItems.Count; i++)
+							storage.DespawnItemType(CurrentItemType.blueprint.requiredItems[i].type, CurrentItemType.blueprint.requiredItems[i].count);
 						resourcesUsed = true;
 					}
 				}
 				else
 				{
-					progress += Time.deltaTime / currentItemType.blueprint.duration;
+					progress += Time.deltaTime / CurrentItemType.blueprint.duration;
 					if (progress >= 1)
 					{
 						//Craft
 						progress = 0;
 						resourcesUsed = false;
-						craftedItem = currentItemType.Spawn(1, transform.position, transform.rotation);
-						craftedItem.GetComponent<Rigidbody>().isKinematic = true;
-						currentItemType = null;
+						CraftedItem = CurrentItemType.Spawn(1, transform.position, transform.rotation);
+						CraftedItem.GetComponent<Rigidbody>().isKinematic = true;
+						CurrentItemType = null;
 					}
 				}
 			}
@@ -223,20 +236,20 @@ public class CraftStructure : Workplace
 		for(int i = fuelItems.Count - 1; i >= 0; i --)
 		{
 			fuel = Mathf.Min(fuelMax, fuel + fuelItems[i].type.fuelValue);
-			storage.DestroyItemType(fuelItems[i].type, 1);
+			storage.DespawnItemType(fuelItems[i].type, 1);
 		}
 	}
 
 	private void ReleaseUnnecessaryItems(ItemType type)
 	{
 		for (int i = storage.items.Count - 1; i >= 0; i--)
-			if (type.blueprint.requiredItems.FindAll(r => r.type == storage.items[i].type).Count == 0 || (craftedItem && craftedItem != storage.items[i].type))
+			if (type.blueprint.requiredItems.FindAll(r => r.type == storage.items[i].type).Count == 0 || (CraftedItem && CraftedItem != storage.items[i].type))
 			{
 				Debug.Log(storage.items[i].type);
 				Debug.Log(type.blueprint.requiredItems.Count);
 				Debug.Log(type.blueprint.requiredItems.FindAll(r => r.type == storage.items[i].type).Count);
-				if (storage.items[i] == craftedItem)
-					craftedItem = null;
+				if (storage.items[i] == CraftedItem)
+					CraftedItem = null;
 				storage.RemoveItem(storage.items[i]);
 				
 			}
