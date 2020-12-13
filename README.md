@@ -1,9 +1,9 @@
 # Craftopoly
 ![](/screen01.jpg)
 ## Game settings
-Camera
+###Camera
 Perspective top-down, following Player position, fixed rotation.
-World
+###World
 Flat, empty terrain with some test objects.
-Player
+###Player
 Simple character with horizontal movement (WSAD or LStick).
