@@ -1,5 +1,5 @@
 # Craftopoly
-![](/screen01.jpg)
+![](/screen01.jpg | width=250)
 
 ## Game settings
 ### Camera
@@ -35,3 +35,6 @@ Simple character with horizontal movement (WSAD or LStick).
 - input hints
 - simple localizations
 - notifications about missing items needed for crafting
+
+## Note
+[implementing-tasks](../../tree/implementing-tasks) is the most up to date branch
