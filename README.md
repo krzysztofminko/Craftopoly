@@ -1,17 +1,11 @@
 # Craftopoly
-
+![](/screen01.jpg)
 ## Game setting and features
-[](screen01.jpg)
 ### Camera
-- top down 3d
-- following Player position
-- no rotations
+Perspective top-down, following Player position, fixed rotation.
 
 ### World
-- flat, empty terrain with some test objects
-- gatherable trees and rocks
-- structures for storing items, crafting and selling
+Flat, empty terrain with some test objects.
 
 ### Player
-- horizontal movement with WSAD or LStick
-- 
+Simple character with horizontal movement (WSAD or LStick).
