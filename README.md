@@ -23,8 +23,11 @@ Simple character with horizontal movement (WSAD or LStick).
 - attaching tool to belt
 
 ### Player (UI)
+<img src="screen05.jpg" width=600px></img>
 - assigning NPCs to workplaces (structures)
+<img src="screen04.jpg" width=600px></img>
 - setting crafting items and counts
+<img src="screen06.jpg" width=600px></img>
 - viewing storage items
 - selling/buying
 - creating new plots for structures
