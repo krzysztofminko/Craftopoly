@@ -12,30 +12,30 @@ Simple character with horizontal movement (WSAD or LStick).
 
 ## Implemented features
 ### Player and NPC
-<img src="screen03.jpg" width=600px></img>
 - gathering items from sources (trees, rocks)
 - carrying items (wood, stone, ore, tools, crates)
 - crafting items (boards, tools, crates)
 - skills affecting speed of different actions
+<img src="screen03.jpg" width=600px>
 
 ### Player
 - consuming (crates ;) )
 - attaching tool to belt
 
 ### Player (UI)
-<img src="screen05.jpg" width=600px>
 - assigning NPCs to workplaces (structures)
-<img src="screen04.jpg" width=600px>
+<img src="screen05.jpg" width=600px>
 - setting crafting items and counts
-<img src="screen06.jpg" width=600px>
+<img src="screen04.jpg" width=600px>
 - viewing storage items
+<img src="screen06.jpg" width=600px>
 - selling/buying
 - creating new plots for structures
 
 
 ### NPC
-<img src="screen02.jpg" width=600px></img>
 - executing tasks provided by assigned workplace (beahviour trees at first, but then implemented own system for simple tasks lists)
+<img src="screen02.jpg" width=600px></img>
 
 ### Other
 - keyboard + mouse / controller support
