@@ -12016,7 +12016,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000013808736, y: -0.00004079938}
+  m_AnchoredPosition: {x: 0.0000013808736, y: -0.000057071447}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &707932691
@@ -16400,7 +16400,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000013808736, y: 0.000021211803}
+  m_AnchoredPosition: {x: 0.0000013808736, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &980904914
@@ -20512,7 +20512,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000013808736, y: 0.000051870942}
+  m_AnchoredPosition: {x: 0.0000013808736, y: -0.00010484457}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1214577992
@@ -34567,48 +34567,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1970860018}
   m_CullTransparentMesh: 0
---- !u!1 &1976857422 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2014268682883897364, guid: 705afe72eb243c9439d90be705ba884a,
-    type: 3}
-  m_PrefabInstance: {fileID: 4774127212139604125}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1976857432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1976857422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b681f3de0dda8d4ba65e160baa44e58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: tasks
-      Entry: 7
-      Data: 0|System.Collections.Generic.Stack`1[[Tasks.Task, Scripts]], System
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-  log: 1
-  toConsole: 1
-  logBook: []
 --- !u!1001 &1980740421
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37300,11 +37258,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 895599697900728176, guid: 705afe72eb243c9439d90be705ba884a,
+    - target: {fileID: 1976857432, guid: 705afe72eb243c9439d90be705ba884a, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 1976857432, guid: 705afe72eb243c9439d90be705ba884a,
         type: 3}
-      propertyPath: money
-      value: 2
-      objectReference: {fileID: 0}
+    - target: {fileID: 4804091675881667050, guid: 705afe72eb243c9439d90be705ba884a,
+        type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 4804091675881667050, guid: 705afe72eb243c9439d90be705ba884a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 705afe72eb243c9439d90be705ba884a, type: 3}
 --- !u!1001 &5036024637747054561
