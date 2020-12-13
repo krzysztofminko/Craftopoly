@@ -24,7 +24,7 @@ Simple character with horizontal movement (WSAD or LStick).
 
 ### Player (UI)
 - assigning NPCs to workplaces (structures)
-<img src="screen05.jpg" width=600px></img>
+<img src="screen05.jpg" width=600px style="float:left"></img>
 - setting crafting items and counts
 <img src="screen04.jpg" width=600px></img>
 - viewing storage items
