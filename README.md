@@ -1,5 +1,5 @@
 # Craftopoly
-![](screen01.jpg)
+<img src="screen01.jpg" width=250px>
 
 ## Game settings
 ### Camera
