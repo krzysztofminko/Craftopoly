@@ -34,8 +34,8 @@ Simple character with horizontal movement (WSAD or LStick).
 
 
 ### NPC
-- executing tasks provided by assigned workplace (beahviour trees at first, but then implemented own system for simple tasks lists)
-<img src="screen02.jpg" width=600px></img>
+- <div>executing tasks provided by assigned workplace (beahviour trees at first, but then implemented own system for simple tasks lists)
+<img src="screen02.jpg" width=600px></div>
 
 ### Other
 - keyboard + mouse / controller support
