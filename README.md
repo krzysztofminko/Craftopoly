@@ -15,8 +15,8 @@ Simple character with horizontal movement (WSAD or LStick).
 - gathering items from sources (trees, rocks)
 - carrying items (wood, stone, ore, tools, crates)
 - crafting items (boards, tools, crates)
-- skills affecting speed of different actions
-<img src="screen03.jpg" width=600px></img>
+- <div>skills affecting speed of different actions
+<img src="screen03.jpg" width=600px></div>
 
 ### Player
 - consuming (crates ;) )
@@ -25,10 +25,10 @@ Simple character with horizontal movement (WSAD or LStick).
 ### Player (UI)
 - <div>assigning NPCs to workplaces (structures)
 <img src="screen05.jpg" width=600px></div>
-- setting crafting items and counts
-<img src="screen04.jpg" width=600px>
-- viewing storage items
-<img src="screen06.jpg" width=600px>
+- <div>setting crafting items and counts
+<img src="screen04.jpg" width=600px></div>
+- <div>viewing storage items
+<img src="screen06.jpg" width=600px></div>
 - selling/buying
 - creating new plots for structures
 
