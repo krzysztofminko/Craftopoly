@@ -1,5 +1,5 @@
 # Craftopoly
-<img src="screen01.jpg" width=250px>
+<img src="screen01.jpg" width=800px>
 
 ## Game settings
 ### Camera
@@ -9,7 +9,9 @@ Flat, empty terrain with some test objects.
 ### Player
 Simple character with horizontal movement (WSAD or LStick).
 
+
 ## Implemented features
+<img src="screen03.jpg" width=800px>
 ### Player and NPC
 - gathering items from sources (trees, rocks)
 - carrying items (wood, stone, ore, tools, crates)
@@ -27,6 +29,8 @@ Simple character with horizontal movement (WSAD or LStick).
 - selling/buying
 - creating new plots for structures
 
+
+<img src="screen02.jpg" width=800px>
 ### NPC
 - executing tasks provided by assigned workplace (beahviour trees at first, but then implemented own system for simple tasks lists)
 
@@ -35,6 +39,7 @@ Simple character with horizontal movement (WSAD or LStick).
 - input hints
 - simple localizations
 - notifications about missing items needed for crafting
+
 
 ## Note
 [implementing-tasks](../../tree/implementing-tasks) is the most up to date branch
