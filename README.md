@@ -1,5 +1,5 @@
 # Craftopoly
-<img src="screen01.jpg" width=800px>
+<img src="screen01.jpg" width=800px></img>
 
 ## Game settings
 ### Camera
@@ -11,28 +11,31 @@ Simple character with horizontal movement (WSAD or LStick).
 
 
 ## Implemented features
-<img src="screen03.jpg" width=800px>
 ### Player and NPC
 - gathering items from sources (trees, rocks)
 - carrying items (wood, stone, ore, tools, crates)
 - crafting items (boards, tools, crates)
-- skills affecting speed of different actions
+- <div>skills affecting speed of different actions
+<img src="screen03.jpg" width=600px></div>
 
 ### Player
 - consuming (crates ;) )
 - attaching tool to belt
 
 ### Player (UI)
-- assigning NPCs to workplaces (structures)
-- setting crafting items and counts
-- viewing storage items
+- <div>assigning NPCs to workplaces (structures)
+<img src="screen05.jpg" width=600px></div>
+- <div>setting crafting items and counts
+<img src="screen04.jpg" width=600px></div>
+- <div>viewing storage items
+<img src="screen06.jpg" width=600px></div>
 - selling/buying
 - creating new plots for structures
 
 
-<img src="screen02.jpg" width=800px>
 ### NPC
-- executing tasks provided by assigned workplace (beahviour trees at first, but then implemented own system for simple tasks lists)
+- <div>executing tasks provided by assigned workplace (beahviour trees at first, but then implemented own system for simple tasks lists)
+<img src="screen02.jpg" width=600px></div>
 
 ### Other
 - keyboard + mouse / controller support
