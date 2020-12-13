@@ -1,6 +1,10 @@
 # Craftopoly
 <img src="screen01.jpg" width=800px></img>
 
+## Note
+[implementing-tasks](../../tree/implementing-tasks) is the most up to date branch
+[Go strictly to my C#](Assets/Scripts)
+
 ## Game settings
 ### Camera
 Perspective top-down, following Player position, fixed rotation.
@@ -42,7 +46,3 @@ Simple character with horizontal movement (WSAD or LStick).
 - input hints
 - simple localizations
 - notifications about missing items needed for crafting
-
-
-## Note
-[implementing-tasks](../../tree/implementing-tasks) is the most up to date branch
