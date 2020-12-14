@@ -4,7 +4,7 @@
 ## Note
 [implementing-tasks](../../tree/implementing-tasks) is the most up to date branch.
 
-[**Go strictly to my C#**](../../tree/implementing-tasks/Assets/Scripts)
+[**Go to my C# scripts**](../../tree/implementing-tasks/Assets/Scripts)
 
 ## Game settings
 ### Camera
