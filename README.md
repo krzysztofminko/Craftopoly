@@ -44,4 +44,4 @@
 - InputHints
 - Localization
 - Notifications
-- Blender (some items, character model and animations)
+- Blender (some items, character mesh and animations)
