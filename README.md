@@ -41,7 +41,7 @@
 ## Used tools
 - [PlayMaker](https://assetstore.unity.com/packages/tools/visual-scripting/playmaker-368) (outdated part of project, to be erased)
 - [Behavior Designer](https://assetstore.unity.com/packages/tools/visual-scripting/behavior-designer-behavior-trees-for-everyone-15277)
-- InputHints
-- Localization
-- Notifications
+- [InputHints](https://github.com/krzysztofminko/InputHints)
+- [Localization](https://github.com/krzysztofminko/Localization)
+- [Notifications](https://github.com/krzysztofminko/Notifications)
 - Blender (some items, character mesh and animations)
