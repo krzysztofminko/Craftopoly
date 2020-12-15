@@ -38,7 +38,7 @@ Simple character with horizontal movement (WSAD or LStick).
 
 
 ### NPC
-- <div>executing tasks provided by assigned workplace (behaviour trees at first, but then implemented own system for simple tasks lists)
+- <div>executing tasks provided by assigned workplace (behavior trees with [Behavior Designer](https://assetstore.unity.com/packages/tools/visual-scripting/behavior-designer-behavior-trees-for-everyone-15277))
 <img src="Screens/screen02.jpg" width=600px></div>
 
 ### Other
