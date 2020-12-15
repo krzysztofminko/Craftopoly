@@ -37,3 +37,11 @@
 - input hints
 - simple localizations
 - notifications about missing items needed for crafting
+
+## Used tools
+- [PlayMaker](https://assetstore.unity.com/packages/tools/visual-scripting/playmaker-368) (outdated part of project, to be erased)
+- [Behavior Designer](https://assetstore.unity.com/packages/tools/visual-scripting/behavior-designer-behavior-trees-for-everyone-15277)
+- InputHints
+- Localization
+- Notifications
+- Blender (some items, character model and animations)
