@@ -2,9 +2,7 @@
 <img src="Screens/screen03.jpg" width=800px></img>
 
 ## Note
-[implementing-tasks](../../tree/implementing-tasks) is the most up to date branch.
-
-[**Go to my C# scripts**](../../tree/implementing-tasks/Assets/Scripts)
+[**Go to my C# scripts**](Assets/Scripts)
 
 ## Game settings
 ### Camera
