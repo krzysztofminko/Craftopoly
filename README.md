@@ -21,7 +21,7 @@ Simple character with horizontal movement (WSAD or LStick).
 - carrying items (wood, stone, ore, tools, crates)
 - crafting items (boards, tools, crates)
 - <div>skills affecting speed of different actions
-<img src="Screens/screen03.jpg" width=600px></div>
+<img src="/Screens/screen03.jpg" width=600px></div>
 
 ### Player
 - consuming (crates ;) )
