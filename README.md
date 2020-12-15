@@ -1,5 +1,5 @@
 # Craftopoly
-<img src="Screens/anim01.gif" width=600px></img>
+<img src="Screens/screen03.jpg" width=800px></img>
 
 ## Note
 [implementing-tasks](../../tree/implementing-tasks) is the most up to date branch.
@@ -21,7 +21,7 @@ Simple character with horizontal movement (WSAD or LStick).
 - carrying items (wood, stone, ore, tools, crates)
 - crafting items (boards, tools, crates)
 - <div>skills affecting speed of different actions
-<img src="Screens/screen03.jpg" width=600px></div>
+<img src="Screens/anim01.gif" width=600px></div>
 
 ### Player
 - consuming (crates ;) )
