@@ -1,5 +1,5 @@
 # Craftopoly
-<img src="Screens/anim01.gif" width=800px></img>
+<img src="Screens/anim01.gif" width=600px></img>
 
 ## Note
 [implementing-tasks](../../tree/implementing-tasks) is the most up to date branch.
