@@ -39,6 +39,7 @@
 - notifications about missing items needed for crafting
 
 ## Used tools
+- [Odin Inspector](https://assetstore.unity.com/packages/tools/utilities/odin-inspector-and-serializer-89041) best inspector and serializer on market
 - [PlayMaker](https://assetstore.unity.com/packages/tools/visual-scripting/playmaker-368) (outdated part of project, to be erased)
 - [Behavior Designer](https://assetstore.unity.com/packages/tools/visual-scripting/behavior-designer-behavior-trees-for-everyone-15277)
 - [InputHints](https://github.com/krzysztofminko/InputHints)
