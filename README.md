@@ -4,15 +4,6 @@
 ## Note
 [**Go to my C# scripts**](Assets/Scripts)
 
-## Game settings
-### Camera
-Perspective top-down, following Player position, fixed rotation.
-### World
-Flat, empty terrain with some test objects.
-### Player
-Simple character with horizontal movement (WSAD or LStick).
-
-
 ## Implemented features
 ### Player and NPC
 - gathering items from sources (trees, rocks)
