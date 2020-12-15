@@ -1,5 +1,5 @@
 # Craftopoly
-<img src="screen01.jpg" width=800px></img>
+<img src="Screens/screen01.jpg" width=800px></img>
 
 ## Note
 [implementing-tasks](../../tree/implementing-tasks) is the most up to date branch.
