@@ -13,7 +13,7 @@
 <img src="Screens/anim01.gif" width=600px></div>
 
 ### Player
-- consuming (crates ;) )
+- consuming
 - attaching tool to belt
 
 ### Player (UI)
